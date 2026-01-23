@@ -88,8 +88,11 @@ nav {
     z-index: 1001;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* Desktop only: show dropdown on hover */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 }
 
 .dropdown-content a {

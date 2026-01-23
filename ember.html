@@ -58,13 +58,20 @@
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
+            if (!menu.classList.contains('active')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
         }
 
         function toggleDropdown(event) {
             if (window.innerWidth <= 768) {
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
-                dropdown.classList.toggle('active');
+                const isActive = dropdown.classList.contains('active');
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                if (!isActive) {
+                    dropdown.classList.add('active');
+                }
             }
         }
     </script>

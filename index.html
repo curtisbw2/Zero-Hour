@@ -58,13 +58,25 @@
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
+            // Close all dropdowns when closing the menu
+            if (!menu.classList.contains('active')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
         }
 
         function toggleDropdown(event) {
             if (window.innerWidth <= 768) {
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
-                dropdown.classList.toggle('active');
+                const isActive = dropdown.classList.contains('active');
+
+                // Close all other dropdowns first (accordion behavior)
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+
+                // Toggle the clicked dropdown
+                if (!isActive) {
+                    dropdown.classList.add('active');
+                }
             }
         }
     </script>
