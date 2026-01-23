@@ -368,6 +368,18 @@ main {
     line-height: 1.7;
 }
 
+.team-member .bio a,
+.bio-content a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-member .bio a:hover,
+.bio-content a:hover {
+    color: #f0a060;
+}
+
 .team-member .placeholder-text {
     font-style: italic;
 }
