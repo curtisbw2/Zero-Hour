@@ -370,14 +370,14 @@ main {
 
 .team-member .bio a,
 .bio-content a {
-    color: var(--accent-orange);
+    color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .team-member .bio a:hover,
 .bio-content a:hover {
-    color: #f0a060;
+    color: var(--accent-orange);
 }
 
 .team-member .placeholder-text {
