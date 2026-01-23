@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tron - Zero Hour Group</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
+            <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Who We Are &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="jt.html">JT</a>
+                        <a href="tron.html">Tron</a>
+                        <a href="sonny.html">Sonny</a>
+                        <a href="ember.html">Ember</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Contact Us &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">What We Can Do For You &#9662;</a>
+                    <div class="dropdown-content">
+                        <p>We help emerging defense and tech companies gain exposure to retail investors through structured interviews with leadership teams (Board of Directors, CEO, CFO). Our output is published in clear, investor-friendly formats including written summaries and highlights.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="bio-header">
+            <h1>Tron</h1>
+            <p class="role">Investor / Interviewer</p>
+        </div>
+        <div class="bio-content">
+            <div class="bio-placeholder">
+                <p>Bio coming soon. Tron's full biography will be added once provided by the team.</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Zero Hour Group. <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleDropdown(event) {
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                const dropdown = event.target.closest('.dropdown');
+                dropdown.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
