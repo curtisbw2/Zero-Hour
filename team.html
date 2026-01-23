@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero Hour Group - Defense & Tech Investor Discovery</title>
+    <title>Meet the Team - Zero Hour Group</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -37,18 +37,40 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="logo-placeholder">
-            [Logo Placeholder]
+    <main class="team-page">
+        <div class="team-header">
+            <h1>Meet the Team</h1>
+            <p>Four investors dedicated to discovering and interviewing emerging companies in the defense and tech sector.</p>
         </div>
-        <h1>Zero Hour Group</h1>
-        <p class="tagline">We are investors who discover and interview emerging companies in the defense and tech sector.</p>
-        <p class="supporting-text">Through structured interviews with leadership teams, we surface the signals investors care about: customer traction, competitive positioning, financial discipline, and near-term catalysts.</p>
-        <div class="btn-group">
-            <a href="mailto:info@zerohourgroup.com" class="btn btn-primary">Contact Us</a>
-            <a href="team.html" class="btn btn-secondary">Meet the Team</a>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <h2><a href="jt.html">JT</a></h2>
+                <p class="role">Investor / Interviewer</p>
+                <p class="bio">JT is the owner of Hidden Gems Research LLC and is followed by thousands of investors for coverage of emerging stocks across drones, energy, and defense. He focuses on identifying early-stage narratives, translating technical developments into investor-readable insights, and conducting interviews that surface the signals investors care about: customer traction, competitive positioning, financial discipline, and near-term catalysts.</p>
+            </div>
+
+            <div class="team-member">
+                <h2><a href="tron.html">Tron</a></h2>
+                <p class="role">Investor / Interviewer</p>
+                <p class="bio placeholder-text">Bio coming soon.</p>
+            </div>
+
+            <div class="team-member">
+                <h2><a href="sonny.html">Sonny</a></h2>
+                <p class="role">Investor / Interviewer</p>
+                <p class="bio placeholder-text">Bio coming soon.</p>
+            </div>
+
+            <div class="team-member">
+                <h2><a href="ember.html">Ember</a></h2>
+                <p class="role">Investor / Interviewer</p>
+                <p class="bio placeholder-text">Bio coming soon.</p>
+            </div>
         </div>
-    </section>
+
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </main>
 
     <footer>
         <p>&copy; 2026 Zero Hour Group. <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a></p>
@@ -58,7 +80,6 @@
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
-            // Close all dropdowns when closing the menu
             if (!menu.classList.contains('active')) {
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
@@ -69,11 +90,7 @@
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
                 const isActive = dropdown.classList.contains('active');
-
-                // Close all other dropdowns first (accordion behavior)
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-
-                // Toggle the clicked dropdown
                 if (!isActive) {
                     dropdown.classList.add('active');
                 }
