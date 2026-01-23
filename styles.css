@@ -265,6 +265,32 @@ main {
     text-decoration: underline;
 }
 
+/* Services Page Styles */
+.services-list {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+}
+
+.services-list li {
+    margin-bottom: 0.5rem;
+}
+
+.cta-box {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background-color: var(--secondary-dark);
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--accent-orange);
+}
+
+.cta-box p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
 /* Team Page Styles */
 .team-page {
     max-width: 1000px;
