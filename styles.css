@@ -298,24 +298,43 @@ main {
     border-top: 3px solid var(--accent-orange);
 }
 
+.member-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.photo-placeholder {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background-color: var(--accent-navy);
+    border-radius: 50%;
+    border: 2px dashed var(--text-muted);
+}
+
+.member-info {
+    flex: 1;
+}
+
 .team-member h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .team-member h2 a {
-    color: var(--text-light);
+    color: var(--accent-orange);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .team-member h2 a:hover {
-    color: var(--accent-orange);
+    color: #f0a060;
 }
 
 .team-member .role {
-    color: var(--accent-orange);
+    color: var(--text-muted);
     font-size: 0.95rem;
-    margin-bottom: 1rem;
 }
 
 .team-member .bio {
