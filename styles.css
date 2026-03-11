@@ -337,6 +337,25 @@ main {
     margin-bottom: 1rem;
 }
 
+.bio-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-orange);
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.member-photo {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-orange);
+}
+
 .photo-placeholder {
     width: 80px;
     height: 80px;
