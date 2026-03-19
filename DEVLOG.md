@@ -55,6 +55,19 @@ Target aesthetic: dark/black-first editorial, long-form vertical scroll, cinemat
 - **Branch:** `claude/peaceful-hodgkin`
 - **Next steps:** Apply new design aesthetic to inner pages (team.html, jt.html, benny.html, services.html)
 
+### 2026-03-19 — Inner Pages Redesign (Session 2 continued)
+- Recovered session 1 inner page work (was uncommitted in main working dir) → saved to branch `session1-recovered`
+- **Completed all inner page redesigns:**
+  - `team.html`: page-hero + 2-col team cards with orange top border
+  - `jt.html`: page-hero + aside/content bio layout (placeholder for JT photo)
+  - `benny.html`: same bio layout with Benny's photo in sidebar
+  - `services.html`: page-hero + editorial service blocks (Company Interviews / Research & Reports / Investor Discovery) + CTA
+- Updated base CSS variables globally to `#0a0a0a` dark theme (all pages now consistent)
+- Bebas Neue applied globally to `.nav-brand` — no per-page scoping needed
+- All pages use shared `hp-footer` markup + consistent nav
+- **Pushed to main** — live at thezerohourgroup.com
+- **Next steps:** Review live site, add JT photo when available, fine-tune content/copy
+
 ---
 
 ## Notes
