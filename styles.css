@@ -1,4 +1,5 @@
 /* Zero Hour Group - Main Stylesheet */
+/* Google Font: Bebas Neue — loaded in index.html head */
 
 * {
     margin: 0;
@@ -506,5 +507,464 @@ footer a:hover {
         width: 200px;
         height: 200px;
         max-width: 200px;
+    }
+}
+
+
+/* ============================================================
+   HOMEPAGE STYLES
+   Scoped to body.homepage — does not affect other pages
+   ============================================================ */
+
+body.homepage {
+    background: #0a0a0a;
+}
+
+/* ---- Eyebrow Labels ---- */
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* ---- Display Headlines ---- */
+.display-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Scroll Fade-In ---- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---- Nav (Homepage Override) ---- */
+.homepage nav {
+    background: #0a0a0a;
+    border-bottom: 1px solid #1a1a1a;
+    box-shadow: none;
+}
+
+.homepage .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+}
+
+/* ---- Stats Bar ---- */
+.stats-bar {
+    background: #0f0f0f;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 1.75rem 2rem;
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 140px;
+}
+
+.stat-number-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.stat-suffix {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--accent-orange);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+}
+
+/* ---- Hero ---- */
+.hp-hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem 5rem;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+}
+
+.hp-hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(ellipse at center, rgba(224, 122, 58, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.hp-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hp-hero-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 2px solid rgba(224, 122, 58, 0.35);
+    box-shadow: 0 0 50px rgba(224, 122, 58, 0.12);
+}
+
+.hp-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    letter-spacing: 0.06em;
+    line-height: 0.88;
+    color: #ffffff;
+    margin-bottom: 1.75rem;
+}
+
+.hp-hero-tagline {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    color: #777;
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow:hover {
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ---- Marquee ---- */
+.marquee-section {
+    overflow: hidden;
+    background: #0f0f0f;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 1.1rem 0;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-track span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    letter-spacing: 0.12em;
+    color: #2a2a2a;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ---- Section Layout ---- */
+.section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+/* ---- Mission Block ---- */
+.mission-block {
+    background: #0a0a0a;
+    border-top: 1px solid #151515;
+}
+
+.mission-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 7rem 2rem;
+}
+
+.mission-body {
+    max-width: 600px;
+    color: #777;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+/* ---- Feature Grid ---- */
+.services-section {
+    background: #0d0d0d;
+    border-top: 1px solid #161616;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3.5rem;
+}
+
+.feature-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.93rem;
+    line-height: 1.8;
+}
+
+/* ---- Team Preview ---- */
+.team-preview-section {
+    background: #0a0a0a;
+    border-top: 1px solid #151515;
+}
+
+.team-preview-grid {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    margin-top: 3.5rem;
+    flex-wrap: wrap;
+}
+
+.team-preview-card {
+    text-align: center;
+    max-width: 240px;
+}
+
+.team-preview-photo-wrap {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.25rem;
+    border: 2px solid rgba(224, 122, 58, 0.25);
+    box-shadow: 0 0 35px rgba(224, 122, 58, 0.07);
+}
+
+.team-preview-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-preview-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    margin-bottom: 0.35rem;
+}
+
+.team-preview-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.bio-link {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+}
+
+.bio-link:hover {
+    opacity: 0.65;
+    text-decoration: none;
+}
+
+/* ---- Footer (Homepage) ---- */
+.hp-footer {
+    background: #070707;
+    border-top: 1px solid #161616;
+    padding: 0;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem 0;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #161616;
+}
+
+.footer-brand .footer-logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3a3a3a;
+}
+
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.footer-col h4 {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 1.25rem;
+}
+
+.footer-col a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin-bottom: 0.6rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-social {
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+}
+
+.footer-social a {
+    display: inline !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 0 !important;
+}
+
+.footer-bottom {
+    padding: 1.5rem 0;
+    color: #2e2e2e;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+}
+
+/* ---- Homepage Mobile ---- */
+@media (max-width: 768px) {
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .stat-number,
+    .stat-suffix {
+        font-size: 2.75rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .team-preview-grid {
+        gap: 3rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-cols {
+        gap: 2rem;
+    }
+
+    .mission-inner,
+    .section-inner {
+        padding: 4rem 1.5rem;
+    }
+
+    .hp-hero {
+        padding: 4rem 1.5rem;
     }
 }

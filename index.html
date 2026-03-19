@@ -6,10 +6,15 @@
     <title>Zero Hour Group - Defense & Tech Investor Discovery</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/Zero-Hour_Group.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-    <nav>
+<body class="homepage">
+
+    <!-- Navigation -->
+    <nav id="main-nav">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
             <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
@@ -22,47 +27,177 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Contact Us &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
                     <a href="#" class="nav-link" onclick="toggleDropdown(event)">Services &#9662;</a>
                     <div class="dropdown-content">
                         <a href="services.html">What We Can Do For You</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="mailto:info@zerohourgroup.com" class="nav-link">Contact</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <img src="assets/Zero-Hour_Group.jpg" alt="Zero Hour Group Logo" class="hero-logo">
-        <h1>Zero Hour Group</h1>
-        <p class="tagline">We are investors who discover and interview emerging companies in the defense and tech sector.</p>
-        <p class="supporting-text">Through structured interviews with leadership teams, we surface the signals investors care about: customer traction, competitive positioning, financial discipline, and near-term catalysts.</p>
-        <div class="btn-group">
-            <a href="mailto:info@zerohourgroup.com" class="btn btn-primary">Contact Us</a>
-            <a href="team.html" class="btn btn-secondary">Meet the Team</a>
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <div class="stat-number-row">
+                    <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
+                </div>
+                <span class="stat-label">Companies Interviewed</span>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number-row">
+                    <span class="stat-number" data-target="8">0</span>
+                </div>
+                <span class="stat-label">Sectors Covered</span>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number-row">
+                    <span class="stat-number" data-target="30">0</span><span class="stat-suffix">+</span>
+                </div>
+                <span class="stat-label">Years Combined Experience</span>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-number-row">
+                    <span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span>
+                </div>
+                <span class="stat-label">Reports Published</span>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <!-- Hero -->
+    <section class="hp-hero">
+        <div class="hp-hero-glow"></div>
+        <div class="hp-hero-content">
+            <span class="eyebrow">Defense &amp; Tech Investor Discovery</span>
+            <img src="assets/Zero-Hour_Group.jpg" alt="Zero Hour Group" class="hp-hero-logo">
+            <h1 class="hp-hero-title">ZERO HOUR<br>GROUP</h1>
+            <p class="hp-hero-tagline">We discover and interview emerging companies in the defense and tech sector — surfacing the signals investors care about.</p>
+            <div class="btn-group">
+                <a href="mailto:info@zerohourgroup.com" class="btn btn-primary">Contact Us</a>
+                <a href="team.html" class="btn btn-secondary">Meet the Team</a>
+            </div>
+        </div>
+        <a href="#marquee" class="scroll-arrow" aria-label="Scroll down">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section" id="marquee">
+        <div class="marquee-track">
+            <span>DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            <span aria-hidden="true">DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Mission Block -->
+    <section class="mission-block">
+        <div class="mission-inner fade-in">
+            <span class="eyebrow">Our Mission</span>
+            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
+            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
+        </div>
+    </section>
+
+    <!-- Services Feature Grid -->
+    <section class="services-section">
+        <div class="section-inner">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="display-headline">THE EDGE IS<br>ACCESS</h2>
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">COMPANY INTERVIEWS</h3>
+                    <p>Direct access to Boards, CEOs, and CFOs of emerging defense and tech companies. We ask the hard questions so you don't have to.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">RESEARCH &amp; REPORTS</h3>
+                    <p>Written summaries and published highlights delivered through Hidden Gems Research LLC — a Substack Bestseller built for serious investors.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">INVESTOR DISCOVERY</h3>
+                    <p>We travel coast to coast identifying small to mid-cap defense, drone, and tech plays before they hit the mainstream radar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Preview -->
+    <section class="team-preview-section">
+        <div class="section-inner">
+            <span class="eyebrow">Who We Are</span>
+            <h2 class="display-headline">THE TEAM</h2>
+            <div class="team-preview-grid">
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/ns_cK0F7_400x400.jpg" alt="JT" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">JT</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Minneapolis, MN</p>
+                    <a href="jt.html" class="bio-link">Read Bio →</a>
+                </div>
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/benny.jpeg" alt="Benny" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">Benny</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Charleston, SC</p>
+                    <a href="benny.html" class="bio-link">Read Bio →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo-text">ZERO HOUR GROUP</span>
+                    <p>Defense &amp; Tech Investor Discovery</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="team.html">Meet the Team</a>
+                        <a href="services.html">Services</a>
+                        <a href="jt.html">JT</a>
+                        <a href="benny.html">Benny</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Follow</h4>
+                        <div class="social-icons footer-social">
+                            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Zero Hour Group · All rights reserved</span>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Mobile nav toggle
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
-            // Close all dropdowns when closing the menu
             if (!menu.classList.contains('active')) {
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
@@ -73,16 +208,44 @@
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
                 const isActive = dropdown.classList.contains('active');
-
-                // Close all other dropdowns first (accordion behavior)
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-
-                // Toggle the clicked dropdown
-                if (!isActive) {
-                    dropdown.classList.add('active');
-                }
+                if (!isActive) dropdown.classList.add('active');
             }
         }
+
+        // Intersection Observer: fade-in + count-up
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+
+                // Count-up for stat items
+                const numEl = entry.target.querySelector('.stat-number');
+                if (numEl && !numEl.dataset.animated) {
+                    numEl.dataset.animated = '1';
+                    const target = parseInt(numEl.dataset.target, 10);
+                    const duration = 1400;
+                    const steps = 60;
+                    const increment = target / steps;
+                    let current = 0;
+                    let step = 0;
+                    const timer = setInterval(() => {
+                        step++;
+                        // Ease-out: slow near end
+                        const progress = step / steps;
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        current = Math.floor(target * eased);
+                        numEl.textContent = current;
+                        if (step >= steps) {
+                            numEl.textContent = target;
+                            clearInterval(timer);
+                        }
+                    }, duration / steps);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
