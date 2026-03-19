@@ -8,11 +8,11 @@
 }
 
 :root {
-    --primary-dark: #1a1f2e;
-    --secondary-dark: #252b3d;
-    --accent-navy: #2d3548;
+    --primary-dark: #0a0a0a;
+    --secondary-dark: #111111;
+    --accent-navy: #1a1a1a;
     --text-light: #ffffff;
-    --text-muted: #a0a8b8;
+    --text-muted: #777777;
     --accent-orange: #e07a3a;
     --accent-blue: #4a90d9;
 }
@@ -44,8 +44,10 @@ nav {
 }
 
 .nav-brand {
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: 0.15em;
     color: var(--text-light);
     text-decoration: none;
 }
@@ -966,5 +968,332 @@ body.homepage {
 
     .hp-hero {
         padding: 4rem 1.5rem;
+    }
+}
+
+
+/* ============================================================
+   INNER PAGE STYLES
+   Shared across team, bio, and services pages
+   ============================================================ */
+
+/* ---- Page Hero (inner pages) ---- */
+.page-hero {
+    background: #0a0a0a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 5rem 2rem 4rem;
+}
+
+.page-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-hero .eyebrow {
+    margin-bottom: 0.75rem;
+}
+
+.page-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+}
+
+/* ---- Inner Page Content Wrapper ---- */
+.inner-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+/* ---- Bio Page Layout ---- */
+.bio-page-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.bio-aside-new {
+    position: sticky;
+    top: 6rem;
+}
+
+.bio-aside-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(224, 122, 58, 0.3);
+    box-shadow: 0 0 40px rgba(224, 122, 58, 0.08);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.bio-aside-photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #161616;
+    border: 2px solid rgba(224, 122, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.bio-aside-photo-placeholder span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+
+.bio-aside-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.bio-aside-role {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 0.25rem;
+}
+
+.bio-aside-location {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.back-link-new {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.back-link-new:hover {
+    color: var(--accent-orange);
+}
+
+.bio-text {
+    color: #888;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.bio-text p {
+    margin-bottom: 1.5rem;
+}
+
+.bio-text a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.bio-text a:hover {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+/* ---- Team Page ---- */
+.team-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 3.5rem;
+}
+
+.team-card-new {
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-top: 2px solid var(--accent-orange);
+    padding: 2.5rem;
+}
+
+.team-card-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(224, 122, 58, 0.25);
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.team-card-photo-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #161616;
+    border: 2px solid rgba(224, 122, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.team-card-photo-placeholder span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.team-card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.team-card-name:hover {
+    color: var(--accent-orange);
+}
+
+.team-card-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.team-card-bio {
+    color: #666;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.team-card-bio a {
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    transition: color 0.2s ease;
+}
+
+.team-card-bio a:hover {
+    color: var(--accent-orange);
+}
+
+/* ---- Services Page ---- */
+.services-intro {
+    max-width: 640px;
+    color: #777;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 4rem;
+}
+
+.services-list-new {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.services-list-new li {
+    padding: 0.6rem 0;
+    color: #888;
+    border-bottom: 1px solid #161616;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+}
+
+.services-list-new li::before {
+    content: '— ';
+    color: var(--accent-orange);
+}
+
+.services-block {
+    margin-bottom: 4rem;
+}
+
+.services-block-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.services-block p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 640px;
+}
+
+.services-cta {
+    margin-top: 4rem;
+    padding: 3rem;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid var(--accent-orange);
+    background: #0d0d0d;
+}
+
+.services-cta p {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Inner Page Footer (reuses hp-footer markup/styles) ---- */
+/* hp-footer CSS already defined above — no duplication needed */
+
+/* ---- Inner Page Mobile ---- */
+@media (max-width: 768px) {
+    .bio-page-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .bio-aside-new {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .team-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .page-hero {
+        padding: 3.5rem 1.5rem 3rem;
+    }
+
+    .inner-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .services-cta {
+        padding: 2rem;
     }
 }

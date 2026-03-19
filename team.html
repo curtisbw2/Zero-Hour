@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet the Team - Zero Hour Group</title>
+    <title>Meet the Team — Zero Hour Group</title>
+    <meta name="description" content="Meet the Zero Hour Group team — investors and interviewers dedicated to discovering emerging defense and tech companies.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/Zero-Hour_Group.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
             <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
@@ -22,61 +27,87 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Contact Us &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
                     <a href="#" class="nav-link" onclick="toggleDropdown(event)">Services &#9662;</a>
                     <div class="dropdown-content">
                         <a href="services.html">What We Can Do For You</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="mailto:info@zerohourgroup.com" class="nav-link">Contact</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <main class="team-page">
-        <div class="team-header">
-            <h1>Meet the Team</h1>
-            <p>Three investors dedicated to discovering and interviewing emerging companies in the defense and tech sector.</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <span class="eyebrow">Zero Hour Group</span>
+            <h1 class="page-hero-title">THE TEAM</h1>
         </div>
+    </section>
 
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-header">
-                    <div class="photo-placeholder"></div>
-                    <div class="member-info">
-                        <h2><a href="jt.html">JT</a></h2>
-                        <p class="role">Investor / Interviewer</p>
-                    </div>
+    <!-- Team Cards -->
+    <div class="inner-content">
+        <div class="team-cards">
+
+            <div class="team-card-new">
+                <div class="team-card-photo-placeholder">
+                    <span>JT</span>
                 </div>
-                <p class="bio">JT is the owner of <a href="https://hiddengemsresearchllc.com/" target="_blank">Hidden Gems Research LLC</a> - a verified Substack Bestseller followed by thousands of investors wanting to learn more about the emerging drone, energy, and autonomous robotics sectors. He has a background in finance with nearly a decade of experience in variable indexed annuities. JT works for Allianz Life Financial Services as an Internal Sales Consultant in addition to his other ventures. Based in Minneapolis, he is originally from the Boston area.</p>
+                <a href="jt.html" class="team-card-name">JT</a>
+                <span class="team-card-role">Investor · Interviewer · Minneapolis, MN</span>
+                <p class="team-card-bio">JT is the owner of <a href="https://hiddengemsresearchllc.com/" target="_blank" rel="noopener">Hidden Gems Research LLC</a> — a verified Substack Bestseller followed by thousands of investors. He has nearly a decade of experience in variable indexed annuities and works for Allianz Life Financial Services as an Internal Sales Consultant.</p>
+                <a href="jt.html" class="bio-link">Read Full Bio →</a>
             </div>
 
-<div class="team-member">
-                <div class="member-header">
-                    <img src="assets/benny.jpeg" alt="Benny" class="member-photo">
-                    <div class="member-info">
-                        <h2><a href="benny.html">Benny</a></h2>
-                        <p class="role">Investor / Interviewer</p>
+            <div class="team-card-new">
+                <img src="assets/benny.jpeg" alt="Benny" class="team-card-photo">
+                <a href="benny.html" class="team-card-name">BENNY</a>
+                <span class="team-card-role">Investor · Interviewer · Charleston, SC</span>
+                <p class="team-card-bio">A retired commercial general contractor, Benny lives in Charleston where he is building a farm and forever home with his wife of 32 years. He invests in small to mid-cap defense, drone, and tech companies — and has been known to travel coast to coast in search of the best organizations and leaders.</p>
+                <a href="benny.html" class="bio-link">Read Full Bio →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo-text">ZERO HOUR GROUP</span>
+                    <p>Defense &amp; Tech Investor Discovery</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html">Home</a>
+                        <a href="team.html">Meet the Team</a>
+                        <a href="services.html">Services</a>
+                        <a href="jt.html">JT</a>
+                        <a href="benny.html">Benny</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Follow</h4>
+                        <div class="social-icons footer-social">
+                            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
                     </div>
                 </div>
-                <p class="bio">A retired commercial general contractor, Benny lives in Charleston. He is currently building a farm and forever home for him and his wife of 32 years. He enjoys the outdoors and investing, particularly in small to mid-cap defense, drone and drone-adjacent companies. Benny has been known to travel coast to coast in search of the best organizations and leaders in which to invest.</p>
             </div>
-        </div>
-
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-    </main>
-
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <div class="footer-bottom">
+                <span>© 2025 Zero Hour Group · All rights reserved</span>
+            </div>
         </div>
     </footer>
 
@@ -88,16 +119,13 @@
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
         }
-
         function toggleDropdown(event) {
             if (window.innerWidth <= 768) {
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
                 const isActive = dropdown.classList.contains('active');
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-                if (!isActive) {
-                    dropdown.classList.add('active');
-                }
+                if (!isActive) dropdown.classList.add('active');
             }
         }
     </script>
