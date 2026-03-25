@@ -68,6 +68,37 @@ Target aesthetic: dark/black-first editorial, long-form vertical scroll, cinemat
 - **Pushed to main** — live at thezerohourgroup.com
 - **Next steps:** Review live site, add JT photo when available, fine-tune content/copy
 
+### 2026-03-25 — Video Integration + Topo Pattern (Session 3)
+
+**PDW.ai design analysis completed** — full notes taken on all sections:
+- Color palette, typography (condensed display + all-caps), section rhythm, nav behavior, stat cards, topo texture, cinematic images, news feed with sequential number tags, CTA
+
+**Video integration:**
+- Added hero b-roll video (`assets/video/broll1.mp4` — 720p, ~16MB) as autoplay muted loop behind hero section
+- Added interview footage (`assets/video/0325.mp4` — 720p, ~18MB, Benny + Eric Brock interview) as subtle background in mission block
+- Both set to `preload="none"` with IntersectionObserver lazy-load for performance
+- Interview video opacity at 0.38 — visible but subtle
+
+**Layout changes:**
+- Removed marquee ticker ("DISCOVERY · DUE DILIGENCE · ALPHA · DEFENSE")
+- Moved "FINDING SIGNALS IN THE NOISE" mission block from mid-page to bottom (above footer)
+- Scroll arrow now points to `#services` instead of `#marquee`
+
+**Topographic map texture:**
+- Added `assets/topographic_map_pattern.png` (generated via ChatGPT/DALL-E)
+- Applied as `::before` background overlay on: `.stats-bar`, `.services-section`, `.team-preview-section`, `.hp-footer`
+- NOT applied to video sections (hero, mission block) — keeps cinematic areas clean
+- Opacity low (~0.08) so texture is subtle depth layer, not distracting
+
+**Current page flow (top → bottom):**
+Stats bar → Hero (b-roll video bg) → Services feature grid → Team preview → Mission/Interview block → Footer
+
+**Pending:**
+- Not yet committed/pushed — worktree changes on `claude/peaceful-hodgkin`
+- JT photo still placeholder
+- Typography/layout PDW-style updates (left-align hero, bigger headlines, stroke text) — started discussion, not yet implemented
+- Consider numbered article cards for future "news/reports" section
+
 ---
 
 ## Notes

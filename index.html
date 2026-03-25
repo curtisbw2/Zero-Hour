@@ -71,18 +71,24 @@
 
     <!-- Hero -->
     <section class="hp-hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/video/broll1.mp4" type="video/mp4">
+        </video>
         <div class="hp-hero-glow"></div>
         <div class="hp-hero-content">
             <span class="eyebrow">Defense &amp; Tech Investor Discovery</span>
             <img src="assets/Zero-Hour_Group.jpg" alt="Zero Hour Group" class="hp-hero-logo">
-            <h1 class="hp-hero-title">ZERO HOUR<br>GROUP</h1>
+            <h1 class="hp-hero-title">
+                <span class="title-outline">ZERO HOUR</span>
+                <span class="title-solid">GROUP</span>
+            </h1>
             <p class="hp-hero-tagline">We discover and interview emerging companies in the defense and tech sector — surfacing the signals investors care about.</p>
             <div class="btn-group">
                 <a href="mailto:info@zerohourgroup.com" class="btn btn-primary">Contact Us</a>
                 <a href="team.html" class="btn btn-secondary">Meet the Team</a>
             </div>
         </div>
-        <a href="#marquee" class="scroll-arrow" aria-label="Scroll down">
+        <a href="#services" class="scroll-arrow" aria-label="Scroll down">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
@@ -90,25 +96,8 @@
         </a>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee-section" id="marquee">
-        <div class="marquee-track">
-            <span>DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;</span>
-            <span aria-hidden="true">DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;DEFENSE&nbsp;&nbsp;·&nbsp;&nbsp;DISCOVERY&nbsp;&nbsp;·&nbsp;&nbsp;DUE DILIGENCE&nbsp;&nbsp;·&nbsp;&nbsp;ALPHA&nbsp;&nbsp;·&nbsp;&nbsp;</span>
-        </div>
-    </div>
-
-    <!-- Mission Block -->
-    <section class="mission-block">
-        <div class="mission-inner fade-in">
-            <span class="eyebrow">Our Mission</span>
-            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
-            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
-        </div>
-    </section>
-
     <!-- Services Feature Grid -->
-    <section class="services-section">
+    <section class="services-section" id="services">
         <div class="section-inner">
             <span class="eyebrow">What We Do</span>
             <h2 class="display-headline">THE EDGE IS<br>ACCESS</h2>
@@ -152,6 +141,18 @@
                     <a href="benny.html" class="bio-link">Read Bio →</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Mission Block -->
+    <section class="mission-block">
+        <video class="mission-video" muted loop playsinline preload="none" data-src="assets/video/0325.mp4">
+        </video>
+        <div class="mission-overlay"></div>
+        <div class="mission-inner fade-in">
+            <span class="eyebrow">Our Mission</span>
+            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
+            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
         </div>
     </section>
 
@@ -246,6 +247,22 @@
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lazy-load mission video only when scrolled into view
+        const missionVideo = document.querySelector('.mission-video');
+        if (missionVideo) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    if (!missionVideo.src) {
+                        missionVideo.src = missionVideo.dataset.src;
+                        missionVideo.play();
+                    }
+                    videoObserver.disconnect();
+                });
+            }, { rootMargin: '200px' });
+            videoObserver.observe(missionVideo);
+        }
     </script>
 </body>
 </html>
