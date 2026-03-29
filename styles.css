@@ -701,15 +701,6 @@ body.homepage {
     width: 100%;
 }
 
-.hp-hero-logo {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(224, 122, 58, 0.3);
-}
-
 .hp-hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(5rem, 16vw, 14rem);
