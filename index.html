@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero Hour Group - Defense & Tech Investor Discovery</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/Zero-Hour_Group.jpg" type="image/jpeg">
+    <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="homepage">
@@ -16,14 +15,16 @@
     <!-- Navigation -->
     <nav id="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="Zero Hour Group" class="nav-logo">
+            </a>
             <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources &#9662;</a>
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
                     <div class="dropdown-content">
                         <a href="companies.html">Companies Covered</a>
                         <a href="earnings.html">Earnings Decks &amp; Calls</a>
@@ -39,36 +40,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item fade-in">
-                <div class="stat-number-row">
-                    <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
-                </div>
-                <span class="stat-label">Companies Interviewed</span>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number-row">
-                    <span class="stat-number" data-target="8">0</span>
-                </div>
-                <span class="stat-label">Sectors Covered</span>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number-row">
-                    <span class="stat-number" data-target="30">0</span><span class="stat-suffix">+</span>
-                </div>
-                <span class="stat-label">Years Combined Experience</span>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-number-row">
-                    <span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span>
-                </div>
-                <span class="stat-label">Reports Published</span>
-            </div>
-        </div>
-    </section>
 
     <!-- Hero -->
     <section class="hp-hero">
@@ -105,15 +76,9 @@
         </div>
         <div class="featured-interview-grid fade-in">
             <div class="featured-interview-visual">
-                <div class="featured-interview-thumb-placeholder">
-                    <i class="fa-solid fa-video"></i>
-                    <span>Interview thumbnail</span>
+                <div class="content-card-thumb video-embed">
+                    <iframe src="https://www.youtube.com/embed/UY63kYdSCQo" title="Ondas Technology Stack" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
-                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" rel="noopener" class="play-overlay" aria-label="Watch on YouTube">
-                    <div class="play-btn">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-                </a>
             </div>
             <div class="featured-interview-content">
                 <span class="eyebrow">Ondas Holdings · $ONDS</span>
@@ -146,6 +111,44 @@
                 <div class="feature-card fade-in">
                     <h3 class="feature-title">M&amp;A &amp; SECTOR DEEP-DIVES</h3>
                     <p>Detailed analysis of acquisitions, partnerships, and backlog growth. We focus on understanding the "why" behind deals — not just the headlines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Block -->
+    <section class="mission-block">
+        <video class="mission-video" muted loop playsinline preload="none" data-src="assets/video/0325.mp4">
+        </video>
+        <div class="mission-overlay"></div>
+        <div class="mission-inner fade-in">
+            <span class="eyebrow">Our Mission</span>
+            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
+            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
+        </div>
+    </section>
+
+    <!-- Team Preview -->
+    <section class="team-preview-section">
+        <div class="section-inner">
+            <span class="eyebrow">Who We Are</span>
+            <h2 class="display-headline">THE TEAM</h2>
+            <div class="team-preview-grid">
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/ns_cK0F7_400x400.jpg" alt="JT" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">JT</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Minneapolis, MN</p>
+                    <a href="jt.html" class="bio-link">Read Bio →</a>
+                </div>
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/benny.jpeg" alt="Benny" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">Benny</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Charleston, SC</p>
+                    <a href="benny.html" class="bio-link">Read Bio →</a>
                 </div>
             </div>
         </div>
@@ -187,80 +190,18 @@
         </div>
     </section>
 
-    <!-- Team Preview -->
-    <section class="team-preview-section">
-        <div class="section-inner">
-            <span class="eyebrow">Who We Are</span>
-            <h2 class="display-headline">THE TEAM</h2>
-            <div class="team-preview-grid">
-                <div class="team-preview-card fade-in">
-                    <div class="team-preview-photo-wrap">
-                        <img src="assets/ns_cK0F7_400x400.jpg" alt="JT" class="team-preview-photo">
-                    </div>
-                    <h3 class="team-preview-name">JT</h3>
-                    <p class="team-preview-role">Investor · Interviewer · Minneapolis, MN</p>
-                    <a href="jt.html" class="bio-link">Read Bio →</a>
-                </div>
-                <div class="team-preview-card fade-in">
-                    <div class="team-preview-photo-wrap">
-                        <img src="assets/benny.jpeg" alt="Benny" class="team-preview-photo">
-                    </div>
-                    <h3 class="team-preview-name">Benny</h3>
-                    <p class="team-preview-role">Investor · Interviewer · Charleston, SC</p>
-                    <a href="benny.html" class="bio-link">Read Bio →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Block -->
-    <section class="mission-block">
-        <video class="mission-video" muted loop playsinline preload="none" data-src="assets/video/0325.mp4">
-        </video>
-        <div class="mission-overlay"></div>
-        <div class="mission-inner fade-in">
-            <span class="eyebrow">Our Mission</span>
-            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
-            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="hp-footer">
         <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <span class="footer-logo-text">ZERO HOUR GROUP</span>
-                    <p>Defense &amp; Tech Investor Discovery</p>
-                </div>
-                <div class="footer-cols">
-                    <div class="footer-col">
-                        <h4>Navigate</h4>
-                        <a href="interviews.html">Interviews</a>
-                        <a href="companies.html">Companies Covered</a>
-                        <a href="earnings.html">Earnings &amp; Calls</a>
-                        <a href="livestreams.html">Livestreams</a>
-                        <a href="about.html">About</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Contact</h4>
-                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Follow</h4>
-                        <div class="social-icons footer-social">
-                            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
             </div>
-            <div class="footer-bottom">
-                <span>© 2026 Zero Hour Group · All rights reserved · Not financial advice</span>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem.png" alt="Zero Hour Group">
             </div>
         </div>
     </footer>
@@ -284,34 +225,21 @@
             }
         }
 
-        // Intersection Observer: fade-in + count-up
-        const observer = new IntersectionObserver((entries) => {
+        // Fade-in on scroll
+        const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-
-                const numEl = entry.target.querySelector('.stat-number');
-                if (numEl && !numEl.dataset.animated) {
-                    numEl.dataset.animated = '1';
-                    const target = parseInt(numEl.dataset.target, 10);
-                    const duration = 1400;
-                    const steps = 60;
-                    let step = 0;
-                    const timer = setInterval(() => {
-                        step++;
-                        const progress = step / steps;
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        numEl.textContent = Math.floor(target * eased);
-                        if (step >= steps) {
-                            numEl.textContent = target;
-                            clearInterval(timer);
-                        }
-                    }, duration / steps);
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        // Transparent nav: add .scrolled once user leaves the very top
+        const mainNav = document.getElementById('main-nav');
+        function updateNav() {
+            mainNav.classList.toggle('scrolled', window.scrollY > 10);
+        }
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
 
         // Lazy-load mission video
         const missionVideo = document.querySelector('.mission-video');

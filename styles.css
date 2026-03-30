@@ -1,5 +1,5 @@
 /* Zero Hour Group - Main Stylesheet */
-/* Google Font: Bebas Neue — loaded in index.html head */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -10,15 +10,15 @@
 :root {
     --primary-dark: #0a0a0a;
     --secondary-dark: #111111;
-    --accent-navy: #1a1a1a;
+    --accent-navy: #111111;
     --text-light: #ffffff;
-    --text-muted: #777777;
-    --accent-orange: #e07a3a;
-    --accent-blue: #4a90d9;
+    --text-muted: #999999;
+    --accent-orange: #f07020;
+    --accent-blue: #f07020;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--primary-dark);
     color: var(--text-light);
     line-height: 1.6;
@@ -28,11 +28,12 @@ body {
 /* Navigation */
 nav {
     background-color: var(--secondary-dark);
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    overflow: visible;
 }
 
 .nav-container {
@@ -50,6 +51,15 @@ nav {
     letter-spacing: 0.15em;
     color: var(--text-light);
     text-decoration: none;
+    display: inline-block;
+    line-height: 0;
+}
+
+.nav-logo {
+    height: 98px;
+    width: auto;
+    display: block;
+    transform: translate(-16px, 4px);
 }
 
 .nav-menu {
@@ -83,11 +93,11 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--secondary-dark);
-    min-width: 200px;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    padding: 0.5rem 0;
+    background-color: var(--accent-orange);
+    min-width: 220px;
+    border-radius: 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    padding: 0;
     z-index: 1001;
 }
 
@@ -100,15 +110,24 @@ nav {
 
 .dropdown-content a {
     display: block;
-    padding: 0.75rem 1rem;
-    color: var(--text-light);
+    padding: 0.85rem 1.25rem;
+    color: #ffffff;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
 }
 
 .dropdown-content a:hover {
-    background-color: var(--accent-navy);
-    color: var(--accent-orange);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .dropdown-content p {
@@ -593,9 +612,17 @@ body.homepage {
 
 /* ---- Nav (Homepage Override) ---- */
 .homepage nav {
+    position: fixed;
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.homepage nav.scrolled {
     background: #0a0a0a;
     border-bottom: 1px solid #1a1a1a;
-    box-shadow: none;
 }
 
 .homepage .nav-brand {
@@ -659,7 +686,7 @@ body.homepage {
 
 /* ---- Hero ---- */
 .hp-hero {
-    min-height: 92vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -936,7 +963,34 @@ body.homepage {
 .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 2rem 0;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-social-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-social-row a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-social-row a:hover {
+    color: var(--accent-orange);
+}
+
+.footer-emblem img {
+    height: 80px;
+    width: auto;
+    opacity: 0.6;
 }
 
 .footer-top {
@@ -1427,7 +1481,6 @@ body.homepage {
     position: relative;
     overflow: hidden;
     background: #0a0a0a;
-    min-height: 400px;
 }
 
 .featured-interview-thumb {
@@ -1644,6 +1697,29 @@ body.homepage {
     display: block;
 }
 
+.content-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.content-card-thumb.video-embed {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.content-card-thumb.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 .content-card-img-placeholder {
     width: 100%;
     height: 100%;
@@ -1765,6 +1841,12 @@ body.homepage {
 .company-logo-placeholder i {
     font-size: 1.1rem;
     color: #2a2a2a;
+}
+
+.company-logo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .company-ticker {
