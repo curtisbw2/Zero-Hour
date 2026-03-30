@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+/* Prevent accidental horizontal scroll on all devices */
+html {
+    overflow-x: hidden;
+}
+
 :root {
     --primary-dark: #0a0a0a;
     --secondary-dark: #111111;
@@ -477,6 +482,11 @@ footer a:hover {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+    }
+
+    .nav-logo {
+        height: 54px;
+        transform: translate(-8px, 2px);
     }
 
     .nav-menu {
@@ -1079,6 +1089,11 @@ body.homepage {
         font-size: 2.75rem;
     }
 
+    /* Scale display headlines with viewport instead of hitting a hard 3.5rem floor */
+    .display-headline {
+        font-size: clamp(2.4rem, 11vw, 10rem);
+    }
+
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1099,21 +1114,42 @@ body.homepage {
 
     .mission-inner,
     .section-inner {
-        padding: 4rem 1.5rem;
+        padding: 3.5rem 1.25rem;
     }
 
     .hp-hero {
-        padding: 4rem 1.5rem 4rem;
+        padding: 5rem 1.25rem 3.5rem;
         justify-content: flex-end;
     }
 
     .hp-hero-title {
-        font-size: clamp(4rem, 18vw, 7rem);
+        font-size: clamp(3.5rem, 17vw, 7rem);
     }
 
     .title-outline {
         -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
     }
+
+    /* Prevent the decorative glow div from adding overflow */
+    .hp-hero-glow {
+        width: min(800px, 100vw);
+        height: min(800px, 100vw);
+    }
+
+    /* Hero CTA buttons: full-width stacked on mobile */
+    .hp-hero .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hp-hero .btn {
+        text-align: center;
+    }
+
+
 }
 
 
@@ -1435,15 +1471,19 @@ body.homepage {
     }
 
     .page-hero {
-        padding: 3.5rem 1.5rem 3rem;
+        padding: 3.5rem 1.25rem 2.5rem;
+    }
+
+    .page-hero-title {
+        font-size: clamp(2.8rem, 10vw, 8rem);
     }
 
     .inner-content {
-        padding: 3rem 1.5rem;
+        padding: 2.5rem 1.25rem;
     }
 
     .services-cta {
-        padding: 2rem;
+        padding: 2rem 1.25rem;
     }
 }
 
@@ -2112,26 +2152,35 @@ body.homepage {
 @media (max-width: 768px) {
     .featured-interview-grid {
         grid-template-columns: 1fr;
+        min-height: 0;
     }
 
     .featured-interview-content {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.25rem 2.5rem;
         border-left: none;
         border-top: 1px solid #151515;
     }
 
+    .featured-interview-title {
+        font-size: clamp(2rem, 8vw, 3.8rem);
+    }
+
     .focus-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 
     .focus-stats {
         grid-template-columns: 1fr 1fr;
     }
 
+    .focus-body {
+        max-width: 100%;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 
     .form-row {
@@ -2148,5 +2197,15 @@ body.homepage {
 
     .methodology-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Stats bar: tighter on small screens */
+    .stats-bar {
+        padding: 1.25rem 1rem;
+    }
+
+    /* Mission block padding */
+    .mission-inner {
+        padding: 4rem 1.25rem;
     }
 }
