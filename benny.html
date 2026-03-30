@@ -3,62 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benny - Zero Hour Group</title>
+    <title>Benny — Zero Hour Group</title>
+    <meta name="description" content="Benny is an investor and interviewer at Zero Hour Group, specializing in small to mid-cap defense, drone, and tech companies.">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/Zero-Hour_Group.jpg" type="image/jpeg">
+    <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <nav>
+
+    <nav id="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="Zero Hour Group" class="nav-logo">
+            </a>
             <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
             <ul class="nav-menu" id="navMenu">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Who We Are &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="jt.html">JT</a>
-                        <a href="benny.html">Benny</a>
-                    </div>
+                <li class="nav-item">
+                    <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Contact Us &#9662;</a>
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
                     <div class="dropdown-content">
-                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
+                        <a href="companies.html">Companies Covered</a>
+                        <a href="earnings.html">Earnings Decks &amp; Calls</a>
+                        <a href="livestreams.html">Livestream Recordings</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Services &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="services.html">What We Can Do For You</a>
-                    </div>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <main>
-        <div class="bio-header">
-            <img src="assets/benny.jpeg" alt="Benny" class="bio-photo">
-            <h1>Benny</h1>
-            <p class="role">Investor / Interviewer</p>
-            <p class="location">South Carolina</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <span class="eyebrow">Investor · Interviewer</span>
+            <h1 class="page-hero-title">BENNY</h1>
         </div>
-        <div class="bio-content">
-            <p>A retired commercial general contractor, Benny lives in Charleston. He is currently building a farm and forever home for him and his wife of 32 years.</p>
-            <p>He enjoys the outdoors and investing, particularly in small to mid-cap defense, drone and drone-adjacent companies.</p>
-            <p>Benny has been known to travel coast to coast in search of the best organizations and leaders in which to invest.</p>
-        </div>
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-    </main>
+    </section>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <!-- Bio -->
+    <div class="inner-content">
+        <div class="bio-page-grid">
+
+            <aside class="bio-aside-new">
+                <img src="assets/benny.jpeg" alt="Benny" class="bio-aside-photo">
+                <span class="bio-aside-name">BENNY</span>
+                <span class="bio-aside-role">Investor / Interviewer</span>
+                <span class="bio-aside-location">Charleston, SC</span>
+                <a href="about.html" class="back-link-new">← Back to About</a>
+            </aside>
+
+            <div class="bio-text fade-in">
+                <p>A retired commercial general contractor, Benny lives in Charleston. He is currently building a farm and forever home for him and his wife of 32 years.</p>
+                <p>He enjoys the outdoors and investing, particularly in small to mid-cap defense, drone, and drone-adjacent companies.</p>
+                <p>Benny has been known to travel coast to coast in search of the best organizations and leaders in which to invest.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem.png" alt="Zero Hour Group">
+            </div>
         </div>
     </footer>
 
@@ -70,18 +95,21 @@
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
         }
-
         function toggleDropdown(event) {
             if (window.innerWidth <= 768) {
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
                 const isActive = dropdown.classList.contains('active');
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-                if (!isActive) {
-                    dropdown.classList.add('active');
-                }
+                if (!isActive) dropdown.classList.add('active');
             }
         }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies Covered — Zero Hour Group</title>
+    <meta name="description" content="Browse the portfolio of defense and tech companies researched and covered by Zero Hour Group.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="Zero Hour Group" class="nav-logo">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="interviews.html" class="nav-link">Interviews</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="companies.html">Companies Covered</a>
+                        <a href="earnings.html">Earnings Decks &amp; Calls</a>
+                        <a href="livestreams.html">Livestream Recordings</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <span class="eyebrow">Resources · Zero Hour Group</span>
+            <h1 class="page-hero-title">COMPANIES<br>COVERED</h1>
+            <p style="color: #555; font-size: 0.9rem; letter-spacing: 0.06em; margin-top: 1rem; max-width: 580px;">A portfolio of defense and technology companies we have researched, interviewed, and covered in depth. Updated as coverage expands.</p>
+        </div>
+    </section>
+
+    <!-- Company Grid -->
+    <div class="inner-content content-page-section">
+
+        <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #333; margin-bottom: 2rem;">Not financial advice. All content is for informational and educational purposes only.</p>
+
+        <div class="company-grid">
+
+            <!-- Ondas Holdings -->
+            <div class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/ondas.jpg" alt="Ondas Holdings">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$ONDS</span>
+                        <span class="company-name-full">Ondas Holdings, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Drones · C-UAS · Autonomous Systems</span>
+                <p class="company-desc">Ondas Holdings is a drone and autonomous systems company building hardware, software, and services for national security and industrial applications. Current focus areas include counter-drone (C-UAS) technology, the Optimus autonomous drone-in-a-box platform, and a growing defense backlog backed by a $1B+ institutional capital raise. Nasdaq-listed.</p>
+                <div class="company-links">
+                    <a href="interviews.html" class="company-link">Interviews →</a>
+                    <a href="earnings.html" class="company-link">Earnings Coverage →</a>
+                </div>
+            </div>
+
+            <!-- Placeholder 2 -->
+            <div class="company-card company-placeholder-card fade-in">
+                <i class="fa-solid fa-plus"></i>
+                <span>More companies coming soon</span>
+            </div>
+
+            <!-- Placeholder 3 -->
+            <div class="company-card company-placeholder-card fade-in">
+                <i class="fa-solid fa-plus"></i>
+                <span>More companies coming soon</span>
+            </div>
+
+            <!-- Placeholder 4 -->
+            <div class="company-card company-placeholder-card fade-in">
+                <i class="fa-solid fa-plus"></i>
+                <span>More companies coming soon</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem.png" alt="Zero Hour Group">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+            if (!menu.classList.contains('active')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
+        }
+        function toggleDropdown(event) {
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                const dropdown = event.target.closest('.dropdown');
+                const isActive = dropdown.classList.contains('active');
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                if (!isActive) dropdown.classList.add('active');
+            }
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

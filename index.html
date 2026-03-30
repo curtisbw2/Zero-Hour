@@ -5,56 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero Hour Group - Defense & Tech Investor Discovery</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="assets/Zero-Hour_Group.jpg" type="image/jpeg">
+    <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-    <nav>
+<body class="homepage">
+
+    <!-- Navigation -->
+    <nav id="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">ZERO HOUR GROUP</a>
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="Zero Hour Group" class="nav-logo">
+            </a>
             <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
             <ul class="nav-menu" id="navMenu">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Who We Are &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="jt.html">JT</a>
-                        <a href="benny.html">Benny</a>
-                    </div>
+                <li class="nav-item">
+                    <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Contact Us &#9662;</a>
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
                     <div class="dropdown-content">
-                        <a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a>
+                        <a href="companies.html">Companies Covered</a>
+                        <a href="earnings.html">Earnings Decks &amp; Calls</a>
+                        <a href="livestreams.html">Livestream Recordings</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Services &#9662;</a>
-                    <div class="dropdown-content">
-                        <a href="services.html">What We Can Do For You</a>
-                    </div>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <img src="assets/Zero-Hour_Group.jpg" alt="Zero Hour Group Logo" class="hero-logo">
-        <h1>Zero Hour Group</h1>
-        <p class="tagline">We are investors who discover and interview emerging companies in the defense and tech sector.</p>
-        <p class="supporting-text">Through structured interviews with leadership teams, we surface the signals investors care about: customer traction, competitive positioning, financial discipline, and near-term catalysts.</p>
-        <div class="btn-group">
-            <a href="mailto:info@zerohourgroup.com" class="btn btn-primary">Contact Us</a>
-            <a href="team.html" class="btn btn-secondary">Meet the Team</a>
+    <!-- Hero -->
+    <section class="hp-hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/video/broll1.mp4" type="video/mp4">
+        </video>
+        <div class="hp-hero-glow"></div>
+        <div class="hp-hero-content">
+            <span class="eyebrow">Defense &amp; Tech Investor Discovery</span>
+            <h1 class="hp-hero-title">
+                <span class="title-outline">ZERO HOUR</span>
+                <span class="title-solid">GROUP</span>
+            </h1>
+            <p class="hp-hero-sub">By retail investors, for retail investors</p>
+            <p class="hp-hero-tagline">We go directly to the source — conducting long-form interviews with company leadership to surface the signals that serious investors rely on.</p>
+            <div class="btn-group">
+                <a href="interviews.html" class="btn btn-primary">Watch Interviews</a>
+                <a href="about.html" class="btn btn-secondary">Who We Are</a>
+            </div>
+        </div>
+        <a href="#featured" class="scroll-arrow" aria-label="Scroll down">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Featured Interview -->
+    <section class="featured-interview" id="featured">
+        <div class="section-inner" style="padding-bottom: 0; padding-top: 5rem;">
+            <span class="eyebrow">Featured Interview</span>
+            <h2 class="display-headline">LATEST<br>COVERAGE</h2>
+        </div>
+        <div class="featured-interview-grid fade-in">
+            <div class="featured-interview-visual">
+                <div class="content-card-thumb video-embed">
+                    <iframe src="https://www.youtube.com/embed/UY63kYdSCQo" title="Ondas Technology Stack" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="featured-interview-content">
+                <span class="eyebrow">Ondas Holdings · $ONDS</span>
+                <h3 class="featured-interview-title">ERIC BROCK<br>CEO INTERVIEW</h3>
+                <span class="featured-interview-subject">Ondas Holdings · C-UAS · Autonomous Systems · March 2026</span>
+                <p class="featured-interview-desc">A long-form sit-down with Ondas Holdings CEO Eric Brock covering the company's counter-drone technology stack, the mechanics of the Optimus autonomous system, recent acquisitions, and the road ahead for one of defense tech's most closely watched small-caps.</p>
+                <a href="interviews.html" class="btn btn-primary" style="align-self: flex-start;">View All Interviews</a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <!-- Content Pillars -->
+    <section class="services-section" id="content">
+        <div class="section-inner">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="display-headline">THE EDGE IS<br>ACCESS</h2>
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">CEO &amp; EXECUTIVE INTERVIEWS</h3>
+                    <p>Long-form sit-downs with company leadership — CEOs, CFOs, and founders of emerging defense and tech companies. We ask the questions retail investors actually need answered.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">EARNINGS CALL COVERAGE</h3>
+                    <p>We livestream earnings events and drop post-earnings breakdowns, highlight reels, and join retail analyst panels to dissect what actually moved the needle.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">TECH EXPLAINERS</h3>
+                    <p>Short-form content breaking down real-world defense and tech topics — C-UAS systems, drone-in-a-box features, autonomous systems evolution, and more.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3 class="feature-title">M&amp;A &amp; SECTOR DEEP-DIVES</h3>
+                    <p>Detailed analysis of acquisitions, partnerships, and backlog growth. We focus on understanding the "why" behind deals — not just the headlines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Block -->
+    <section class="mission-block">
+        <video class="mission-video" muted loop playsinline preload="none" data-src="assets/video/0325.mp4">
+        </video>
+        <div class="mission-overlay"></div>
+        <div class="mission-inner fade-in">
+            <span class="eyebrow">Our Mission</span>
+            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
+            <p class="mission-body">We go directly to the source — conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
+        </div>
+    </section>
+
+    <!-- Team Preview -->
+    <section class="team-preview-section">
+        <div class="section-inner">
+            <span class="eyebrow">Who We Are</span>
+            <h2 class="display-headline">THE TEAM</h2>
+            <div class="team-preview-grid">
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/ns_cK0F7_400x400.jpg" alt="JT" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">JT</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Minneapolis, MN</p>
+                    <a href="jt.html" class="bio-link">Read Bio →</a>
+                </div>
+                <div class="team-preview-card fade-in">
+                    <div class="team-preview-photo-wrap">
+                        <img src="assets/benny.jpeg" alt="Benny" class="team-preview-photo">
+                    </div>
+                    <h3 class="team-preview-name">Benny</h3>
+                    <p class="team-preview-role">Investor · Interviewer · Charleston, SC</p>
+                    <a href="benny.html" class="bio-link">Read Bio →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Focus -->
+    <section class="current-focus" id="focus">
+        <div class="section-inner focus-inner">
+            <span class="eyebrow">Current Coverage · Q1 2026</span>
+            <h2 class="display-headline">ONDAS<br>HOLDINGS</h2>
+            <div class="focus-grid fade-in">
+                <div>
+                    <p class="focus-body">Our current coverage is centered on <strong style="color: #fff;">Ondas Holdings ($ONDS)</strong> — a drone and autonomous systems company building hardware, software, and services for national security and industrial applications. We've conducted multiple in-depth interviews with CEO Eric Brock and followed the company through acquisitions, a major institutional capital raise, and a growing backlog in U.S. defense contracts.</p>
+                    <p class="focus-body">The thesis is bullish but grounded. We focus on underlying technology execution and competitive positioning — not price action or hype.</p>
+                    <a href="companies.html" class="btn btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Companies Covered</a>
+                </div>
+                <div>
+                    <div class="focus-stats">
+                        <div class="focus-stat">
+                            <div class="focus-stat-number">607%</div>
+                            <div class="focus-stat-label">YoY Revenue Growth</div>
+                        </div>
+                        <div class="focus-stat">
+                            <div class="focus-stat-number">$1B+</div>
+                            <div class="focus-stat-label">Institutional Capital Raise</div>
+                        </div>
+                        <div class="focus-stat">
+                            <div class="focus-stat-number">NATO</div>
+                            <div class="focus-stat-label">Europe &amp; Allied Exposure</div>
+                        </div>
+                        <div class="focus-stat">
+                            <div class="focus-stat-number">PLT</div>
+                            <div class="focus-stat-label">Palantir Partnership</div>
+                        </div>
+                    </div>
+                    <p class="focus-disclaimer">Not financial advice. All content is for informational and educational purposes only. Do your own research before making investment decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem.png" alt="Zero Hour Group">
+            </div>
         </div>
     </footer>
 
@@ -62,7 +210,6 @@
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
-            // Close all dropdowns when closing the menu
             if (!menu.classList.contains('active')) {
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
@@ -73,16 +220,43 @@
                 event.preventDefault();
                 const dropdown = event.target.closest('.dropdown');
                 const isActive = dropdown.classList.contains('active');
-
-                // Close all other dropdowns first (accordion behavior)
                 document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-
-                // Toggle the clicked dropdown
-                if (!isActive) {
-                    dropdown.classList.add('active');
-                }
+                if (!isActive) dropdown.classList.add('active');
             }
         }
+
+        // Fade-in on scroll
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+        // Transparent nav: add .scrolled once user leaves the very top
+        const mainNav = document.getElementById('main-nav');
+        function updateNav() {
+            mainNav.classList.toggle('scrolled', window.scrollY > 10);
+        }
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+
+        // Lazy-load mission video
+        const missionVideo = document.querySelector('.mission-video');
+        if (missionVideo) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    if (!missionVideo.src) {
+                        missionVideo.src = missionVideo.dataset.src;
+                        missionVideo.play();
+                    }
+                    videoObserver.disconnect();
+                });
+            }, { rootMargin: '200px' });
+            videoObserver.observe(missionVideo);
+        }
+
     </script>
 </body>
 </html>

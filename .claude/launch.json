@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zero-hour-homepage",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
+      "runtimeArgs": ["C:\\wrk\\Zero_Hour\\.claude\\worktrees\\peaceful-hodgkin\\serve.js"],
+      "port": 3901,
+      "autoPort": false
+    }
+  ]
+}

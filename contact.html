@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Zero Hour Group</title>
+    <meta name="description" content="Get in touch with Zero Hour Group — defense and tech investor research, interview inquiries, and collaboration.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="Zero Hour Group" class="nav-logo">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="interviews.html" class="nav-link">Interviews</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="companies.html">Companies Covered</a>
+                        <a href="earnings.html">Earnings Decks &amp; Calls</a>
+                        <a href="livestreams.html">Livestream Recordings</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <span class="eyebrow">Zero Hour Group</span>
+            <h1 class="page-hero-title">CONTACT</h1>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="inner-content contact-section">
+        <div class="contact-grid">
+
+            <!-- Left: Info -->
+            <div class="fade-in">
+                <span class="eyebrow">Reach Out</span>
+                <h2 class="display-headline" style="font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 2.5rem;">LET'S<br>CONNECT</h2>
+
+                <div class="contact-info-block">
+                    <span class="contact-info-label">Email</span>
+                    <p class="contact-info-value"><a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a></p>
+                </div>
+
+                <div class="contact-info-block">
+                    <span class="contact-info-label">Interview Inquiries</span>
+                    <p class="contact-info-value">We work directly with public company leadership, IR teams, and PR contacts. If your company operates in the defense or technology space, we'd like to hear from you.</p>
+                </div>
+
+                <div class="contact-info-block">
+                    <span class="contact-info-label">Collaboration</span>
+                    <p class="contact-info-value">We regularly partner with other retail investors, analysts, and community builders. If you're working in the same space, reach out.</p>
+                </div>
+
+                <div class="contact-info-block">
+                    <span class="contact-info-label">Follow Us</span>
+                    <div class="contact-social">
+                        <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="fade-in">
+                <form class="contact-form" action="mailto:info@zerohourgroup.com" method="POST" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Name</label>
+                            <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email</label>
+                            <input class="form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-subject">Subject</label>
+                        <input class="form-input" type="text" id="contact-subject" name="subject" placeholder="Interview inquiry, collaboration, general question...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-message">Message</label>
+                        <textarea class="form-textarea" id="contact-message" name="message" placeholder="Tell us about your company, your question, or how you'd like to connect..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer; border: none;">Send Message</button>
+                    <p class="form-note">Not financial advice. All content produced by Zero Hour Group is for informational and educational purposes only.</p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61582041867371" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem.png" alt="Zero Hour Group">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+            if (!menu.classList.contains('active')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
+        }
+        function toggleDropdown(event) {
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                const dropdown = event.target.closest('.dropdown');
+                const isActive = dropdown.classList.contains('active');
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                if (!isActive) dropdown.classList.add('active');
+            }
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
