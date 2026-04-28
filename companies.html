@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Companies Covered — Zero Hour Group</title>
+    <title>Companies Covered, Zero Hour Group</title>
     <meta name="description" content="Browse the portfolio of defense and tech companies researched and covered by Zero Hour Group.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
@@ -24,13 +24,14 @@
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" onclick="toggleDropdown(event)">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="companies.html">Companies Covered</a>
-                        <a href="earnings.html">Earnings Decks &amp; Calls</a>
-                        <a href="livestreams.html">Livestream Recordings</a>
-                    </div>
+                <li class="nav-item">
+                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                </li>
+                <li class="nav-item">
+                    <a href="earnings.html" class="nav-link">Earnings Calls</a>
+                </li>
+                <li class="nav-item">
+                    <a href="livestreams.html" class="nav-link">Livestreams</a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
@@ -47,19 +48,17 @@
         <div class="page-hero-inner">
             <span class="eyebrow">Resources · Zero Hour Group</span>
             <h1 class="page-hero-title">COMPANIES<br>COVERED</h1>
-            <p style="color: #555; font-size: 0.9rem; letter-spacing: 0.06em; margin-top: 1rem; max-width: 580px;">A portfolio of defense and technology companies we have researched, interviewed, and covered in depth. Updated as coverage expands.</p>
+            <p style="color: #999; font-size: 0.9rem; letter-spacing: 0.06em; margin-top: 1rem; max-width: 580px;">A portfolio of defense and technology companies we have researched, interviewed, and covered in depth. Updated as coverage expands.</p>
         </div>
     </section>
 
     <!-- Company Grid -->
     <div class="inner-content content-page-section">
 
-        <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #333; margin-bottom: 2rem;">Not financial advice. All content is for informational and educational purposes only.</p>
-
         <div class="company-grid">
 
             <!-- Ondas Holdings -->
-            <div class="company-card fade-in">
+            <div id="ondas" class="company-card fade-in">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/ondas.jpg" alt="Ondas Holdings">
@@ -77,10 +76,22 @@
                 </div>
             </div>
 
-            <!-- Placeholder 2 -->
-            <div class="company-card company-placeholder-card fade-in">
-                <i class="fa-solid fa-plus"></i>
-                <span>More companies coming soon</span>
+            <!-- Volatus Aerospace -->
+            <div id="volatus" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/volatus.jpg" alt="Volatus Aerospace">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$VLTS</span>
+                        <span class="company-name-full">Volatus Aerospace Corp.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Drones · Aerospace · Commercial UAS</span>
+                <p class="company-desc">Volatus Aerospace is a drone services and technology company offering commercial UAS solutions across inspection, surveillance, mapping, and logistics. Operating across North America with a focus on enterprise and government clients.</p>
+                <div class="company-links">
+                    <a href="earnings.html" class="company-link">Earnings Coverage →</a>
+                </div>
             </div>
 
             <!-- Placeholder 3 -->
