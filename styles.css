@@ -555,6 +555,7 @@ body.homepage {
 .stats-bar::before,
 .services-section::before,
 .team-preview-section::before,
+.merch-section::before,
 .hp-footer::before {
     content: '';
     position: absolute;
@@ -961,6 +962,102 @@ body.homepage {
     text-decoration: none;
 }
 
+/* ---- Merch Section ---- */
+.merch-section {
+    background: #0d0d0d;
+    border-top: 1px solid #161616;
+    position: relative;
+    overflow: hidden;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.merch-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.merch-card:hover {
+    border-color: rgba(224, 122, 58, 0.35);
+}
+
+.merch-card--featured {
+    border-top: 2px solid var(--accent-orange);
+}
+
+.merch-img-wrap {
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.merch-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.merch-card:hover .merch-img {
+    transform: scale(1.04);
+}
+
+.merch-card-body {
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-top: 1px solid #1a1a1a;
+}
+
+.merch-badge {
+    font-size: 0.55rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.merch-badge::before {
+    content: '• ';
+}
+
+.merch-card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    line-height: 1.1;
+}
+
+.merch-price {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.merch-btn {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.65rem 1.5rem;
+    letter-spacing: 0.08em;
+    margin-top: auto;
+}
+
 /* ---- Footer (Homepage) ---- */
 .hp-footer {
     background: #070707;
@@ -1101,6 +1198,11 @@ body.homepage {
 
     .team-preview-grid {
         gap: 3rem;
+    }
+
+    .merch-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .footer-top {
@@ -1977,6 +2079,13 @@ body.homepage {
 
 .company-link:hover {
     opacity: 0.65;
+}
+
+.company-link-coming {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
 }
 
 .company-placeholder-card {
