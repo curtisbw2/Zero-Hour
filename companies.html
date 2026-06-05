@@ -24,8 +24,21 @@
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
-                <li class="nav-item">
-                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                <li class="nav-item dropdown">
+                    <a href="companies.html" class="nav-link" onclick="toggleDropdown(event)">Companies Covered ▾</a>
+                    <div class="dropdown-content">
+                        <a href="ondas.html">Ondas Holdings · $ONDS</a>
+                        <a href="volatus.html">Volatus Aerospace · $TAKOF</a>
+                        <a href="kopin.html">Kopin Corporation · $KOPN</a>
+                        <a href="amprius.html">Amprius Technologies · $AMPX</a>
+                        <a href="umac.html">Unusual Machines · $UMAC</a>
+                        <a href="lightpath.html">LightPath Technologies · $LPTH</a>
+                        <a href="lantronix.html">Lantronix · $LTRX</a>
+                        <a href="safepro.html">Safe Pro Group · $SPAI</a>
+                        <a href="palantir.html">Palantir Technologies · $PLTR</a>
+                        <a href="anduril.html">Anduril Industries · Private</a>
+                        <a href="pdw.html">Performance Drone Works · Private</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="earnings.html" class="nav-link">Earnings Calls</a>
@@ -44,7 +57,10 @@
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero page-hero--video">
+        <video class="page-hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/video/broll4.mp4" type="video/mp4">
+        </video>
         <div class="page-hero-inner">
             <span class="eyebrow">Resources · Zero Hour Group</span>
             <h1 class="page-hero-title">COMPANIES<br>COVERED</h1>
@@ -130,6 +146,132 @@
                 </div>
             </div>
 
+            <!-- Unusual Machines -->
+            <div id="umac" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/umac-logo.png" alt="Unusual Machines">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$UMAC</span>
+                        <span class="company-name-full">Unusual Machines, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Drones · FPV Technology · U.S. Manufacturing</span>
+                <p class="company-desc">U.S.-based developer and manufacturer of NDAA-compliant drone components and FPV technology. Operates through Fat Shark (FPV goggles) and Rotor Riot (direct-to-consumer drone parts marketplace). Strategically positioned in the $5B U.S.-manufactured drone components market following FCC restrictions on foreign drones and components. Q1 2026 revenue up 296% year-over-year, with $220M+ cash and no debt. NYSE American-listed.</p>
+                <div class="company-links">
+                    <a href="umac.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- LightPath Technologies -->
+            <div id="lightpath" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/lightpath-logo.jpeg" alt="LightPath Technologies">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$LPTH</span>
+                        <span class="company-name-full">LightPath Technologies, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Optics · Infrared · Defense</span>
+                <p class="company-desc">Vertically integrated provider of next-generation optics and infrared imaging systems for defense and commercial applications. BlackDiamond chalcogenide glass is licensed exclusively from the U.S. Naval Research Laboratory. Positioned as a primary domestic alternative as the FY2026 NDAA mandates elimination of foreign optical systems by 2030. Record order backlog of $110.6M — up 196% year-over-year. Nasdaq-listed.</p>
+                <div class="company-links">
+                    <a href="lightpath.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- Lantronix -->
+            <div id="lantronix" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/lantronix-logo.png" alt="Lantronix">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$LTRX</span>
+                        <span class="company-name-full">Lantronix, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Edge AI · Industrial IoT · Drone Computing</span>
+                <p class="company-desc">Global leader in Edge AI and Industrial IoT solutions delivering intelligent computing, secure connectivity, and remote management for mission-critical applications. NDAA/TAA-compliant compute platforms serve as the AI backbone inside defense drone systems — with 17 drone OEM engagements as of Q1 FY2026. Partners include Teledyne/FLIR and Aerora. Nasdaq-listed.</p>
+                <div class="company-links">
+                    <a href="lantronix.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- Safe Pro Group -->
+            <div id="safepro" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/safepro.jpg" alt="Safe Pro Group">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$SPAI</span>
+                        <span class="company-name-full">Safe Pro Group, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">AI · Explosive Threat Detection · Drones</span>
+                <p class="company-desc">AI-enabled security and defense company. SpotlightAI detects and labels 150+ types of explosive threats including landmines, cluster munitions, and UXO — processing over 1.88 million battlefield images and identifying 34,200 threats from operations in Ukraine. Selected for U.S. Army Futures Command CFWE-M 2026 and integrated into the U.S. Army's ATAK platform. Nasdaq-listed.</p>
+                <div class="company-links">
+                    <a href="safepro.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- Palantir Technologies -->
+            <div id="palantir" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/palantir-logo.jpeg" alt="Palantir Technologies">
+                    </div>
+                    <div>
+                        <span class="company-ticker">$PLTR</span>
+                        <span class="company-name-full">Palantir Technologies, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">AI · Defense Software · Data Analytics</span>
+                <p class="company-desc">The AI operating system for the modern enterprise and Western defense apparatus. Core platforms include Gotham (defense intelligence), Foundry (enterprise data operations), AIP (agentic AI for operational decision-making), and Apollo (continuous delivery to the tactical edge). Awarded a $10B U.S. Army enterprise agreement in July 2025. Partnered with Ondas Holdings on the SkyWeaver autonomous combat-drone platform. NYSE-listed.</p>
+                <div class="company-links">
+                    <a href="palantir.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- Anduril Industries -->
+            <div id="anduril" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/anduril-logo.jpeg" alt="Anduril Industries">
+                    </div>
+                    <div>
+                        <span class="company-ticker">Private</span>
+                        <span class="company-name-full">Anduril Industries, Inc.</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Defense Tech · Autonomous Systems · AI</span>
+                <p class="company-desc">Software-first defense company founded in 2017 by Palmer Luckey. Lattice OS integrates sensors, drones, and weapons platforms into a unified command and control architecture. Estimated $2.1B revenue in 2025 (up 110% YoY), $60B+ valuation, $5B funding round closed May 2026. Won a 10-year $20B U.S. Army enterprise contract and the Air Force Collaborative Combat Aircraft (CCA) program for autonomous fighter jets. Private.</p>
+                <div class="company-links">
+                    <a href="anduril.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
+            <!-- Performance Drone Works -->
+            <div id="pdw" class="company-card fade-in">
+                <div class="company-card-header">
+                    <div class="company-logo-placeholder">
+                        <img src="assets/pdw-logo.jpeg" alt="Performance Drone Works">
+                    </div>
+                    <div>
+                        <span class="company-ticker">Private</span>
+                        <span class="company-name-full">Performance Drone Works</span>
+                    </div>
+                </div>
+                <span class="company-sector-tag">Tactical UAS · Defense Manufacturing · Autonomous Systems</span>
+                <p class="company-desc">Manufacturer of advanced robotic systems for front-line forces, founded by combat veterans and drone engineers. The C100 Tactical UAS is a modular, AI-enabled attritable quadcopter with a full-stack software suite including GPS-denied navigation and simulation training. $110M+ Series B raised March 2026. Drone Factory 01 spans 90,000 sq. ft. in Huntsville, AL. Investor in Ondas Holdings; strategic supplier relationship with Unusual Machines for NDAA-compliant components. Private.</p>
+                <div class="company-links">
+                    <a href="pdw.html" class="company-link">Company Page →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -173,5 +315,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
+    <script src="site.js"></script>
 </body>
 </html>

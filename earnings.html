@@ -24,8 +24,21 @@
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
-                <li class="nav-item">
-                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                <li class="nav-item dropdown">
+                    <a href="companies.html" class="nav-link" onclick="toggleDropdown(event)">Companies Covered ▾</a>
+                    <div class="dropdown-content">
+                        <a href="ondas.html">Ondas Holdings · $ONDS</a>
+                        <a href="volatus.html">Volatus Aerospace · $TAKOF</a>
+                        <a href="kopin.html">Kopin Corporation · $KOPN</a>
+                        <a href="amprius.html">Amprius Technologies · $AMPX</a>
+                        <a href="umac.html">Unusual Machines · $UMAC</a>
+                        <a href="lightpath.html">LightPath Technologies · $LPTH</a>
+                        <a href="lantronix.html">Lantronix · $LTRX</a>
+                        <a href="safepro.html">Safe Pro Group · $SPAI</a>
+                        <a href="palantir.html">Palantir Technologies · $PLTR</a>
+                        <a href="anduril.html">Anduril Industries · Private</a>
+                        <a href="pdw.html">Performance Drone Works · Private</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="earnings.html" class="nav-link">Earnings Calls</a>
@@ -172,5 +185,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
+    <script src="site.js"></script>
 </body>
 </html>
