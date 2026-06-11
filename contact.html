@@ -75,7 +75,7 @@
 
                 <div class="contact-info-block">
                     <span class="contact-info-label">Email</span>
-                    <p class="contact-info-value"><a href="mailto:info@zerohourgroup.com">info@zerohourgroup.com</a></p>
+                    <p class="contact-info-value"><a href="mailto:info@thezerohourgroup.com">info@thezerohourgroup.com</a></p>
                 </div>
 
                 <div class="contact-info-block">
@@ -102,15 +102,20 @@
 
             <!-- Right: Form -->
             <div class="fade-in">
-                <form class="contact-form" action="mailto:info@zerohourgroup.com" method="POST" enctype="text/plain">
+                <form class="contact-form" action="https://formsubmit.co/info@thezerohourgroup.com" method="POST">
+                    <input type="hidden" name="_subject" value="New message from thezerohourgroup.com contact form">
+                    <input type="hidden" name="_next" value="https://thezerohourgroup.com/contact.html?sent=1">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <p class="form-success" id="formSuccess" style="display:none; color: #4caf50; margin-bottom: 1.5rem;">Your message has been sent. We'll get back to you soon.</p>
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="contact-name">Name</label>
-                            <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name">
+                            <input class="form-input" type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="contact-email">Email</label>
-                            <input class="form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email">
+                            <input class="form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" autocomplete="email" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -119,7 +124,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="contact-message">Message</label>
-                        <textarea class="form-textarea" id="contact-message" name="message" placeholder="Tell us about your company, your question, or how you'd like to connect..."></textarea>
+                        <textarea class="form-textarea" id="contact-message" name="message" placeholder="Tell us about your company, your question, or how you'd like to connect..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer; border: none;">Send Message</button>
                 </form>
@@ -167,6 +172,9 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        if (new URLSearchParams(window.location.search).get('sent') === '1') {
+            document.getElementById('formSuccess').style.display = 'block';
+        }
     </script>
     <script src="site.js"></script>
 </body>
