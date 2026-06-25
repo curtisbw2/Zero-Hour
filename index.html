@@ -4,11 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero Hour Group - Defense & Tech Investor Discovery</title>
+    <meta name="description" content="Zero Hour Group is a team of retail investors covering defense and drone technology — long-form interviews with the CEOs and founders building counter-UAS, autonomous systems, and ISR, plus earnings coverage and research on emerging small-cap plays.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/zhg_emblem.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zero Hour Group">
+    <meta property="og:title" content="Zero Hour Group - Defense &amp; Tech Investor Discovery">
+    <meta property="og:description" content="Zero Hour Group is a team of retail investors covering defense and drone technology — long-form interviews with the CEOs and founders building counter-UAS, autonomous systems, and ISR, plus earnings coverage and research on emerging small-cap plays.">
+    <meta property="og:url" content="https://thezerohourgroup.com/">
+    <meta property="og:image" content="https://thezerohourgroup.com/assets/images/og-default.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zero Hour Group - Defense &amp; Tech Investor Discovery">
+    <meta name="twitter:description" content="Zero Hour Group is a team of retail investors covering defense and drone technology — long-form interviews with the CEOs and founders building counter-UAS, autonomous systems, and ISR, plus earnings coverage and research on emerging small-cap plays.">
+    <meta name="twitter:image" content="https://thezerohourgroup.com/assets/images/og-default.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Zero Hour Group",
+      "alternateName": "ZHG",
+      "url": "https://thezerohourgroup.com/",
+      "logo": "https://thezerohourgroup.com/assets/zhg_emblem.png",
+      "description": "Zero Hour Group is a team of retail investors covering defense and drone technology — long-form interviews with the CEOs and founders building counter-UAS, autonomous systems, and ISR, plus earnings coverage and research on emerging small-cap plays.",
+      "sameAs": [
+        "https://x.com/Zero_Hour_Group",
+        "https://www.youtube.com/@TheZeroHourGroup",
+        "https://www.linkedin.com/company/132214033",
+        "https://www.instagram.com/thezerohourgroup/",
+        "https://www.facebook.com/profile.php?id=61582041867371",
+        "https://www.tiktok.com/@thezerohourgroup"
+      ]
+    }
+    </script>
 </head>
 <body class="homepage">
 
@@ -23,20 +55,29 @@
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="companies.html" class="nav-link" onclick="toggleDropdown(event)">Companies Covered ▾</a>
-                    <div class="dropdown-content">
-                        <a href="ondas.html">Ondas Inc. · $ONDS</a>
-                        <a href="volatus.html">Volatus Aerospace · $TAKOF</a>
-                        <a href="kopin.html">Kopin Corporation · $KOPN</a>
-                        <a href="amprius.html">Amprius Technologies · $AMPX</a>
-                        <a href="umac.html">Unusual Machines · $UMAC</a>
-                        <a href="lightpath.html">LightPath Technologies · $LPTH</a>
-                        <a href="lantronix.html">Lantronix · $LTRX</a>
-                        <a href="safepro.html">Safe Pro Group · $SPAI</a>
-                        <a href="palantir.html">Palantir Technologies · $PLTR</a>
-                        <a href="anduril.html">Anduril Industries · Private</a>
-                        <a href="pdw.html">Performance Drone Works · Private</a>
+                <li class="nav-item mega-dropdown">
+                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                    <div class="mega-menu">
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <p class="mega-desc">Small-cap and micro-cap defense and technology companies we actively track — from C-UAS and autonomous systems to ISR and adjacent emerging sectors.</p>
+                        </div>
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <ul class="mega-list">
+                                <li><a href="ondas.html">Ondas Inc. · $ONDS</a></li>
+                                <li><a href="volatus.html">Volatus Aerospace · $TAKOF</a></li>
+                                <li><a href="kopin.html">Kopin Corporation · $KOPN</a></li>
+                                <li><a href="amprius.html">Amprius Technologies · $AMPX</a></li>
+                                <li><a href="umac.html">Unusual Machines · $UMAC</a></li>
+                                <li><a href="lightpath.html">LightPath Technologies · $LPTH</a></li>
+                                <li><a href="lantronix.html">Lantronix · $LTRX</a></li>
+                                <li><a href="safepro.html">Safe Pro Group · $SPAI</a></li>
+                                <li><a href="palantir.html">Palantir Technologies · $PLTR</a></li>
+                                <li><a href="anduril.html">Anduril Industries · Private</a></li>
+                                <li><a href="pdw.html">Performance Drone Works · Private</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -58,7 +99,7 @@
     <!-- Hero -->
     <section class="hp-hero">
         <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/video/broll1.mp4" type="video/mp4">
+            <source src="assets/video/broll3.mp4" type="video/mp4">
         </video>
         <div class="hp-hero-glow"></div>
         <div class="hp-hero-content">
@@ -104,41 +145,77 @@
         </div>
     </section>
 
+    <!-- Our Focus -->
+    <section class="our-focus">
+        <h2 class="our-focus-head">Our Focus</h2>
+        <div class="our-focus-row">
+            <article class="our-focus-card">
+                <img src="assets/future.jpg" alt="Technology of Tomorrow" loading="lazy">
+                <div class="our-focus-text">
+                    <h3>Technology of Tomorrow</h3>
+                    <p>The frontier platforms reshaping how nations defend, build, and compete.</p>
+                </div>
+            </article>
+            <article class="our-focus-card">
+                <img src="assets/defense.avif" alt="Defense" loading="lazy">
+                <div class="our-focus-text">
+                    <h3>Defense</h3>
+                    <p>Drones, counter-UAS, and next-generation systems driving the modernization of Western arsenals.</p>
+                </div>
+            </article>
+            <article class="our-focus-card">
+                <img src="assets/ai.avif" alt="AI Robotics" loading="lazy">
+                <div class="our-focus-text">
+                    <h3>AI Robotics</h3>
+                    <p>Autonomy moving from prototype to production: machine vision, robotics, and the software that commands them.</p>
+                </div>
+            </article>
+            <article class="our-focus-card">
+                <img src="assets/energy.jpg" alt="Energy" loading="lazy">
+                <div class="our-focus-text">
+                    <h3>Energy</h3>
+                    <p>The power infrastructure behind it all: storage, grid resilience, and the buildout feeding compute and defense alike.</p>
+                </div>
+            </article>
+        </div>
+        <div class="our-focus-dots">
+            <button class="our-focus-dot active" aria-label="Go to card 1"></button>
+            <button class="our-focus-dot" aria-label="Go to card 2"></button>
+            <button class="our-focus-dot" aria-label="Go to card 3"></button>
+            <button class="our-focus-dot" aria-label="Go to card 4"></button>
+        </div>
+        <div class="section-link-row">
+            <a href="companies.html" class="btn btn-secondary">View All Companies →</a>
+        </div>
+    </section>
+
     <!-- Content Pillars -->
     <section class="services-section" id="content">
         <div class="section-inner">
             <span class="eyebrow">What We Do</span>
             <h2 class="display-headline">THE EDGE IS<br>ACCESS</h2>
             <div class="feature-grid">
-                <div class="feature-card fade-in">
+                <a class="feature-card fade-in" href="interviews.html">
                     <h3 class="feature-title">CEO &amp; EXECUTIVE INTERVIEWS</h3>
-                    <p>Long-form sit-downs with company leadership, CEOs, CFOs, and founders of emerging defense and tech companies. We ask the questions retail investors actually need answered.</p>
-                </div>
-                <div class="feature-card fade-in">
+                    <p>Long-form sit-downs with the CEOs, CFOs, and founders of emerging defense and tech companies.</p>
+                    <span class="feature-cta">Watch interviews →</span>
+                </a>
+                <a class="feature-card fade-in" href="earnings.html">
                     <h3 class="feature-title">EARNINGS CALL COVERAGE</h3>
-                    <p>We livestream earnings events and drop post-earnings breakdowns, highlight reels, and join retail analyst panels to dissect what actually moved the needle.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <h3 class="feature-title">TECH EXPLAINERS</h3>
-                    <p>Short-form content breaking down real-world defense and tech topics, C-UAS systems, drone-in-a-box features, autonomous systems evolution, and more.</p>
-                </div>
-                <div class="feature-card fade-in">
+                    <p>Live earnings streams, post-call breakdowns, and retail analyst panels on what actually moved the needle.</p>
+                    <span class="feature-cta">See earnings coverage →</span>
+                </a>
+                <a class="feature-card fade-in" href="livestreams.html">
+                    <h3 class="feature-title">LIVESTREAMS &amp; PANELS</h3>
+                    <p>Live coverage events, community panels, and collaborative sessions with other retail defense and tech investors.</p>
+                    <span class="feature-cta">Watch livestreams →</span>
+                </a>
+                <a class="feature-card fade-in" href="companies.html">
                     <h3 class="feature-title">M&amp;A &amp; SECTOR DEEP-DIVES</h3>
-                    <p>Detailed analysis of acquisitions, partnerships, and backlog growth. We focus on understanding the "why" behind deals, not just the headlines.</p>
-                </div>
+                    <p>Acquisitions, partnerships, and backlog growth, the "why" behind the deals, company by company.</p>
+                    <span class="feature-cta">Explore companies →</span>
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Mission Block -->
-    <section class="mission-block">
-        <video class="mission-video" muted loop playsinline preload="none" data-src="assets/video/0325.mp4">
-        </video>
-        <div class="mission-overlay"></div>
-        <div class="mission-inner fade-in">
-            <span class="eyebrow">Our Mission</span>
-            <h2 class="display-headline">FINDING SIGNALS<br>IN THE NOISE</h2>
-            <p class="mission-body">We go directly to the source, conducting structured interviews with company leadership to surface the intelligence serious investors rely on. Customer traction, competitive positioning, financial discipline, and near-term catalysts: we ask the questions that matter.</p>
         </div>
     </section>
 
@@ -147,6 +224,7 @@
         <div class="section-inner">
             <span class="eyebrow">Who We Are</span>
             <h2 class="display-headline">THE TEAM</h2>
+            <p class="section-intro">Two analysts, one mission: cut through the noise in small-cap defense and tech. The full story, our methodology, and how we work lives on the About page.</p>
             <div class="team-preview-grid">
                 <div class="team-preview-card fade-in">
                     <div class="team-preview-photo-wrap">
@@ -165,43 +243,23 @@
                     <a href="benny.html" class="bio-link">Read Bio →</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Current Focus -->
-    <section class="current-focus" id="focus">
-        <div class="section-inner focus-inner">
-            <span class="eyebrow">Current Coverage · Q1 2026</span>
-            <h2 class="display-headline">ONDAS<br>HOLDINGS</h2>
-            <div class="focus-grid fade-in">
-                <div>
-                    <p class="focus-body">Our current coverage is centered on <strong style="color: #fff;">Ondas Inc. ($ONDS)</strong>, a drone and autonomous systems company building hardware, software, and services for national security and industrial applications. We've conducted multiple in-depth interviews with CEO Eric Brock and followed the company through acquisitions, a major institutional capital raise, and a growing backlog in U.S. defense contracts.</p>
-                    <p class="focus-body">The thesis is bullish but grounded. We focus on underlying technology execution and competitive positioning, not price action or hype.</p>
-                    <a href="companies.html" class="btn btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Companies Covered</a>
-                </div>
-                <div>
-                    <div class="focus-stats">
-                        <div class="focus-stat">
-                            <div class="focus-stat-number">607%</div>
-                            <div class="focus-stat-label">YoY Revenue Growth</div>
-                        </div>
-                        <div class="focus-stat">
-                            <div class="focus-stat-number">$1B+</div>
-                            <div class="focus-stat-label">Institutional Capital Raise</div>
-                        </div>
-                        <div class="focus-stat">
-                            <div class="focus-stat-number">NATO</div>
-                            <div class="focus-stat-label">Europe &amp; Allied Exposure</div>
-                        </div>
-                        <div class="focus-stat">
-                            <div class="focus-stat-number">PLTR</div>
-                            <div class="focus-stat-label">Palantir Partnership</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-link-row">
+                <a href="about.html" class="btn btn-secondary">Meet the Full Team →</a>
             </div>
         </div>
     </section>
+
+    <!-- Follow -->
+    <section class="cta-band">
+        <span class="eyebrow">Stay Close to the Signal</span>
+        <h2 class="display-headline">FOLLOW THE<br>RESEARCH</h2>
+        <p>New interviews, earnings coverage, and breakdowns drop first on X and YouTube. Follow along.</p>
+        <div class="btn-group">
+            <a href="https://x.com/Zero_Hour_Group" class="btn btn-primary" target="_blank" rel="noopener">Follow on X</a>
+            <a href="https://www.youtube.com/@TheZeroHourGroup" class="btn btn-secondary" target="_blank" rel="noopener">Subscribe on YouTube</a>
+        </div>
+    </section>
+
 
     <!-- Merch (coming soon)
     <section class="merch-section">

@@ -1,0 +1,6 @@
+# Local dev / scratch — never deploy to the live site
+.claude/worktrees/
+.claire/
+BRAND_CONTEXT.md
+assets/video/_originals/
+generate_video.py

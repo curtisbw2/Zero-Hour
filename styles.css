@@ -13,7 +13,7 @@ html {
 }
 
 :root {
-    --primary-dark: #0a0a0a;
+    --primary-dark: #000000;
     --secondary-dark: #111111;
     --accent-navy: #111111;
     --text-light: #ffffff;
@@ -32,7 +32,7 @@ body {
 
 /* Navigation */
 nav {
-    background-color: transparent;
+    background-color: var(--primary-dark);
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     position: fixed;
     top: 0;
@@ -45,7 +45,7 @@ nav {
 }
 
 nav.nav--scrolled {
-    background-color: var(--secondary-dark);
+    background-color: #000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -152,6 +152,94 @@ nav.nav--hidden {
     color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+/* Mega dropdown (Companies Covered) */
+.mega-menu {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    position: fixed;
+    top: var(--nav-height, 114px);
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-top: 1px solid #1c1c1c;
+    padding: 3.5rem 5%;
+    gap: 5rem;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+@media (min-width: 769px) {
+    .mega-dropdown.mega-open .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+.mega-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 1.5rem;
+}
+
+.mega-desc {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    max-width: 340px;
+}
+
+.mega-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 3rem;
+}
+
+.mega-list li {
+    break-inside: avoid;
+}
+
+.mega-list li a {
+    display: block;
+    padding: 0.45rem 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.mega-list li a::before {
+    content: '+ ';
+    color: rgba(255, 255, 255, 0.3);
+    margin-right: 0.2rem;
+}
+
+.mega-list li a:hover {
+    color: var(--accent-orange);
+}
+
+.mega-list li a:hover::before {
+    color: var(--accent-orange);
+}
+
+@media (max-width: 768px) {
+    .mega-menu {
+        display: none !important;
+    }
 }
 
 /* Mobile menu toggle */
@@ -560,27 +648,10 @@ footer a:hover {
    ============================================================ */
 
 body.homepage {
-    background: #0a0a0a;
+    background: #000;
 }
 
-/* ---- Topographic Background Pattern ---- */
-.stats-bar::before,
-.services-section::before,
-.team-preview-section::before,
-.merch-section::before,
-.hp-footer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('../assets/topographic_map_pattern.png');
-    background-size: 1200px auto;
-    background-repeat: repeat;
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Ensure content inside topo sections sits above the pattern */
+/* Ensure content inside sections sits above any overlays */
 .stats-container,
 .hp-hero-glow,
 .hp-hero-content,
@@ -637,14 +708,14 @@ body.homepage {
 .homepage nav {
     position: fixed;
     width: 100%;
-    background: transparent;
-    border-bottom: 1px solid transparent;
+    background: var(--primary-dark);
+    border-bottom: 1px solid #1a1a1a;
     box-shadow: none;
     transition: background 0.4s ease, border-color 0.4s ease, transform 0.35s ease;
 }
 
 .homepage nav.nav--scrolled {
-    background: #0a0a0a;
+    background: #000;
     border-bottom: 1px solid #1a1a1a;
 }
 
@@ -656,7 +727,7 @@ body.homepage {
 
 /* ---- Stats Bar ---- */
 .stats-bar {
-    background: #0f0f0f;
+    background: #000;
     border-bottom: 1px solid #1a1a1a;
     padding: 1.75rem 2rem;
     position: relative;
@@ -716,7 +787,7 @@ body.homepage {
     justify-content: flex-end;
     text-align: left;
     padding: 5rem clamp(2rem, 8vw, 8rem) 5rem;
-    background: #0a0a0a;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
@@ -802,7 +873,7 @@ body.homepage {
 /* ---- Marquee ---- */
 .marquee-section {
     overflow: hidden;
-    background: #0f0f0f;
+    background: #000;
     border-top: 1px solid #1a1a1a;
     border-bottom: 1px solid #1a1a1a;
     padding: 1.1rem 0;
@@ -835,8 +906,7 @@ body.homepage {
 
 /* ---- Mission Block ---- */
 .mission-block {
-    background: #0a0a0a;
-    border-top: 1px solid #151515;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
@@ -878,8 +948,7 @@ body.homepage {
 
 /* ---- Feature Grid ---- */
 .services-section {
-    background: #0d0d0d;
-    border-top: 1px solid #161616;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
@@ -907,10 +976,88 @@ body.homepage {
     line-height: 1.8;
 }
 
+/* ---- Clickable content-pillar cards (route to their page) ---- */
+a.feature-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease;
+}
+
+a.feature-card:hover {
+    transform: translateY(-4px);
+}
+
+a.feature-card:hover .feature-title {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+.feature-cta {
+    display: inline-block;
+    margin-top: 1.1rem;
+    color: var(--accent-orange);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* ---- Short section intro line + centered section link ---- */
+.section-intro {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 560px;
+    margin-top: 1.5rem;
+}
+
+.section-link-row {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.team-preview-section .section-link-row {
+    text-align: left;
+}
+
+/* ---- Follow / closing CTA band ---- */
+.cta-band {
+    background: #000;
+    border-top: 1px solid #141414;
+    text-align: center;
+    padding: clamp(3.5rem, 7vw, 6rem) 2rem;
+}
+
+.cta-band .display-headline {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+}
+
+.cta-band p {
+    color: #aaa;
+    max-width: 520px;
+    margin: 0 auto 2.25rem;
+    line-height: 1.8;
+}
+
+.cta-band .btn-group {
+    justify-content: center;
+}
+
+/* ---- About: credibility stats strip ---- */
+.about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(2rem, 6vw, 4.5rem);
+    margin-bottom: 4.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
 /* ---- Team Preview ---- */
 .team-preview-section {
-    background: #0a0a0a;
-    border-top: 1px solid #151515;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
@@ -976,7 +1123,7 @@ body.homepage {
 
 /* ---- Merch Section ---- */
 .merch-section {
-    background: #0d0d0d;
+    background: #000;
     border-top: 1px solid #161616;
     position: relative;
     overflow: hidden;
@@ -1072,8 +1219,7 @@ body.homepage {
 
 /* ---- Footer (Homepage) ---- */
 .hp-footer {
-    background: #070707;
-    border-top: 1px solid #161616;
+    background: #000;
     padding: 0;
     position: relative;
     overflow: hidden;
@@ -1274,7 +1420,7 @@ body.homepage {
 
 /* ---- Page Hero (inner pages) ---- */
 .page-hero {
-    background: #0a0a0a;
+    background: #000;
     border-bottom: 1px solid #1a1a1a;
     padding: 9rem 2rem 4rem;
 }
@@ -1287,24 +1433,24 @@ body.homepage {
 /* ---- Page Hero — video background variant ---- */
 .page-hero--video {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
-    background: transparent;
+    background: #000;
 }
 
 .page-hero-video {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 0;
     opacity: 0.35;
 }
 
@@ -1657,23 +1803,31 @@ body.homepage {
 
 /* ---- Featured Interview (Homepage) ---- */
 .featured-interview {
-    background: #080808;
-    border-top: 1px solid #151515;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
 
+/* Left-align the "Latest Coverage" header block with the video below it,
+   instead of the centered max-width default — matches the Our Focus heading */
+.featured-interview > .section-inner {
+    max-width: none;
+    margin: 0;
+    padding-left: 5%;
+}
+
 .featured-interview-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.22fr;
     gap: 0;
     min-height: 520px;
+    padding-left: 5%;
 }
 
 .featured-interview-visual {
     position: relative;
     overflow: hidden;
-    background: #0a0a0a;
+    background: #000;
 }
 
 .featured-interview-thumb {
@@ -1744,59 +1898,218 @@ body.homepage {
 }
 
 .featured-interview-content {
-    padding: 4rem;
+    padding: 4rem 4rem 4rem 3.125vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #080808;
-    border-left: 1px solid #151515;
+    background: #000;
+}
+
+/* Refined, larger eyebrow for the featured block (scoped — global eyebrow unchanged) */
+.featured-interview .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.32em;
+    margin-bottom: 1.75rem;
 }
 
 .featured-interview-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-    letter-spacing: 0.03em;
-    line-height: 0.93;
+    font-size: clamp(3rem, 5.6vw, 5.5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.86;
     color: #fff;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
 }
 
 .featured-interview-subject {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
+    font-size: 0.76rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 1.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 520px;
+    margin: 0 0 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     display: block;
 }
 
 .featured-interview-desc {
-    font-size: 0.92rem;
-    color: #aaa;
-    line-height: 1.85;
-    max-width: 440px;
-    margin-bottom: 2.25rem;
+    font-size: clamp(1.02rem, 1.05vw, 1.18rem);
+    color: rgba(255, 255, 255, 0.64);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 2.75rem;
+}
+
+.featured-interview .btn {
+    padding: 1.05rem 2.6rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* ---- Our Focus Carousel ---- */
+.our-focus {
+    background: #000;
+    color: #fff;
+    padding: clamp(3rem, 6vw, 7rem) 0 clamp(2.5rem, 5vw, 6rem);
+    overflow: hidden;
+    position: relative;
+}
+
+.our-focus-head {
+    margin: 0 3.125vw 4.4vw;
+    position: relative;
+    z-index: 1;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8vw;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.our-focus-row {
+    display: flex;
+    gap: 3.5vw;
+    padding: 0 0 0 3.125vw;
+    scroll-padding-left: 3.125vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+.our-focus-row.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+}
+
+.our-focus-row::-webkit-scrollbar { display: none; }
+
+.our-focus-card {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 3.125vw;
+    scroll-snap-align: start;
+}
+
+.our-focus-card img {
+    width: 44.6vw;
+    aspect-ratio: 1.45 / 1;
+    object-fit: cover;
+    display: block;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.our-focus-text {
+    width: 19.3vw;
+    padding-top: 8.4vw;
+}
+
+.our-focus-card h3 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 400;
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.our-focus-card p {
+    margin: 1.35vw 0 0;
+    font-size: 1.125vw;
+    line-height: 1.33;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.our-focus-dots {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40vw;
+    margin: 5.5vw auto 0;
+}
+
+.our-focus-dots::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.our-focus-dot {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.our-focus-dot.active {
+    background: var(--accent-orange);
+    transform: scale(1.45);
+}
+
+@media (max-width: 1099px) {
+    .our-focus-head {
+        font-size: 13.3vw;
+        white-space: normal;
+        margin: 0 5.2vw 7.3vw;
+    }
+    .our-focus-row {
+        gap: 5.2vw;
+        padding: 0 0 0 5.2vw;
+        scroll-padding-left: 5.2vw;
+    }
+    .our-focus-card {
+        flex: 0 0 78vw;
+        display: block;
+    }
+    .our-focus-card img {
+        width: 100%;
+        aspect-ratio: 1.44 / 1;
+        margin-bottom: 24px;
+    }
+    .our-focus-text {
+        width: auto;
+        padding-top: 0;
+    }
+    .our-focus-card h3 {
+        font-size: clamp(22px, 3.33vw, 40px);
+        text-transform: none;
+    }
+    .our-focus-card p {
+        margin-top: 16px;
+        font-size: 15px;
+        max-width: 36ch;
+    }
+    .our-focus-dots {
+        width: 70vw;
+    }
 }
 
 /* ---- Current Focus (Homepage) ---- */
 .current-focus {
-    background: #0d0d0d;
-    border-top: 1px solid #161616;
+    background: #000;
     position: relative;
     overflow: hidden;
 }
 
-.current-focus::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('assets/topographic_map_pattern.png');
-    background-size: 1200px auto;
-    background-repeat: repeat;
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 0;
-}
 
 .focus-inner {
     position: relative;
@@ -1858,7 +2171,7 @@ body.homepage {
 
 /* ---- Content Card Grid (interviews, earnings, livestreams) ---- */
 .content-page-section {
-    background: #0a0a0a;
+    background: #000;
 }
 
 .content-grid {
@@ -2168,7 +2481,7 @@ body.homepage {
 
 /* ---- Contact Page ---- */
 .contact-section {
-    background: #0a0a0a;
+    background: #000;
 }
 
 .contact-grid {

@@ -11,6 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zero Hour Group">
+    <meta property="og:title" content="Companies Covered, Zero Hour Group">
+    <meta property="og:description" content="Browse the portfolio of defense and tech companies researched and covered by Zero Hour Group.">
+    <meta property="og:url" content="https://thezerohourgroup.com/companies.html">
+    <meta property="og:image" content="https://thezerohourgroup.com/assets/images/og-default.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Companies Covered, Zero Hour Group">
+    <meta name="twitter:description" content="Browse the portfolio of defense and tech companies researched and covered by Zero Hour Group.">
+    <meta name="twitter:image" content="https://thezerohourgroup.com/assets/images/og-default.jpg">
 </head>
 <body>
 
@@ -24,20 +36,29 @@
                 <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="companies.html" class="nav-link" onclick="toggleDropdown(event)">Companies Covered ▾</a>
-                    <div class="dropdown-content">
-                        <a href="ondas.html">Ondas Inc. · $ONDS</a>
-                        <a href="volatus.html">Volatus Aerospace · $TAKOF</a>
-                        <a href="kopin.html">Kopin Corporation · $KOPN</a>
-                        <a href="amprius.html">Amprius Technologies · $AMPX</a>
-                        <a href="umac.html">Unusual Machines · $UMAC</a>
-                        <a href="lightpath.html">LightPath Technologies · $LPTH</a>
-                        <a href="lantronix.html">Lantronix · $LTRX</a>
-                        <a href="safepro.html">Safe Pro Group · $SPAI</a>
-                        <a href="palantir.html">Palantir Technologies · $PLTR</a>
-                        <a href="anduril.html">Anduril Industries · Private</a>
-                        <a href="pdw.html">Performance Drone Works · Private</a>
+                <li class="nav-item mega-dropdown">
+                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                    <div class="mega-menu">
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <p class="mega-desc">Small-cap and micro-cap defense and technology companies we actively track — from C-UAS and autonomous systems to ISR and adjacent emerging sectors.</p>
+                        </div>
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <ul class="mega-list">
+                                <li><a href="ondas.html">Ondas Inc. · $ONDS</a></li>
+                                <li><a href="volatus.html">Volatus Aerospace · $TAKOF</a></li>
+                                <li><a href="kopin.html">Kopin Corporation · $KOPN</a></li>
+                                <li><a href="amprius.html">Amprius Technologies · $AMPX</a></li>
+                                <li><a href="umac.html">Unusual Machines · $UMAC</a></li>
+                                <li><a href="lightpath.html">LightPath Technologies · $LPTH</a></li>
+                                <li><a href="lantronix.html">Lantronix · $LTRX</a></li>
+                                <li><a href="safepro.html">Safe Pro Group · $SPAI</a></li>
+                                <li><a href="palantir.html">Palantir Technologies · $PLTR</a></li>
+                                <li><a href="anduril.html">Anduril Industries · Private</a></li>
+                                <li><a href="pdw.html">Performance Drone Works · Private</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -74,7 +95,7 @@
         <div class="company-grid">
 
             <!-- Ondas Inc. -->
-            <div id="ondas" class="company-card fade-in">
+            <div id="ondas" class="company-card fade-in" data-href="ondas.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/ondas.jpg" alt="Ondas Inc.">
@@ -93,7 +114,7 @@
             </div>
 
             <!-- Volatus Aerospace -->
-            <div id="volatus" class="company-card fade-in">
+            <div id="volatus" class="company-card fade-in" data-href="volatus.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/volatus.jpg" alt="Volatus Aerospace">
@@ -111,7 +132,7 @@
             </div>
 
             <!-- Kopin Corporation -->
-            <div id="kopin" class="company-card fade-in">
+            <div id="kopin" class="company-card fade-in" data-href="kopin.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/kopin_logo.jpg" alt="Kopin Corporation">
@@ -129,7 +150,7 @@
             </div>
 
             <!-- Amprius Technologies -->
-            <div id="ampirus" class="company-card fade-in">
+            <div id="ampirus" class="company-card fade-in" data-href="amprius.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/ampirus_logo.jpg" alt="Amprius Technologies">
@@ -147,7 +168,7 @@
             </div>
 
             <!-- Unusual Machines -->
-            <div id="umac" class="company-card fade-in">
+            <div id="umac" class="company-card fade-in" data-href="umac.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/umac-logo.png" alt="Unusual Machines">
@@ -165,7 +186,7 @@
             </div>
 
             <!-- LightPath Technologies -->
-            <div id="lightpath" class="company-card fade-in">
+            <div id="lightpath" class="company-card fade-in" data-href="lightpath.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/lightpath-logo.jpeg" alt="LightPath Technologies">
@@ -183,7 +204,7 @@
             </div>
 
             <!-- Lantronix -->
-            <div id="lantronix" class="company-card fade-in">
+            <div id="lantronix" class="company-card fade-in" data-href="lantronix.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/lantronix-logo.png" alt="Lantronix">
@@ -201,7 +222,7 @@
             </div>
 
             <!-- Safe Pro Group -->
-            <div id="safepro" class="company-card fade-in">
+            <div id="safepro" class="company-card fade-in" data-href="safepro.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/safepro.jpg" alt="Safe Pro Group">
@@ -219,7 +240,7 @@
             </div>
 
             <!-- Palantir Technologies -->
-            <div id="palantir" class="company-card fade-in">
+            <div id="palantir" class="company-card fade-in" data-href="palantir.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/palantir-logo.jpeg" alt="Palantir Technologies">
@@ -237,7 +258,7 @@
             </div>
 
             <!-- Anduril Industries -->
-            <div id="anduril" class="company-card fade-in">
+            <div id="anduril" class="company-card fade-in" data-href="anduril.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/anduril-logo.jpeg" alt="Anduril Industries">
@@ -255,7 +276,7 @@
             </div>
 
             <!-- Performance Drone Works -->
-            <div id="pdw" class="company-card fade-in">
+            <div id="pdw" class="company-card fade-in" data-href="pdw.html">
                 <div class="company-card-header">
                     <div class="company-logo-placeholder">
                         <img src="assets/pdw-logo.jpeg" alt="Performance Drone Works">
