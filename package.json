@@ -1,0 +1,8 @@
+{
+  "name": "zhg-guest-pipeline",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.109.0",
+    "@netlify/blobs": "^10.7.9"
+  }
+}

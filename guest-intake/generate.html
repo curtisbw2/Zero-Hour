@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ZHG Announcement Generator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #000000; --card-bg: #111111; --border: #1f1f1f;
+    --orange: #f97316; --orange-dim: #1c0a00; --orange-bdr: #7c2d12;
+    --text: #f9fafb; --sub: #6b7280; --item: #d1d5db;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', 'Segoe UI', sans-serif; padding: 40px 24px 60px; min-height: 100vh; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  .label-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 8px var(--orange); }
+  .label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+  h1 { font-size: 22px; text-align: center; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: var(--sub); margin-bottom: 32px; text-align: center; }
+
+  .section-hdr {
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--orange); margin: 28px 0 14px;
+    padding-bottom: 8px; border-bottom: 1px solid #1a1a1a;
+  }
+
+  .field-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+  .field-label { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .field-hint { font-size: 11px; color: var(--sub); margin-bottom: 10px; line-height: 1.5; }
+
+  input[type="text"], textarea {
+    width: 100%; background: #0d0d0d; border: 1px solid #2a2a2a;
+    border-radius: 6px; color: var(--text); font-family: inherit;
+    font-size: 13px; padding: 9px 12px; outline: none; transition: border-color .15s;
+  }
+  input[type="text"]:focus, textarea:focus { border-color: var(--orange); }
+  input::placeholder, textarea::placeholder { color: #3a3a3a; }
+  textarea { resize: vertical; min-height: 70px; line-height: 1.55; }
+
+  /* Guest summary */
+  .guest-row { display: flex; gap: 12px; margin-bottom: 8px; }
+  .guest-key { flex: 0 0 90px; font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: .08em; padding-top: 2px; }
+  .guest-val { font-size: 13px; color: var(--item); line-height: 1.55; white-space: pre-wrap; }
+  .guest-val a { color: var(--orange); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: #000; font-weight: 600; font-size: 13px;
+    border: none; border-radius: 8px; padding: 11px 22px; cursor: pointer;
+    font-family: inherit; transition: opacity .15s;
+  }
+  .btn:hover { opacity: .88; }
+  .btn:disabled { opacity: .35; cursor: default; }
+  .btn-ghost {
+    background: #0d0d0d; color: var(--item); border: 1px solid #2a2a2a;
+  }
+  .btn-ghost:hover { border-color: var(--orange); opacity: 1; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+
+  /* Draft */
+  #draft { min-height: 380px; font-size: 13.5px; }
+  .status { font-size: 12px; color: var(--sub); margin-top: 8px; min-height: 16px; }
+  .status.working { color: var(--orange); }
+
+  .edit-row { display: flex; gap: 10px; margin-top: 10px; }
+  .edit-row input { flex: 1; }
+
+  .error-card {
+    background: var(--orange-dim); border: 1px solid var(--orange-bdr);
+    border-radius: 10px; padding: 24px; text-align: center; font-size: 14px; color: var(--item);
+  }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label-row"><div class="dot"></div><div class="label">Internal &middot; The Zero Hour Group</div></div>
+  <h1>Announcement Generator</h1>
+  <div class="subtitle">Sunday Night Live guest announcements</div>
+
+  <div id="load-error" class="error-card hidden"></div>
+
+  <div id="app" class="hidden">
+
+    <div class="section-hdr">Guest intake</div>
+    <div class="field-card" id="guest-card"></div>
+
+    <div class="section-hdr">Show details</div>
+    <div class="field-hint" style="margin:-6px 0 14px">Everything below is optional — fill in whatever you have and the AI writes around the gaps.</div>
+    <div class="field-card">
+      <div class="field-label">Date</div>
+      <input type="text" id="show-date" placeholder="e.g. Sunday, July 6" />
+    </div>
+    <div class="field-card">
+      <div class="field-label">Time</div>
+      <input type="text" id="show-time" value="8:30 PM EDT" />
+    </div>
+    <div class="field-card">
+      <div class="field-label">Co-host situation</div>
+      <div class="field-hint">Who's co-hosting, who's out, anything worth a shout-out</div>
+      <input type="text" id="show-cohost" placeholder="e.g. JT is back from vacation" />
+    </div>
+    <div class="field-card">
+      <div class="field-label">Topics</div>
+      <div class="field-hint">What the show will cover with this guest</div>
+      <textarea id="show-topics"></textarea>
+    </div>
+    <div class="field-card">
+      <div class="field-label">Milestones / announcements</div>
+      <div class="field-hint">Anything to hype: simulstream firsts, podcast drops, view milestones...</div>
+      <textarea id="show-milestones"></textarea>
+    </div>
+    <div class="field-card">
+      <div class="field-label">Stream links</div>
+      <textarea id="show-links">https://thezerohourgroup.com/live</textarea>
+    </div>
+    <div class="field-card">
+      <div class="field-label">Extra notes</div>
+      <textarea id="show-notes" style="min-height:50px"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="btn-generate">Generate announcement</button>
+    </div>
+
+    <div id="draft-section" class="hidden">
+      <div class="section-hdr">Draft</div>
+      <div class="field-card">
+        <div class="field-hint">Edit directly in the box, or select a passage and give the AI a targeted instruction below.</div>
+        <textarea id="draft" spellcheck="false"></textarea>
+        <div class="edit-row">
+          <input type="text" id="edit-instruction" placeholder="e.g. make the guest intro funnier / fix the time to 9 PM" />
+          <button class="btn btn-ghost" id="btn-edit">AI edit</button>
+        </div>
+        <div class="status" id="status"></div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn btn-ghost" id="btn-regenerate">Regenerate</button>
+          <button class="btn" id="btn-copy">Copy announcement</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const FN = "/.netlify/functions";
+  const token = new URLSearchParams(location.search).get("token");
+
+  const $ = (id) => document.getElementById(id);
+  const app = $("app"), loadError = $("load-error");
+  const draft = $("draft"), statusEl = $("status");
+  const btnGenerate = $("btn-generate"), btnRegenerate = $("btn-regenerate");
+  const btnEdit = $("btn-edit"), btnCopy = $("btn-copy");
+
+  let busy = false;
+
+  function fail(msg) {
+    loadError.textContent = msg;
+    loadError.classList.remove("hidden");
+  }
+
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = s == null ? "" : String(s);
+    return d.innerHTML;
+  }
+
+  function guestRow(key, val, isLink) {
+    if (!val) return "";
+    const v = isLink
+      ? '<a href="' + esc(val) + '" target="_blank" rel="noopener">' + esc(val) + "</a>"
+      : esc(val);
+    return '<div class="guest-row"><div class="guest-key">' + key +
+           '</div><div class="guest-val">' + v + "</div></div>";
+  }
+
+  async function init() {
+    if (!token) return fail("No token in the URL. Use the link from the intake email.");
+    let res;
+    try {
+      res = await fetch(FN + "/get-guest?token=" + encodeURIComponent(token));
+    } catch {
+      return fail("Could not reach the server. Try again in a minute.");
+    }
+    if (res.status === 410) return fail("This intake link has expired (links last 7 days).");
+    if (!res.ok) return fail("Intake not found. Check that you used the full link from the email.");
+
+    const record = await res.json();
+    const g = record.guest;
+    $("guest-card").innerHTML =
+      guestRow("Name", g.preferred_name) +
+      guestRow("Camera", g.appearance_format + (g.off_camera_info ? " — " + g.off_camera_info : "")) +
+      guestRow("Bio", g.bio) +
+      guestRow("More info", g.additional_info) +
+      guestRow("Logo", g.logo_url, true) +
+      guestRow("Submitted", new Date(record.createdAt).toLocaleString());
+    app.classList.remove("hidden");
+  }
+
+  function showPayload() {
+    return {
+      date: $("show-date").value.trim(),
+      time: $("show-time").value.trim(),
+      cohost: $("show-cohost").value.trim(),
+      topics: $("show-topics").value.trim(),
+      milestones: $("show-milestones").value.trim(),
+      links: $("show-links").value.trim(),
+      notes: $("show-notes").value.trim(),
+    };
+  }
+
+  function setBusy(on, msg) {
+    busy = on;
+    [btnGenerate, btnRegenerate, btnEdit, btnCopy].forEach((b) => (b.disabled = on));
+    statusEl.textContent = msg || "";
+    statusEl.classList.toggle("working", on);
+  }
+
+  async function run(body, intoEl) {
+    setBusy(true, "Writing" + "…");
+    intoEl.value = "";
+    try {
+      const res = await fetch(FN + "/generate-announcement", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "HTTP " + res.status);
+      }
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        intoEl.value += decoder.decode(value, { stream: true });
+        intoEl.scrollTop = intoEl.scrollHeight;
+      }
+      setBusy(false, "Done. Edit away or regenerate.");
+    } catch (e) {
+      setBusy(false, "Failed: " + e.message);
+    }
+  }
+
+  function generate() {
+    $("draft-section").classList.remove("hidden");
+    $("draft-section").scrollIntoView({ behavior: "smooth", block: "start" });
+    run({ token, mode: "generate", show: showPayload() }, draft);
+  }
+
+  btnGenerate.addEventListener("click", generate);
+  btnRegenerate.addEventListener("click", generate);
+
+  btnEdit.addEventListener("click", () => {
+    if (busy) return;
+    const instruction = $("edit-instruction").value.trim();
+    if (!instruction) { statusEl.textContent = "Type an edit instruction first."; return; }
+    if (!draft.value.trim()) { statusEl.textContent = "Generate a draft first."; return; }
+    const selection = draft.value.substring(draft.selectionStart, draft.selectionEnd).trim();
+    const current = draft.value;
+    run(
+      { token, mode: "edit", show: showPayload(), draft: current, selection: selection || undefined, instruction },
+      draft
+    ).then(() => { $("edit-instruction").value = ""; });
+  });
+
+  btnCopy.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(draft.value);
+    statusEl.textContent = "Copied to clipboard.";
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>

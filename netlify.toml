@@ -1,0 +1,9 @@
+[build]
+  publish = "guest-intake"
+  functions = "netlify/functions"
+
+# /generate?token=... -> generate.html
+[[redirects]]
+  from = "/generate"
+  to = "/generate.html"
+  status = 200

@@ -1,4 +1,6 @@
 # Local dev / scratch — never deploy to the live site
+node_modules/
+.netlify/
 .claude/worktrees/
 .claire/
 BRAND_CONTEXT.md
