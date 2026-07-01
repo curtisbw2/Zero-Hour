@@ -160,7 +160,7 @@
     Go to formspree.io → New Form → set email to info@thezerohourgroup.com
     Free tier supports file uploads and sends to any email.
   -->
-  <form id="intake-form" name="guest-intake" method="POST" data-netlify="true" enctype="multipart/form-data" action="?success">
+  <form id="intake-form" name="guest-intake" method="POST" data-netlify="true" enctype="multipart/form-data" action="/success.html">
       <input type="hidden" name="form-name" value="guest-intake" />
 
     <!-- SECTION 1: IDENTITY -->
@@ -272,12 +272,6 @@
 </div>
 
 <script>
-    // Show success state if redirected back after Netlify form submission
-  if (window.location.search.includes('success')) {
-    document.getElementById('intake-form').style.display = 'none';
-    document.getElementById('success-state').classList.add('visible');
-  }
-
   function selectAppearance(el, val) {
     document.querySelectorAll('#appearance-row .choice-btn').forEach(b => b.classList.remove('selected'));
     el.classList.add('selected');
@@ -309,7 +303,7 @@
     c.classList.toggle('warn', n > max * .85);
   }
 
-  document.getElementById('intake-form').addEventListener('submit', function(e) {
+  document.getElementById('intake-form').addEventListener('submit', function() {
     const btn = document.getElementById('submit-btn');
     btn.textContent = 'Sending...';
     btn.disabled = true;
