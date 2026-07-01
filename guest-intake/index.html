@@ -160,7 +160,8 @@
     Go to formspree.io → New Form → set email to info@thezerohourgroup.com
     Free tier supports file uploads and sends to any email.
   -->
-  <form id="intake-form" action="https://formspree.io/f/xnjkggok" method="POST" enctype="multipart/form-data">
+  <form id="intake-form" name="guest-intake" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="guest-intake" />
 
     <!-- SECTION 1: IDENTITY -->
     <div class="section-hdr">Who are you?</div>
