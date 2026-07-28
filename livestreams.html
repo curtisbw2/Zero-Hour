@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -153,6 +153,9 @@
             <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
+                    <a href="articles.html" class="nav-link">Articles</a>
+                </li>
+                <li class="nav-item">
                     <a href="interviews.html" class="nav-link">Interviews</a>
                 </li>
                 <li class="nav-item mega-dropdown">
@@ -187,6 +190,9 @@
                     <a href="livestreams.html" class="nav-link">Livestreams</a>
                 </li>
                 <li class="nav-item">
+                    <a href="sunday-night-live.html" class="nav-link">Podcast</a>
+                </li>
+                <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
@@ -197,11 +203,19 @@
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero page-hero--video">
+        <video class="page-hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/video/drone-swarm.mp4" type="video/mp4">
+        </video>
         <div class="page-hero-inner">
-            <span class="eyebrow">Resources · Zero Hour Group</span>
             <h1 class="page-hero-title">LIVESTREAM<br>RECORDINGS</h1>
-            <p style="color: #999; font-size: 0.9rem; letter-spacing: 0.06em; margin-top: 1rem; max-width: 580px;">Full recordings of our defense and drone stock livestreams — <a href="earnings.html" style="color:#ccc;">earnings coverage</a>, market previews, and collaborative panels on the <a href="companies.html" style="color:#ccc;">companies we cover</a>, alongside our <a href="interviews.html" style="color:#ccc;">CEO interviews</a>.</p>
+        </div>
+    </section>
+
+    <!-- Page Intro -->
+    <section class="page-intro">
+        <div class="page-intro-inner">
+            <p class="page-intro-desc">Full recordings of our defense and drone stock livestreams — <a href="earnings.html" style="color:#ccc;">earnings coverage</a>, market previews, and collaborative panels on the <a href="companies.html" style="color:#ccc;">companies we cover</a>, alongside our <a href="interviews.html" style="color:#ccc;">CEO interviews</a>.</p>
         </div>
     </section>
 

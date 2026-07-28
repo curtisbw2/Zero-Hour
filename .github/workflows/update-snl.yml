@@ -1,0 +1,29 @@
+name: Update Sunday Night Live
+
+on:
+  schedule:
+    # Monday 14:00 UTC (~9-10am ET), after the Sunday night show is uploaded
+    - cron: '0 14 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Pull new episodes from YouTube RSS
+        run: node scripts/update-snl.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "zhg-snl-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add sunday-night-live.html scripts/snl-episodes.json
+          git diff --cached --quiet && echo "No changes" || (git commit -m "Auto-update Sunday Night Live episodes" && git push)
