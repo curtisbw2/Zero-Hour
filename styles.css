@@ -2479,6 +2479,20 @@ a.feature-card:hover .feature-title {
     object-fit: contain;
 }
 
+.company-desc a {
+    color: var(--accent-orange);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(240, 112, 32, 0.4);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.company-desc a:hover {
+    color: #ff8c42;
+    text-decoration-color: #ff8c42;
+}
+
 .company-ticker {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
