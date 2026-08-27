@@ -186,16 +186,22 @@
         });
     });
 
-    // Mega dropdown: show on link hover, hide on link-leave (with grace) or panel-leave
-    const megaDropdown = nav.querySelector('.mega-dropdown');
-    const megaLink = megaDropdown && megaDropdown.querySelector('.nav-link');
-    const megaMenu = megaDropdown && megaDropdown.querySelector('.mega-menu');
+    // Mega dropdowns: show on link hover, hide on link-leave (with grace) or panel-leave.
+    // Opening one closes the others so two panels never overlap.
+    const megaDropdowns = Array.from(nav.querySelectorAll('.mega-dropdown'));
 
-    if (megaDropdown && megaLink && megaMenu) {
+    megaDropdowns.forEach(function (megaDropdown) {
+        const megaLink = megaDropdown.querySelector('.nav-link');
+        const megaMenu = megaDropdown.querySelector('.mega-menu');
+        if (!megaLink || !megaMenu) return;
+
         let hideTimer = null;
 
         function openMega() {
             clearTimeout(hideTimer);
+            megaDropdowns.forEach(function (d) {
+                if (d !== megaDropdown) d.classList.remove('mega-open');
+            });
             megaDropdown.classList.add('mega-open');
         }
 
@@ -213,7 +219,7 @@
         megaLink.addEventListener('mouseleave', scheduleClose);
         megaMenu.addEventListener('mouseenter', openMega);
         megaMenu.addEventListener('mouseleave', closeMega);
-    }
+    });
 })();
 
 // Click-to-play YouTube facade (.yt-lite): thumbnail + play chip until clicked,

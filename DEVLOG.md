@@ -99,6 +99,47 @@ Stats bar → Hero (b-roll video bg) → Services feature grid → Team preview 
 - Typography/layout PDW-style updates (left-align hero, bigger headlines, stroke text) — started discussion, not yet implemented
 - Consider numbered article cards for future "news/reports" section
 
+### 2026-08-12 — Featured Companies + Powerus x ZHG page
+
+**Context:** Benny pitching Powerus (head of marketing, Michael) today. If it lands, Powerus becomes our first paid "featured company." Beta-only for now — NOT pushed to prod.
+
+**Nav (all 27 pages incl. articles/):**
+- Renamed "Companies Covered" → "Covered Companies" (nav link, mega labels, breadcrumb JSON-LD, companies.html hero)
+- New "Featured Companies" mega-dropdown to its right — one big showcase card (POWERUS in 4.2rem Bebas) instead of a list, since there's only one company
+- `site.js` mega-dropdown handler generalized from first-match to all `.mega-dropdown`s; opening one closes the other
+
+**New page `powerus.html`** (from company-page template):
+- Hero: "POWERUS x ZHG" per Benny's spec
+- Interviews: Ziv Marom co-founder interview (6ScZcTfHSic, was on YT but never on the site) + CDA Summit Part 2 (0DInzJZentU)
+- Shorts: new `.shorts-row` / `.short-embed` CSS — horizontal scroll-snap rail of 9:16 rounded phone frames; first short HbdNL0cjam0
+- Articles + Earnings sections present but `display:none` until content exists
+- Logo is a placeholder (fa-bolt) — need real Powerus logo asset
+
+**Deployed to beta** (zhg-beta-preview.pages.dev) via wrangler. Note: stage must also exclude nested `assets/video/_originals/` (25.1MB broll4.mp4 breaks the 25MB Pages limit).
+
+**Round 2 (same day, Bucky feedback):**
+- Hero → just "POWERUS"; dropped CDA Summit card (Ziv interview only); removed "Featured Company" labels from intro line + sector tag
+- Nav now guaranteed one line: full-width container (logo flush left), `white-space: nowrap`, 0.92rem links; tighter 1025–1280px squeeze block; **hamburger breakpoint moved 768 → 1024** (nav rules split out of the old 768 media block; mega-menu + dropdown breakpoints aligned to 1024/1025)
+- `.company-desc a` styled: bold white + underline, orange on hover (was default blue/purple)
+
+**Round 3 (same day, Powerus media drop at D:\buckyy\zero_hour\broll\powerus\):**
+- Hero: 15s clip of tandem_defense_hero.mov (ffmpeg trim → assets/video/powerus-hero.mp4, 1.4MB) + white-text Powerus logo (`.page-hero-brand`, generated from powerus-logo-dark.png via PIL — dark pixels → white, orange knot kept; also knot-only powerus-icon.png for the overview box, replacing the bolt placeholder)
+- New PLATFORMS section from the 10 spec PDFs, grouped by division: Kaizen™ Aerospace (xFold Spy/Travel/Cinema/Dragon/DragonH500/DragonH1000 cards with compressed stills + xNav AI callout) and Agile Autonomy (Blue Sky, Blue Sky Horizon, Ghost Layer - no stills, text cards). Every card links its spec PDF (copied to assets/powerus/specs/, ~14MB total)
+- Unused broll assets available for later: matrix-* stills (no specs yet), tandem/agile/kaizen sub-brand logos, 3 more videos (powerus_hero_drone.mp4, kaizen_xfold_dragon.mov, agile AI-generated one)
+
+**Round 4 (same day): first Powerus article imported.** JT's paywalled Hidden Gems piece ("This Tiny Drone Holdings Company Has Big Ties To The White House", Aug 3) republished natively as articles/powerus-white-house-ties.html — JT owns HGR, per Bucky all HGR branding stripped (intro line reworked, subscribe/share widgets dropped, byline JT, disclosure kept). Source: Bucky's PDF export (D:\downloads\), text+images extracted via pypdf (no poppler on this machine). 6 images self-hosted under assets/articles/powerus-white-house-ties/. Card added to top of articles.html; powerus.html Articles card now links locally; sitemap updated. NOTE: livestreams.html still names Hidden Gems Research in collab stream titles (actual YouTube titles) — left as-is deliberately.
+
+**Round 5 (same day): sizing + pitch lockdown.**
+- powerus.html type scale up: section labels (PLATFORMS/INTERVIEWS/SHORTS/ARTICLES/EARNINGS) 1.5→2.1rem, brand headings 1.15→1.6rem, overview knot 120→170px, POWERUS ticker 1.8→3rem
+- **PITCH LOCKDOWN** on powerus.html + articles/powerus-white-house-ties.html: `<body class="page-locked">` + marked style/script block in each head. Only clickable: spec PDFs, YouTube links, the article, and powerus.html itself (nav Featured Companies, kicker links). Footer YouTube icon stays live (matches youtube allowlist); Instagram/X/TikTok, all other nav, breadcrumb (hidden), and overview cross-links (de-styled to plain text) are dead. CSS pointer-events + capture-phase click handler backstop.
+- ⚠️ REMOVE THE LOCKDOWN BEFORE PROD: delete the marked block + body class in both files (instructions in the comment).
+
+**Round 6 (same day): mobile overview + OG card.**
+- Overview sizing moved from inline styles to a `.powerus-overview-header` page style block: desktop 170px knot / 3rem ticker, vertically centered; ≤768px scales to 86px / 1.85rem so each text line stacks like desktop
+- Link-preview card: new assets/powerus/og-card.jpg (1200x630, white-text logo on black, PIL-composed); og:image/twitter:image now point at it. ⚠️ URL is absolute to zhg-beta-preview.pages.dev for the pitch share — swap to thezerohourgroup.com at prod time (comment in head)
+
+**Pending:** Benny's sign-off on overview blurb (mentions $30M UMAC investment + Aureus Greenway/PUSA merger), whether Ziv interview also goes on interviews.html, what the Matrix line is (stills but no specs — article confirms Matrix-T is Tandem Defense's FPV target drone).
+
 ---
 
 ## Notes

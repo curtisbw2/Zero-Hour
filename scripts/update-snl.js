@@ -29,8 +29,8 @@ function fmtDate(iso) {
 }
 
 function autoDesc(description) {
-  // First ~2 sentences, capped near 280 chars.
-  const text = description.replace(/\s+/g, ' ').trim();
+  // First ~2 sentences, capped near 280 chars. House style: no em dashes.
+  const text = description.replace(/\s*—\s*/g, ' - ').replace(/\s+/g, ' ').trim();
   const sentences = text.split(/(?<=[.!?])\s+/);
   let out = '';
   for (const s of sentences) {
@@ -72,10 +72,14 @@ async function main() {
 
   episodes.sort((a, b) => new Date(b.published) - new Date(a.published));
 
+  // hidden: true keeps an entry in the json (so it isn't re-added from the feed)
+  // without rendering it — used for duplicate/raw-VOD uploads.
+  const shown = episodes.filter(e => !e.hidden);
+
   // Click-to-play facade (.yt-lite, loader in site.js) instead of a direct
   // YouTube iframe - no red YouTube button until the viewer clicks.
   const thumbs = {};
-  await Promise.all(episodes.map(async e => {
+  await Promise.all(shown.map(async e => {
     try {
       const r = await fetch(`https://i.ytimg.com/vi/${e.videoId}/maxresdefault.jpg`, { method: 'HEAD' });
       thumbs[e.videoId] = r.ok
@@ -86,7 +90,7 @@ async function main() {
     }
   }));
 
-  const cards = episodes.map(e => `
+  const cards = shown.map(e => `
             <div class="content-card fade-in">
                 <div class="content-card-thumb video-embed yt-lite" data-id="${e.videoId}" data-title="${esc(e.title)}">
                     <img src="${thumbs[e.videoId]}" alt="${esc(e.title)}" loading="lazy">
@@ -102,7 +106,7 @@ async function main() {
             </div>
 `).join('');
 
-  const schemas = episodes.map(e => `    <script type="application/ld+json">
+  const schemas = shown.map(e => `    <script type="application/ld+json">
 ${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'VideoObject',

@@ -33,7 +33,7 @@ body {
 /* Navigation */
 nav {
     background-color: var(--primary-dark);
-    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -54,7 +54,7 @@ nav.nav--hidden {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -76,13 +76,14 @@ nav.nav--hidden {
     height: 98px;
     width: auto;
     display: block;
-    transform: translate(-16px, 4px);
+    transform: translate(8px, 4px);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    flex-wrap: nowrap;
+    gap: 1.4rem;
 }
 
 .nav-item {
@@ -93,11 +94,29 @@ nav.nav--hidden {
     color: var(--text-light);
     text-decoration: none;
     padding: 0.5rem 0;
+    font-size: 0.92rem;
+    white-space: nowrap;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
     color: var(--accent-orange);
+}
+
+/* Mid-size screens: tighten the nav so all items stay on one line */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .nav-menu {
+        gap: 0.9rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .nav-logo {
+        height: 72px;
+        transform: translate(6px, 3px);
+    }
 }
 
 /* Dropdown */
@@ -120,7 +139,7 @@ nav.nav--hidden {
 }
 
 /* Desktop only: show dropdown on hover */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .dropdown:hover .dropdown-content {
         display: block;
     }
@@ -173,7 +192,7 @@ nav.nav--hidden {
     transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .mega-dropdown.mega-open .mega-menu {
         opacity: 1;
         visibility: visible;
@@ -236,10 +255,68 @@ nav.nav--hidden {
     color: var(--accent-orange);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .mega-menu {
         display: none !important;
     }
+}
+
+/* Featured Companies mega dropdown - one big showcase card */
+.mega-featured-card {
+    display: block;
+    max-width: 620px;
+    padding: 2.75rem 3rem;
+    border: 1px solid #1c1c1c;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0) 65%);
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.mega-featured-card:hover {
+    border-color: var(--accent-orange);
+}
+
+.mega-featured-eyebrow {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 1.1rem;
+}
+
+.mega-featured-name {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.2rem;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    color: #ffffff;
+}
+
+.mega-featured-sub {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 0.9rem;
+}
+
+.mega-featured-cta {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-top: 1.6rem;
+    transition: transform 0.25s ease;
+}
+
+.mega-featured-card:hover .mega-featured-cta {
+    transform: translateX(4px);
 }
 
 /* Mobile menu toggle */
@@ -579,7 +656,8 @@ footer a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* Nav collapses to the hamburger menu at 1024px — ten items don't fit a row below that */
+@media (max-width: 1024px) {
     .menu-toggle {
         display: block;
     }
@@ -612,6 +690,7 @@ footer a:hover {
     .nav-link {
         display: block;
         padding: 1rem;
+        font-size: 1rem;
     }
 
     .dropdown-content {
@@ -624,7 +703,9 @@ footer a:hover {
     .dropdown.active .dropdown-content {
         display: block;
     }
+}
 
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 1.75rem;
     }
@@ -1547,6 +1628,13 @@ a.feature-card:hover .feature-title {
     z-index: 1;
 }
 
+/* Brand logo used in place of a text title on partner hero pages */
+.page-hero-brand {
+    display: block;
+    width: min(520px, 78vw);
+    height: auto;
+}
+
 .page-hero--video .page-hero-inner {
     position: relative;
     z-index: 2;
@@ -1792,7 +1880,7 @@ a.feature-card:hover .feature-title {
 }
 
 .services-list-new li::before {
-    content: '— ';
+    content: '- ';
     color: var(--accent-orange);
 }
 
@@ -2315,6 +2403,10 @@ a.feature-card:hover .feature-title {
     cursor: pointer;
 }
 
+.short-embed.yt-lite {
+    position: relative;
+}
+
 .yt-lite img {
     position: absolute;
     top: 0;
@@ -2427,6 +2519,56 @@ a.feature-card:hover .feature-title {
     text-decoration: none;
     transition: opacity 0.2s ease;
     align-self: flex-start;
+}
+
+/* Shorts rail - vertical 9:16 embeds in a swipeable phone-frame row */
+.shorts-row {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 0.25rem 0.25rem 1.25rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.shorts-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.shorts-row::-webkit-scrollbar-track {
+    background: #111;
+}
+
+.shorts-row::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+}
+
+.short-embed {
+    flex: 0 0 258px;
+    aspect-ratio: 9 / 16;
+    scroll-snap-align: start;
+    border: 1px solid #1c1c1c;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    transition: border-color 0.25s ease;
+}
+
+.short-embed:hover {
+    border-color: var(--accent-orange);
+}
+
+.short-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .short-embed {
+        flex-basis: 220px;
+    }
 }
 
 .content-card-link:hover {
@@ -3193,8 +3335,27 @@ a.feature-card:hover .feature-title {
 
 .article-footer {
     margin-top: 3rem;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     border-top: 1px solid #1e1e1e;
+    text-align: center;
+}
+
+.article-footer .article-kicker {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 0.9rem 2rem;
+    border: 1px solid rgba(240, 112, 32, 0.55);
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.article-footer .article-kicker:hover {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #0a0a0a;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -3302,4 +3463,33 @@ a.feature-card:hover .feature-title {
         font-size: 0.92rem;
         padding-left: 1.1rem;
     }
+}
+
+/* Shorts page grid of vertical facade tiles */
+.shorts-grid--page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem 1.25rem;
+}
+
+.shorts-grid--page .short-embed {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+}
+
+.short-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c0c0c0;
+    line-height: 1.4;
+    margin-top: 0.65rem;
+}
+
+.short-date {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #777;
+    margin-top: 0.2rem;
 }
