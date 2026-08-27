@@ -72,10 +72,25 @@ async function main() {
 
   episodes.sort((a, b) => new Date(b.published) - new Date(a.published));
 
+  // Click-to-play facade (.yt-lite, loader in site.js) instead of a direct
+  // YouTube iframe - no red YouTube button until the viewer clicks.
+  const thumbs = {};
+  await Promise.all(episodes.map(async e => {
+    try {
+      const r = await fetch(`https://i.ytimg.com/vi/${e.videoId}/maxresdefault.jpg`, { method: 'HEAD' });
+      thumbs[e.videoId] = r.ok
+        ? `https://i.ytimg.com/vi/${e.videoId}/maxresdefault.jpg`
+        : `https://i.ytimg.com/vi/${e.videoId}/hqdefault.jpg`;
+    } catch {
+      thumbs[e.videoId] = `https://i.ytimg.com/vi/${e.videoId}/hqdefault.jpg`;
+    }
+  }));
+
   const cards = episodes.map(e => `
             <div class="content-card fade-in">
-                <div class="content-card-thumb video-embed">
-                    <iframe src="https://www.youtube.com/embed/${e.videoId}" title="${esc(e.title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="content-card-thumb video-embed yt-lite" data-id="${e.videoId}" data-title="${esc(e.title)}">
+                    <img src="${thumbs[e.videoId]}" alt="${esc(e.title)}" loading="lazy">
+                    <button class="yt-lite-play" aria-label="Play: ${esc(e.title)}"><i class="fa-solid fa-play"></i></button>
                 </div>
                 <div class="content-card-body">
                     <span class="content-card-tag">Sunday Night Live · ${fmtDate(e.published)}</span>

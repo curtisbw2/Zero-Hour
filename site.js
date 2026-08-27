@@ -215,3 +215,21 @@
         megaMenu.addEventListener('mouseleave', closeMega);
     }
 })();
+
+// Click-to-play YouTube facade (.yt-lite): thumbnail + play chip until clicked,
+// then the (privacy-enhanced) YouTube iframe is injected with autoplay.
+(function () {
+    document.querySelectorAll('.yt-lite').forEach(function (el) {
+        if (el.dataset.ytBound) return;
+        el.dataset.ytBound = '1';
+        el.addEventListener('click', function () {
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.id + '?autoplay=1&rel=0';
+            iframe.title = el.dataset.title || 'YouTube video';
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', '');
+            el.innerHTML = '';
+            el.appendChild(iframe);
+        }, { once: true });
+    });
+})();
