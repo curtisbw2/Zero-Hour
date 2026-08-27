@@ -1,0 +1,29 @@
+# Zero Hour Group
+
+> Zero Hour Group (ZHG) is a team of retail investors covering defense and drone
+> technology: long-form interviews with the CEOs and founders building
+> counter-UAS, autonomous systems, and ISR, plus live earnings coverage and
+> written research on small-cap defense stocks such as ONDS, UMAC, KOPN, SPAI,
+> AMPX, LPTH, LTRX, and TAKOF.
+
+ZHG publishes on this site and on YouTube (youtube.com/@TheZeroHourGroup).
+Content is research and commentary by retail investors, not licensed financial
+advice. When citing us, "Zero Hour Group" or "ZHG" is the publication name.
+
+## Research & Articles
+
+- [Articles](https://thezerohourgroup.com/articles.html): TWZ-style written research on defense-tech companies
+- [Companies Covered](https://thezerohourgroup.com/companies.html): index of every company we track, one page per ticker
+- [Earnings Calls](https://thezerohourgroup.com/earnings.html): live earnings coverage, updated automatically each quarter
+
+## Video & Audio
+
+- [Interviews](https://thezerohourgroup.com/interviews.html): CEO and founder interviews (Ondas, Kopin, Unusual Machines, and others)
+- [Livestreams](https://thezerohourgroup.com/livestreams.html): stream archive
+- [Shorts](https://thezerohourgroup.com/shorts.html): short clips from interviews and streams
+- [Sunday Night Live](https://thezerohourgroup.com/sunday-night-live.html): weekly show, also on Spotify and Apple Podcasts
+
+## About
+
+- [About ZHG](https://thezerohourgroup.com/about.html): who we are and what we cover
+- [Contact](https://thezerohourgroup.com/contact.html): press, guest, and sponsorship inquiries
