@@ -6,3 +6,11 @@ node_modules/
 BRAND_CONTEXT.md
 assets/video/_originals/
 generate_video.py
+
+# Secrets — this repo is PUBLIC (GitHub Pages); nothing below may ever land in it
+.env
+.env.*
+.dev.vars
+*.pem
+*credentials*.json
+.wrangler/
