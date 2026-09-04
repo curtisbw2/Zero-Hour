@@ -1418,6 +1418,21 @@ a.feature-card:hover .feature-title {
     opacity: 0.6;
 }
 
+.footer-legal {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-legal a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--text-light);
+}
+
 .footer-top {
     display: flex;
     justify-content: space-between;
