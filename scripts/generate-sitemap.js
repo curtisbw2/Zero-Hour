@@ -78,7 +78,10 @@ function lastmodFor(file) {
 
 function urlFor(file) {
   if (file === 'index.html') return `${ORIGIN}/`;
-  return `${ORIGIN}/${file}`;
+  // Clean URLs (no .html): Cloudflare Pages 308-redirects the .html form, and
+  // GitHub Pages serves both, so the extensionless form is canonical on either
+  // host. Keep canonicals/og:url tags in the pages aligned with this.
+  return `${ORIGIN}/${file.replace(/\.html$/, '')}`;
 }
 
 function build() {
