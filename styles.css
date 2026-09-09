@@ -706,6 +706,24 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+    /* Phones: hamburger keeps the right edge, logo grows and centers on the bar */
+    .nav-container {
+        justify-content: flex-end;
+        min-height: 76px;
+    }
+
+    .nav-brand {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .nav-logo {
+        height: 76px;
+        transform: none;
+    }
+
     .hero h1 {
         font-size: 1.75rem;
     }
