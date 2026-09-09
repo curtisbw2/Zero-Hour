@@ -34,6 +34,7 @@ export default async (req) => {
 
   const guest = {
     preferred_name: data.preferred_name || "",
+    email: data.email || "",
     appearance_format: data.appearance_format || "",
     off_camera_info: data.off_camera_info || "",
     bio: data.bio || "",
@@ -67,6 +68,7 @@ export default async (req) => {
           <p style="color:#666;margin-top:0">Sunday Night Live guest pipeline</p>
           <table style="border-collapse:collapse;width:100%;font-size:14px">
             <tr><td style="padding:6px 12px 6px 0;color:#888">Name</td><td style="padding:6px 0"><strong>${escapeHtml(guest.preferred_name)}</strong></td></tr>
+            <tr><td style="padding:6px 12px 6px 0;color:#888">Email</td><td style="padding:6px 0"><a href="mailto:${escapeHtml(guest.email)}">${escapeHtml(guest.email)}</a></td></tr>
             <tr><td style="padding:6px 12px 6px 0;color:#888">Camera</td><td style="padding:6px 0">${escapeHtml(guest.appearance_format)}</td></tr>
             <tr><td style="padding:6px 12px 6px 0;color:#888;vertical-align:top">Bio</td><td style="padding:6px 0">${escapeHtml(guest.bio)}</td></tr>
           </table>

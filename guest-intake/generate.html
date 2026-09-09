@@ -196,6 +196,7 @@
     const g = record.guest;
     $("guest-card").innerHTML =
       guestRow("Name", g.preferred_name) +
+      guestRow("Email", g.email) +
       guestRow("Camera", g.appearance_format + (g.off_camera_info ? " — " + g.off_camera_info : "")) +
       guestRow("Bio", g.bio) +
       guestRow("More info", g.additional_info) +
