@@ -2519,6 +2519,23 @@ a.feature-card:hover .feature-title {
     display: block;
 }
 
+/* Company tag on an interview card links to that company page's #interviews section */
+a.content-card-tag {
+    width: fit-content;
+    text-decoration: none;
+}
+
+a.content-card-tag:hover,
+a.content-card-tag:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Keep in-page section anchors (e.g. ondas.html#interviews) clear of the fixed nav */
+.content-page-section[id] {
+    scroll-margin-top: 110px;
+}
+
 .content-card-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
