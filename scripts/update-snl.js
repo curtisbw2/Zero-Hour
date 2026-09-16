@@ -40,7 +40,15 @@ function autoDesc(description) {
   return out || text.slice(0, 280);
 }
 
+// House title format: "Sunday Night Live #12 | Hook Ft. Guest" or
+// "Sunday Night Live Special | Hook". Guests move to the meta line (autoMeta).
 function cardTitle(title) {
+  const house = title.match(/^sunday night live\s+(#\d+|special)\s*\|\s*(.+)$/i);
+  if (house) {
+    const label = /^#/.test(house[1]) ? `EPISODE ${house[1]}` : 'SPECIAL';
+    const hook = house[2].replace(/\s+ft\.?\s+.+$/i, '').trim();
+    return `${label} | ${hook}`.toUpperCase();
+  }
   const m = title.match(/episode\s*#?\s*(\d+)/i);
   return m ? `EPISODE #${m[1]}` : title.replace(/sunday night live with the zero hour group/i, '').trim().toUpperCase() || title.toUpperCase();
 }
@@ -121,13 +129,15 @@ ${JSON.stringify({
     </script>`).join('\n');
 
   let page = fs.readFileSync(PAGE_PATH, 'utf8');
+  // Function replacers: titles contain "$" (tickers, "$150k"), which a string
+  // replacement would read as $1/$2 group references.
   page = page.replace(
     /(<!-- SNL:START[^>]*-->)[\s\S]*?(<!-- SNL:END -->)/,
-    `$1\n${cards}\n$2`
+    (m, start, end) => `${start}\n${cards}\n${end}`
   );
   page = page.replace(
     /(<!-- SNL:SCHEMA:START -->)[\s\S]*?(<!-- SNL:SCHEMA:END -->)/,
-    `$1\n${schemas}\n    $2`
+    (m, start, end) => `${start}\n${schemas}\n    ${end}`
   );
 
   fs.writeFileSync(PAGE_PATH, page);
