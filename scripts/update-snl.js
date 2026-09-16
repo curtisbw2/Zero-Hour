@@ -46,7 +46,7 @@ function cardTitle(title) {
   const house = title.match(/^sunday night live\s+(#\d+|special)\s*\|\s*(.+)$/i);
   if (house) {
     const label = /^#/.test(house[1]) ? `EPISODE ${house[1]}` : 'SPECIAL';
-    const hook = house[2].replace(/\s+ft\.?\s+.+$/i, '').trim();
+    const hook = house[2].replace(/\s+ft\.\s+.+$/i, '').trim();
     return `${label} | ${hook}`.toUpperCase();
   }
   const m = title.match(/episode\s*#?\s*(\d+)/i);
@@ -54,7 +54,7 @@ function cardTitle(title) {
 }
 
 function autoMeta(title) {
-  const m = title.match(/ft\.?\s+(.+)$/i);
+  const m = title.match(/\bft\.?\s+(.+)$/i);
   return m ? `Ft. ${m[1].trim()}` : 'Benny & JT · Live';
 }
 
