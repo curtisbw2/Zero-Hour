@@ -22,6 +22,9 @@ jobs:
       - name: Pull new episodes from YouTube RSS
         run: node scripts/update-snl.js
 
+      - name: Rebuild topic and category pages
+        run: node scripts/build-topics.js
+
       - name: Regenerate sitemap
         run: node scripts/generate-sitemap.js
 
@@ -30,7 +33,7 @@ jobs:
         run: |
           git config user.name "zhg-snl-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add sunday-night-live.html scripts/snl-episodes.json sitemap.xml
+          git add sunday-night-live.html scripts/snl-episodes.json topics articles articles.html llms.txt sitemap.xml
           if git diff --cached --quiet; then
             echo "No changes"
             echo "changed=false" >> "$GITHUB_OUTPUT"

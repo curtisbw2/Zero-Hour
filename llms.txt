@@ -16,6 +16,19 @@ advice. When citing us, "Zero Hour Group" or "ZHG" is the publication name.
 - [Companies Covered](https://thezerohourgroup.com/companies.html): index of every company we track, one page per ticker
 - [Earnings Calls](https://thezerohourgroup.com/earnings.html): live earnings coverage, updated automatically each quarter
 
+## Topics
+
+Hub pages collecting our articles and videos on each theme:
+
+- [Counter-UAS](https://thezerohourgroup.com/topics/counter-uas): the counter-drone systems that detect and defeat hostile drones, the companies building them, and CEO interviews.
+- [American Drone Manufacturing](https://thezerohourgroup.com/topics/american-drone-manufacturing): the U.S. factories, suppliers, and drone dominance policy reshaping who builds defense drones, and the stocks exposed.
+- [Drone Warfare](https://thezerohourgroup.com/topics/drone-warfare): FPV strike drones, one-way attack drones, lessons from Ukraine, and what the changing battlefield means for defense and drone stocks.
+- [Defense AI & Software](https://thezerohourgroup.com/topics/defense-ai-software): Palantir's ecosystem, AI-driven drone and sensor platforms, and smaller defense tech names building AI into their products.
+- [Defense Contracts](https://thezerohourgroup.com/topics/defense-contracts): Army awards, Pentagon funding, and government orders landing at the defense and drone companies we follow.
+- [Defense Tech M&A](https://thezerohourgroup.com/topics/defense-tech-mergers-acquisitions): the acquisitions, strategic stakes, and financing reshaping drone and counter-UAS companies, and what each deal means for investors.
+- [Drone Industry News](https://thezerohourgroup.com/articles/category/drone-industry-news): deals, contract wins, and market-moving headlines from the defense and drone companies ZHG covers.
+- [Investor Research & Analysis](https://thezerohourgroup.com/articles/category/investor-research): long-form company deep dives, price target talks, and weekly market previews from ZHG.
+
 ## Video & Audio
 
 - [Interviews](https://thezerohourgroup.com/interviews.html): CEO and founder interviews (Ondas, Kopin, Unusual Machines, and others)

@@ -1,0 +1,119 @@
+{
+  "_readme": "Tag list for scripts/build-topics.js. Articles are tagged by hand below (one entry per article). Videos are tagged automatically: a video joins a topic/category when its title matches the entry's videoMatch regex (case-insensitive), minus anything matching videoExclude. Companies link to the existing company pages; categories with an 'href' link to an existing section page instead of getting a generated one. Renaming a slug changes a live URL - avoid it once indexed.",
+
+  "companies": {
+    "ondas":    { "name": "Ondas",                   "href": "ondas.html" },
+    "kopin":    { "name": "Kopin",                   "href": "kopin.html" },
+    "anduril":  { "name": "Anduril",                 "href": "anduril.html" },
+    "palantir": { "name": "Palantir",                "href": "palantir.html" },
+    "pdw":      { "name": "Performance Drone Works", "href": "pdw.html" },
+    "safepro":  { "name": "Safe Pro Group",          "href": "safepro.html" },
+    "umac":     { "name": "Unusual Machines",        "href": "umac.html" }
+  },
+
+  "categories": [
+    {
+      "slug": "drone-industry-news",
+      "name": "Drone Industry News",
+      "title": "Drone Industry News for Investors | Zero Hour Group",
+      "description": "Drone industry news with the context retail investors need - deals, contract wins, and market-moving headlines from the defense and drone companies ZHG covers.",
+      "intro": "The latest drone industry news, read through an investor's lens. Deals, contract wins and market-moving headlines from the defense and drone companies we cover, with our take on what each one means for the stock.",
+      "videoMatch": "Live Coverage|Special Investor Call|Zero Hour Today.*(\\$[A-Z]{2,5}|Ondas|Palantir|Defense|Drone)"
+    },
+    {
+      "slug": "investor-research",
+      "name": "Investor Research & Analysis",
+      "title": "Investor Research & Analysis | Zero Hour Group",
+      "description": "Investor research and analysis on small-cap defense and drone stocks - long-form company deep dives, price target talks, and weekly market previews from ZHG.",
+      "intro": "Our long-form research on the defense and drone companies we follow: the business, the numbers and the risks, written by retail investors for retail investors. Price-target and market-preview streams with our research partners sit alongside the written work.",
+      "videoMatch": "Price Targets|Market Preview|Stock Talk"
+    },
+    { "slug": "earnings-coverage", "name": "Earnings Coverage",           "href": "earnings.html" },
+    { "slug": "ceo-interviews",    "name": "CEO Interviews & Profiles",   "href": "interviews.html" }
+  ],
+
+  "topics": [
+    {
+      "slug": "counter-uas",
+      "name": "Counter-UAS",
+      "title": "Counter-UAS & Counter-Drone Technology | Zero Hour Group",
+      "description": "Counter-UAS coverage from Zero Hour Group - the counter-drone systems that detect and defeat hostile drones, the companies building them, and CEO interviews.",
+      "intro": "Counter-UAS (C-UAS) is the technology that detects, identifies and defeats hostile drones. It is one of the fastest-moving corners of defense tech and a core theme across the companies we cover. Here is every Zero Hour Group article, interview and clip on counter-drone systems.",
+      "videoMatch": "C-UAS|counter[- ]drone|counter defense|Iron Drone"
+    },
+    {
+      "slug": "american-drone-manufacturing",
+      "name": "American Drone Manufacturing",
+      "title": "American Drone Manufacturing Coverage | Zero Hour Group",
+      "description": "American drone manufacturing coverage - the U.S. factories, suppliers, and drone dominance policy reshaping who builds defense drones, and the stocks exposed.",
+      "intro": "The push to build drones, and the parts inside them, in the United States is changing who wins defense work. We track the American manufacturers, suppliers and policy behind the drone dominance push, from the factory floor to the public companies with exposure to it.",
+      "videoMatch": "manufactur|drone dominance|reindustrial",
+      "videoExclude": "Israeli"
+    },
+    {
+      "slug": "drone-warfare",
+      "name": "Drone Warfare",
+      "title": "Drone Warfare & the Changing Battlefield | Zero Hour Group",
+      "description": "Drone warfare coverage - FPV strike drones, one-way attack drones, lessons from Ukraine, and what the changing battlefield means for defense and drone stocks.",
+      "intro": "Drones have changed how wars are fought, from FPV strike drones over Ukraine to one-way attack drones like the Shahed. This page collects our coverage of the changing battlefield and what it means for the companies supplying it.",
+      "videoMatch": "battlefield|war has|Ukraine|attack drones"
+    },
+    {
+      "slug": "defense-ai-software",
+      "name": "Defense AI & Software",
+      "title": "Defense AI & Software Stocks | Zero Hour Group",
+      "description": "Defense AI and software coverage - Palantir's ecosystem, AI-driven drone and sensor platforms, and smaller defense tech names building AI into their products.",
+      "intro": "Software and AI increasingly decide which defense hardware gets bought and how it is used. We cover the platforms tying sensors, drones and data together, from Palantir's ecosystem to the smaller names building AI into their products.",
+      "videoMatch": "NVIDIA|AI racks|Palantir|tech stack|Technology Stack"
+    },
+    {
+      "slug": "defense-contracts",
+      "name": "Defense Contracts",
+      "title": "Defense Contracts & Government Awards | Zero Hour Group",
+      "description": "Defense contract coverage from Zero Hour Group - Army awards, Pentagon funding, and government orders landing at the defense and drone companies we follow.",
+      "intro": "Government contracts are the lifeblood of defense stocks, and the timing of an award can move a small cap hard. Here is our coverage of the contracts, orders and government funding landing at the companies we follow.",
+      "videoMatch": "defense order|selected for|government is investing|subcontract"
+    },
+    {
+      "slug": "defense-tech-mergers-acquisitions",
+      "name": "Defense Tech M&A",
+      "title": "Defense Tech M&A & Acquisitions | Zero Hour Group",
+      "description": "Defense tech M&A coverage - the acquisitions, strategic stakes, and financing reshaping drone and counter-UAS companies, and what each deal means for investors.",
+      "intro": "Acquisitions are reshaping defense tech as companies buy their way into complete systems. We break down the deals, the financing behind them and what each one means for shareholders.",
+      "videoMatch": "acqui|M&A|growth capital|financing"
+    }
+  ],
+
+  "articles": {
+    "ondas-dzyne-acquisition.html": {
+      "categories": ["drone-industry-news", "investor-research"],
+      "companies": ["ondas", "palantir"],
+      "topics": ["counter-uas", "defense-tech-mergers-acquisitions", "drone-warfare"]
+    },
+    "anduril-rewriting-defense-primes.html": {
+      "categories": ["investor-research", "ceo-interviews"],
+      "companies": ["anduril", "palantir"],
+      "topics": ["counter-uas", "american-drone-manufacturing", "defense-ai-software", "defense-contracts"]
+    },
+    "kopin-clean-room-battlefield-displays.html": {
+      "categories": ["investor-research"],
+      "companies": ["kopin"],
+      "topics": ["american-drone-manufacturing", "defense-ai-software", "defense-contracts"]
+    },
+    "palantir-is-defense-techs-ecosystem.html": {
+      "categories": ["investor-research"],
+      "companies": ["palantir", "anduril", "ondas"],
+      "topics": ["defense-ai-software", "defense-contracts"]
+    },
+    "pdw-american-drone-manufacturing.html": {
+      "categories": ["investor-research", "ceo-interviews"],
+      "companies": ["pdw", "ondas", "umac", "anduril"],
+      "topics": ["american-drone-manufacturing", "drone-warfare", "defense-contracts", "defense-tech-mergers-acquisitions"]
+    },
+    "safepro-saas-margin-structure.html": {
+      "categories": ["investor-research", "earnings-coverage"],
+      "companies": ["safepro", "palantir"],
+      "topics": ["defense-ai-software", "defense-contracts"]
+    }
+  }
+}
