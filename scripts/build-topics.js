@@ -341,7 +341,9 @@ for (const a of articles) {
     </section>
     <!-- TOPICS:END -->
 `;
-  writeIfChanged('articles.html', replaceBetween(listing, block, /[ \t]*<main class="articles-main">/, 'articles.html'));
+  // Sits below the article list, just above the site footer.
+  const stripped = listing.replace(/[ \t]*<!-- TOPICS:START[\s\S]*?<!-- TOPICS:END -->\n/, '');
+  writeIfChanged('articles.html', replaceBetween(stripped, block, /[ \t]*<!-- Footer -->/, 'articles.html'));
 }
 
 // ---------- llms.txt: "## Topics" section (AI-crawler site guide) ----------
