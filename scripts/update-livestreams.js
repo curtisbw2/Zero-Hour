@@ -2,10 +2,11 @@
 // Auto-update the Livestreams and Earnings pages from the ZHG YouTube channel RSS feed.
 // No API key needed. Run: node scripts/update-livestreams.js
 //
-// - Fetches https://www.youtube.com/feeds/videos.xml?channel_id=... (last 15 uploads)
-// - For each unknown video, fetches the watch page and keeps it only if
-//   "isLiveContent":true (i.e. it was a livestream; shorts/uploads are skipped).
-//   Streams that are still live or upcoming are skipped until the VOD is ready.
+// - Candidates = the channel RSS feed (last 15 uploads) + the channel Streams tab.
+// - A video counts as a livestream if its watch page says "isLiveContent":true, or,
+//   when the watch page is bot-walled (usual on GitHub Actions), if it is listed on
+//   the Streams tab. Streams still live/upcoming are skipped until the VOD is ready.
+//   Anything that cannot be classified is logged as a workflow warning, not dropped.
 // - Classifies each stream: earnings call -> earnings.html, everything else ->
 //   livestreams.html. CEO interviews are never picked up here (they are uploads,
 //   not livestreams) and are curated by hand.
@@ -32,10 +33,11 @@ const unescXml = s => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&g
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+// Dates are shown in US Eastern: an 8:30pm ET Sunday Night Live is already Monday in UTC.
 function fmtDate(iso, long) {
-  const d = new Date(iso);
+  const [y, m, d] = new Date(iso).toLocaleDateString('en-CA', { timeZone: 'America/New_York' }).split('-').map(Number);
   const months = long ? MONTHS_LONG : MONTHS_SHORT;
-  return `${months[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
+  return `${months[m - 1]} ${d}, ${y}`;
 }
 
 function autoDesc(description, kind) {
@@ -144,30 +146,96 @@ function renderRegion(page, name, entries, pagePath) {
   return page;
 }
 
+const UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', 'Accept-Language': 'en-US,en;q=0.9' };
+const warn = msg => console.log(process.env.GITHUB_ACTIONS ? `::warning::${msg}` : `WARNING: ${msg}`);
+
+// The channel's Streams tab lists every livestream (newest ~30) with a duration
+// badge once the VOD is ready ("LIVE"/"UPCOMING" otherwise). It is one request
+// and, unlike individual watch pages, is served normally to datacenter IPs, so
+// it is the primary livestream signal. Returns Map(videoId -> {title, done}) or
+// null if the tab could not be read.
+async function streamsTab() {
+  try {
+    const r = await fetch(`https://www.youtube.com/channel/${CHANNEL_ID}/streams`, { headers: UA });
+    if (!r.ok) { warn(`streams tab fetch failed: ${r.status}`); return null; }
+    const m = (await r.text()).match(/var ytInitialData = (\{[\s\S]*?\});<\/script>/);
+    if (!m) { warn('streams tab: ytInitialData not found (bot wall?)'); return null; }
+    const out = new Map();
+    (function walk(o) {
+      if (!o || typeof o !== 'object') return;
+      if (o.lockupViewModel && o.lockupViewModel.contentId) {
+        const v = o.lockupViewModel;
+        const title = v.metadata?.lockupMetadataViewModel?.title?.content || '';
+        const badges = [];
+        (function b(x) { if (x && typeof x === 'object') { if (x.thumbnailBadgeViewModel) badges.push(x.thumbnailBadgeViewModel.text || ''); for (const k in x) b(x[k]); } })(v.contentImage);
+        out.set(v.contentId, { title, done: badges.some(t => /^\d+(:\d\d)+$/.test(t)) });
+      }
+      for (const k in o) walk(o[k]);
+    })(JSON.parse(m[1]));
+    if (!out.size) { warn('streams tab parsed but listed 0 videos'); return null; }
+    return out;
+  } catch (e) { warn(`streams tab error: ${e.message}`); return null; }
+}
+
+// Watch page details. Returns null when YouTube serves a bot wall / consent page
+// (no videoDetails), which is common from GitHub Actions runners.
+async function watchInfo(videoId) {
+  try {
+    const r = await fetch(`https://www.youtube.com/watch?v=${videoId}`, { headers: UA });
+    if (!r.ok) return null;
+    const html = await r.text();
+    if (!/"videoDetails"\s*:/.test(html)) return null;
+    const str = re => { const m = html.match(re); return m ? JSON.parse(`"${m[1]}"`) : ''; };
+    return {
+      isLiveContent: /"isLiveContent"\s*:\s*true/.test(html),
+      liveNow: /"isLive"\s*:\s*true/.test(html) || /"isUpcoming"\s*:\s*true/.test(html),
+      title: str(/"videoDetails"\s*:\s*\{[^}]*?"title"\s*:\s*"((?:[^"\\]|\\.)*)"/),
+      description: str(/"shortDescription"\s*:\s*"((?:[^"\\]|\\.)*)"/),
+      started: str(/"startTimestamp"\s*:\s*"([^"]*)"/),
+      published: str(/"(?:publishDate|uploadDate)"\s*:\s*"((?:[^"\\]|\\.)*)"/),
+    };
+  } catch (e) { return null; }
+}
+
 async function main() {
-  const res = await fetch(FEED_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+  const res = await fetch(FEED_URL, { headers: UA });
   if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`);
   const xml = await res.text();
+
+  // Candidates = last 15 feed uploads + everything on the Streams tab (the tab
+  // also backfills streams that scrolled out of the feed's 15-entry window).
+  const candidates = new Map();
+  for (const entry of xml.split('<entry>').slice(1)) {
+    const videoId = (entry.match(/<yt:videoId>([^<]*)<\/yt:videoId>/) || [])[1];
+    if (!videoId) continue;
+    candidates.set(videoId, {
+      title: unescXml((entry.match(/<title>([^<]*)<\/title>/) || [])[1] || ''),
+      published: (entry.match(/<published>([^<]*)<\/published>/) || [])[1],
+      description: unescXml((entry.match(/<media:description>([\s\S]*?)<\/media:description>/) || [])[1] || ''),
+    });
+  }
+  const tab = await streamsTab();
+  if (tab) for (const [id, t] of tab) if (!candidates.has(id)) candidates.set(id, { title: t.title });
 
   const manifest = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
   const known = new Set(manifest.map(e => e.videoId));
   let added = 0;
 
-  for (const entry of xml.split('<entry>').slice(1)) {
-    const videoId = (entry.match(/<yt:videoId>([^<]*)<\/yt:videoId>/) || [])[1];
-    if (!videoId || known.has(videoId)) continue;
-    const title = unescXml((entry.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
-    const published = (entry.match(/<published>([^<]*)<\/published>/) || [])[1];
-    const description = unescXml((entry.match(/<media:description>([\s\S]*?)<\/media:description>/) || [])[1] || '');
-
-    const watch = await fetch(`https://www.youtube.com/watch?v=${videoId}`, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-    if (!watch.ok) { console.warn(`watch page failed for ${videoId}: ${watch.status}`); continue; }
-    const html = await watch.text();
-    if (!/"isLiveContent"\s*:\s*true/.test(html)) continue; // not a livestream
-    if (/"isLive"\s*:\s*true/.test(html) || /"isUpcoming"\s*:\s*true/.test(html)) {
-      console.log(`skipping ${videoId} (still live/upcoming): ${title}`);
-      continue;
-    }
+  for (const [videoId, c] of candidates) {
+    if (known.has(videoId)) continue;
+    const w = await watchInfo(videoId);
+    const t = tab && tab.get(videoId);
+    let isStream, finished;
+    if (w) { isStream = w.isLiveContent; finished = !w.liveNow; }
+    else if (tab) { isStream = !!t; finished = !!(t && t.done); }
+    else { warn(`cannot classify ${videoId} (watch page walled, streams tab unavailable): ${c.title}`); continue; }
+    if (!isStream) continue; // shorts/uploads
+    const title = c.title || (w && w.title) || '';
+    if (!finished) { console.log(`skipping ${videoId} (still live/upcoming): ${title}`); continue; }
+    // Broadcast start beats the feed/publish date (a VOD often finalises hours later).
+    const published = (w && w.started) || c.published || (w && w.published);
+    if (!published) { warn(`no publish date for ${videoId} (watch page walled): ${title}; will retry next run`); continue; }
+    const description = c.description || (w && w.description) || '';
 
     const kind = classify(title);
     manifest.push({
