@@ -1,9 +1,8 @@
 name: Update Sunday Night Live
 
 on:
-  schedule:
-    # Monday 14:00 UTC (~9-10am ET), after the Sunday night show is uploaded
-    - cron: '0 14 * * 1'
+  # Retired 2026-10-05: the VPS content sync (zhg-content-sync.timer) runs this hourly from the
+  # YouTube Data API. Runners here get YouTube's bot wall and the RSS feed 404s. Manual runs only.
   workflow_dispatch:
 
 jobs:

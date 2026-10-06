@@ -198,9 +198,16 @@ async function watchInfo(videoId) {
 }
 
 async function main() {
-  const res = await fetch(FEED_URL, { headers: UA });
-  if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`);
-  const xml = await res.text();
+  // On the VPS (zhg-content-sync) the feed comes from the YouTube Data API: YouTube's public RSS
+  // feed 404s intermittently and the watch page is bot-walled for datacenter IPs. Entries there
+  // carry <zhg:live>/<zhg:started>, so no watch-page lookup is needed to classify them.
+  let xml;
+  if (process.env.ZHG_FEED_FILE) xml = fs.readFileSync(process.env.ZHG_FEED_FILE, 'utf8');
+  else {
+    const res = await fetch(FEED_URL, { headers: UA });
+    if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`);
+    xml = await res.text();
+  }
 
   // Candidates = last 15 feed uploads + everything on the Streams tab (the tab
   // also backfills streams that scrolled out of the feed's 15-entry window).
@@ -212,6 +219,8 @@ async function main() {
       title: unescXml((entry.match(/<title>([^<]*)<\/title>/) || [])[1] || ''),
       published: (entry.match(/<published>([^<]*)<\/published>/) || [])[1],
       description: unescXml((entry.match(/<media:description>([\s\S]*?)<\/media:description>/) || [])[1] || ''),
+      live: (entry.match(/<zhg:live>([^<]*)<\/zhg:live>/) || [])[1],
+      started: (entry.match(/<zhg:started>([^<]*)<\/zhg:started>/) || [])[1],
     });
   }
   const tab = await streamsTab();
@@ -223,7 +232,9 @@ async function main() {
 
   for (const [videoId, c] of candidates) {
     if (known.has(videoId)) continue;
-    const w = await watchInfo(videoId);
+    const w = c.live !== undefined
+      ? { isLiveContent: c.live === 'true', liveNow: false, started: c.started, title: c.title, description: c.description }
+      : await watchInfo(videoId);
     const t = tab && tab.get(videoId);
     let isStream, finished;
     if (w) { isStream = w.isLiveContent; finished = !w.liveNow; }

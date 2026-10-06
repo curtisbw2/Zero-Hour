@@ -1,9 +1,8 @@
 name: Update Livestreams
 
 on:
-  schedule:
-    # Daily 13:00 UTC (~8-9am ET), catches the previous day's streams
-    - cron: '0 13 * * *'
+  # Retired 2026-10-05: the VPS content sync (zhg-content-sync.timer) runs this hourly from the
+  # YouTube Data API. Runners here get YouTube's bot wall and the RSS feed 404s. Manual runs only.
   workflow_dispatch:
 
 jobs:

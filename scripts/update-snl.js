@@ -59,9 +59,14 @@ function autoMeta(title) {
 }
 
 async function main() {
-  const res = await fetch(FEED_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-  if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`);
-  const xml = await res.text();
+  // ZHG_FEED_FILE: API-built feed from the VPS content sync (see update-livestreams.js)
+  let xml;
+  if (process.env.ZHG_FEED_FILE) xml = fs.readFileSync(process.env.ZHG_FEED_FILE, 'utf8');
+  else {
+    const res = await fetch(FEED_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`);
+    xml = await res.text();
+  }
 
   const episodes = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
   const known = new Map(episodes.map(e => [e.videoId, e]));
