@@ -1,6 +1,7 @@
 {
   "known": [
-    "zSQyVg4lGvQ"
+    "zSQyVg4lGvQ",
+    "YcMLqUu2zpQ"
   ],
   "cards": [
     {
@@ -13,6 +14,17 @@
       "desc": "What happens when a drone loses GPS, loses its radio link and has no map, deep underground? For Exyn Technologies, that is the starting point. CEO/COO Ben Williams sits down with Benny Shaw and JT Paterson from The Zero Hour Group, joined by Jeff Gabel and World Media White House Bureau Chief Kate Jones.",
       "uploadDate": "2026-10-07",
       "addedAt": "2026-10-07T20:02:44.609Z"
+    },
+    {
+      "videoId": "YcMLqUu2zpQ",
+      "title": "A Drone That Flies Like a Helicopter AND a Plane | EIVIE Founder & CEO Damjan Zabovnik",
+      "heading": "A DRONE THAT FLIES LIKE A HELICOPTER AND A PLANE | EIVIE FOUNDER & CEO DAMJAN ZABOVNIK",
+      "tag": "The Zero Hour Group",
+      "tagHref": "",
+      "meta": "3D Printed Drone · Benny Shaw · Commercial UAV Expo 2026",
+      "desc": "Benny Shaw, CEO of The Zero Hour Group (thezerohourgroup.com), walks the floor at Commercial UAV Expo 2026 in Las Vegas and stops at what he calls the coolest drone in the room with next gen tech. Dam",
+      "uploadDate": "2026-10-09",
+      "addedAt": "2026-10-09T23:04:59.229Z"
     }
   ]
 }
