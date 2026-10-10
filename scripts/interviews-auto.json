@@ -1,7 +1,8 @@
 {
   "known": [
     "zSQyVg4lGvQ",
-    "YcMLqUu2zpQ"
+    "YcMLqUu2zpQ",
+    "ORFHW0O8yqg"
   ],
   "cards": [
     {
@@ -25,6 +26,17 @@
       "desc": "Benny Shaw, CEO of The Zero Hour Group (thezerohourgroup.com), walks the floor at Commercial UAV Expo 2026 in Las Vegas and stops at what he calls the coolest drone in the room with next gen tech. Dam",
       "uploadDate": "2026-10-09",
       "addedAt": "2026-10-09T23:04:59.229Z"
+    },
+    {
+      "videoId": "ORFHW0O8yqg",
+      "title": "Software That Makes Machines Smart: Iron Man to Drone Swarms | Palladyne AI CEO Ben Wolff ($PDYN)",
+      "heading": "SOFTWARE THAT MAKES MACHINES SMART: IRON MAN TO DRONE SWARMS | PALLADYNE AI CEO BEN WOLFF",
+      "tag": "PDYN · $PDYN",
+      "tagHref": "",
+      "meta": "Anduril Lattice · Ben Wolff · Benny Shaw",
+      "desc": "Palladyne AI (Nasdaq: PDYN) CEO Ben Wolff sits down with Benny Shaw and JT Paterson from The Zero Hour Group, joined by contributor Jeff Gabel, to talk about software that lets machines perceive, decide and react on their own, from industrial robot arms to drone swarms. This is the definition of autonomy versus automation.",
+      "uploadDate": "2026-10-09",
+      "addedAt": "2026-10-10T00:04:46.719Z"
     }
   ]
 }
