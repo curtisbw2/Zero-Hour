@@ -506,5 +506,15 @@
     "desc": "Full livestream recording from The Zero Hour Group.",
     "thumb": "https://i.ytimg.com/vi/j4QmyCdUo7A/maxresdefault.jpg",
     "auto": true
+  },
+  {
+    "videoId": "p-_pef82aPg",
+    "title": "Sunday Night Live! Black Monday Tomorrow? Stocks In For A Volatile Week.",
+    "published": "2026-10-19T00:30:45Z",
+    "kind": "stream",
+    "tag": "Sunday Night Live · Podcast",
+    "desc": "Full livestream recording from The Zero Hour Group.",
+    "thumb": "https://i.ytimg.com/vi/p-_pef82aPg/maxresdefault.jpg",
+    "auto": true
   }
 ]
