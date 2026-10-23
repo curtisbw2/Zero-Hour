@@ -4,14 +4,14 @@
 //
 // Env vars (set in Netlify UI):
 //   RESEND_API_KEY  - required, from resend.com
-//   NOTIFY_EMAIL    - optional, defaults to benofghent@gmail.com
+//   NOTIFY_EMAIL    - optional, defaults to info@thezerohourgroup.com
 //   RESEND_FROM     - optional, defaults to Resend's onboarding sender
 //   SITE_URL        - optional, defaults to https://guest.thezerohourgroup.com
 
 import { getStore } from "@netlify/blobs";
 import { randomBytes } from "node:crypto";
 
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "benofghent@gmail.com";
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "info@thezerohourgroup.com";
 const RESEND_FROM =
   process.env.RESEND_FROM || "ZHG Guest Intake <onboarding@resend.dev>";
 const SITE_URL = process.env.SITE_URL || "https://guest.thezerohourgroup.com";
