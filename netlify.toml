@@ -1,6 +1,10 @@
 [build]
   publish = "guest-intake"
   functions = "netlify/functions"
+  # Only build when the guest intake app changes. The VPS site sync pushes to
+  # main several times a day and each build burns free-plan credits.
+  # Exit 0 = skip; a failed diff (no cached ref) exits non-zero and builds.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- guest-intake netlify netlify.toml package.json package-lock.json"
 
 # /generate?token=... -> generate.html
 [[redirects]]
