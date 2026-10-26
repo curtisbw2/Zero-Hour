@@ -546,5 +546,15 @@
     "desc": "Full livestream recording from The Zero Hour Group.",
     "thumb": "https://i.ytimg.com/vi/SVEYxwEEdPE/maxresdefault.jpg",
     "auto": true
+  },
+  {
+    "videoId": "Dot4ekpL40c",
+    "title": "Sunday Night Live with The Founders of Trader Matrix",
+    "published": "2026-10-26T00:32:37Z",
+    "kind": "stream",
+    "tag": "Sunday Night Live · Podcast",
+    "desc": "Full livestream recording from The Zero Hour Group.",
+    "thumb": "https://i.ytimg.com/vi/Dot4ekpL40c/maxresdefault.jpg",
+    "auto": true
   }
 ]
