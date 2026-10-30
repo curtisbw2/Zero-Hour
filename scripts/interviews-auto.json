@@ -5,7 +5,8 @@
     "ORFHW0O8yqg",
     "7DJkQ64ssaY",
     "UVi_jgMySN4",
-    "Ou4aYv4ZZJE"
+    "Ou4aYv4ZZJE",
+    "ZvItOLPxfc8"
   ],
   "cards": [
     {
@@ -73,6 +74,17 @@
       "desc": "Benny Shaw and Kate Jones of The Zero Hour Group ( walked the halls of the AUSA Annual Meeting in Washington, D.C. on October 13, 2026 with Michael Murray, CEO, President and Chairperson of Kopin. Kopin took no booth on the floor this year; it ran a private meeting suite instead due to more than 50 customer meetings in three days, with countries and programs Kopin could not easily fly to.",
       "uploadDate": "2026-10-29",
       "addedAt": "2026-10-29T08:00:50.158Z"
+    },
+    {
+      "videoId": "ZvItOLPxfc8",
+      "title": "Palantir x Ondas: The Defense AI Partnership That Changes Everything | CEO Eric Brock $ONDS",
+      "heading": "PALANTIR X ONDAS: THE DEFENSE AI PARTNERSHIP THAT CHANGES EVERYTHING | CEO ERIC BROCK",
+      "tag": "Ondas Inc. · $ONDS",
+      "tagHref": "ondas.html#interviews",
+      "meta": "AUSA 2026 · AUSA Annual Meeting · Benny Shaw",
+      "desc": "Benny Shaw of The Zero Hour Group ( sat down with Ondas CEO Eric Brock at the AUSA Annual Meeting in Washington, D.C. on October 12, 2026, the same day Ondas announced its partnership with Palantir: Regna AI. Brock explains that Regna builds AI models for specific missions and helps customers run them inside their own environments, using Palantir's AIP platform and open-weight models.",
+      "uploadDate": "2026-10-30",
+      "addedAt": "2026-10-30T20:04:59.963Z"
     }
   ]
 }
