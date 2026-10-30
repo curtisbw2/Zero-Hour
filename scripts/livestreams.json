@@ -586,5 +586,15 @@
     "desc": "Full livestream recording from The Zero Hour Group.",
     "thumb": "https://i.ytimg.com/vi/-paEV1v3GEs/maxresdefault.jpg",
     "auto": true
+  },
+  {
+    "videoId": "1p0JUGpVJhQ",
+    "title": "Zero Hour Today: Tech Gets Hammered and Small Caps Rise $GOOGL $MSFT $QQQ $SPY",
+    "published": "2026-10-29T15:00:50Z",
+    "kind": "stream",
+    "tag": "Zero Hour Today · Market Recap",
+    "desc": "Full livestream recording from The Zero Hour Group.",
+    "thumb": "https://i.ytimg.com/vi/1p0JUGpVJhQ/maxresdefault.jpg",
+    "auto": true
   }
 ]
