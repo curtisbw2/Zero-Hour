@@ -6,7 +6,8 @@
     "7DJkQ64ssaY",
     "UVi_jgMySN4",
     "Ou4aYv4ZZJE",
-    "ZvItOLPxfc8"
+    "ZvItOLPxfc8",
+    "kD7EFOYjj_U"
   ],
   "cards": [
     {
@@ -85,6 +86,17 @@
       "desc": "Benny Shaw of The Zero Hour Group ( sat down with Ondas CEO Eric Brock at the AUSA Annual Meeting in Washington, D.C. on October 12, 2026, the same day Ondas announced its partnership with Palantir: Regna AI. Brock explains that Regna builds AI models for specific missions and helps customers run them inside their own environments, using Palantir's AIP platform and open-weight models.",
       "uploadDate": "2026-10-30",
       "addedAt": "2026-10-30T20:04:59.963Z"
+    },
+    {
+      "videoId": "kD7EFOYjj_U",
+      "title": "Keeping Up With the Speed of War | Red Cat CEO Jeff Thompson ($RCAT)",
+      "heading": "KEEPING UP WITH THE SPEED OF WAR | RED CAT CEO JEFF THOMPSON",
+      "tag": "Red Cat · $RCAT",
+      "tagHref": "",
+      "meta": "AUSA 2026 · AUSA Annual Meeting · Benny Shaw",
+      "desc": "Benny Shaw of The Zero Hour Group ( sat down with Jeff Thompson, Chairman and CEO of Red Cat Holdings, on the third day of the AUSA Annual Meeting in Washington, D.C. (October 14, 2026), while Red Cat's Blue Ops team ran Variant 7 drone boat demos on the Potomac.",
+      "uploadDate": "2026-11-02",
+      "addedAt": "2026-11-02T16:02:12.598Z"
     }
   ]
 }
