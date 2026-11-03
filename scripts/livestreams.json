@@ -606,5 +606,15 @@
     "desc": "Full livestream recording from The Zero Hour Group.",
     "thumb": "https://i.ytimg.com/vi/O5dje9Xhfp8/maxresdefault.jpg",
     "auto": true
+  },
+  {
+    "videoId": "Zab8oY8vstg",
+    "title": "Palantir Smashes Q3 2026 Earnings Despite Broader AI Macro Fears. Bullish For Other Defense Stocks?",
+    "published": "2026-11-02T21:59:12Z",
+    "kind": "earnings",
+    "tag": "Palantir Technologies · $PLTR",
+    "desc": "Live coverage and breakdown as the numbers come in.",
+    "thumb": "https://i.ytimg.com/vi/Zab8oY8vstg/maxresdefault.jpg",
+    "auto": true
   }
 ]
