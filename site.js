@@ -250,6 +250,7 @@
 // Forms post to the zhg-newsletter Worker (zhg-newsletter-worker/), which adds the address to the
 // Resend audience and sends the welcome email from newsletter@thezerohourgroup.com.
 (function () {
+    if (document.body && document.body.hasAttribute('data-no-newsletter')) return;   // a page can opt out (the Armory)
     var KEY = 'zhg_nl_popup_until';
     var API = 'https://zhg-newsletter.zerohourgroup.workers.dev/subscribe';
     var DAY = 864e5;

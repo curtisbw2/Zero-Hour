@@ -1,0 +1,402 @@
+{
+ "api": "https://zhg-store.zerohourgroup.workers.dev",
+ "enabled": true,
+ "ship": {
+  "classes": {
+   "tee": [
+    495,
+    220
+   ],
+   "hoodie": [
+    879,
+    250
+   ],
+   "crewneck": [
+    879,
+    250
+   ],
+   "quarter-zip": [
+    879,
+    250
+   ],
+   "half-zip": [
+    495,
+    220
+   ],
+   "fleece-pullover": [
+    879,
+    250
+   ],
+   "dad-hat": [
+    469,
+    200
+   ],
+   "bucket-hat": [
+    469,
+    200
+   ],
+   "beanie": [
+    469,
+    200
+   ],
+   "fisherman-beanie": [
+    469,
+    200
+   ],
+   "mug": [
+    669,
+    350
+   ],
+   "tumbler": [
+    1089,
+    450
+   ],
+   "can-cooler": [
+    469,
+    99
+   ],
+   "patch": [
+    449,
+    5
+   ],
+   "sticker": [
+    519,
+    7
+   ],
+   "ornament": [
+    549,
+    80
+   ]
+  },
+  "groups": {
+   "tee": "tee",
+   "hoodie": "tee",
+   "crewneck": "tee",
+   "quarter-zip": "tee",
+   "half-zip": "tee",
+   "fleece-pullover": "tee",
+   "dad-hat": "dad-hat",
+   "bucket-hat": "tee",
+   "beanie": "tee",
+   "fisherman-beanie": "tee",
+   "mug": "mug",
+   "tumbler": "tumbler",
+   "can-cooler": "can-cooler",
+   "patch": "tee",
+   "sticker": "sticker",
+   "ornament": "ornament"
+  },
+  "surcharge": 40
+ },
+ "products": {
+  "tee": {
+   "price": 32,
+   "colors": {
+    "black": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ],
+    "forest": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "white": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL",
+     "5XL"
+    ],
+    "pink": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "soft-pink": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ],
+    "soft-cream": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL",
+     "4XL"
+    ]
+   },
+   "extra": {
+    "2XL": 2,
+    "3XL": 4,
+    "4XL": 6,
+    "5XL": 8
+   }
+  },
+  "hoodie": {
+   "price": 62,
+   "colors": {
+    "black": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ],
+    "forest": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ],
+    "white": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ]
+   }
+  },
+  "crewneck": {
+   "price": 48,
+   "colors": {
+    "black": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "sports-green": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "heather-grey": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "oatmeal": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "white": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ]
+   }
+  },
+  "quarter-zip": {
+   "price": 52,
+   "colors": {
+    "black": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "sandshell": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ]
+   }
+  },
+  "half-zip": {
+   "price": 68,
+   "colors": {
+    "black": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ],
+    "dust": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ]
+   }
+  },
+  "fleece-pullover": {
+   "price": 48,
+   "colors": {
+    "black": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL",
+     "3XL"
+    ]
+   }
+  },
+  "dad-hat": {
+   "price": 28,
+   "colors": {
+    "black": [
+     "OS"
+    ],
+    "spruce": [
+     "OS"
+    ],
+    "stone": [
+     "OS"
+    ],
+    "pink": [
+     "OS"
+    ],
+    "white": [
+     "OS"
+    ]
+   }
+  },
+  "bucket-hat": {
+   "price": 34,
+   "colors": {
+    "dill": [
+     "OS"
+    ],
+    "stone": [
+     "OS"
+    ],
+    "bio-white": [
+     "OS"
+    ]
+   }
+  },
+  "beanie": {
+   "price": 26,
+   "colors": {
+    "black": [
+     "OS"
+    ],
+    "dark-green": [
+     "OS"
+    ],
+    "grey": [
+     "OS"
+    ],
+    "white": [
+     "OS"
+    ]
+   }
+  },
+  "fisherman-beanie": {
+   "price": 28,
+   "colors": {
+    "black": [
+     "OS"
+    ],
+    "ecru": [
+     "OS"
+    ]
+   }
+  },
+  "mug": {
+   "price": 16,
+   "colors": {
+    "black": [
+     "OS"
+    ]
+   }
+  },
+  "tumbler": {
+   "price": 36,
+   "colors": {
+    "black": [
+     "OS"
+    ]
+   }
+  },
+  "can-cooler": {
+   "price": 8,
+   "colors": {
+    "black": [
+     "OS"
+    ]
+   }
+  },
+  "patch": {
+   "price": 14,
+   "colors": {
+    "black-border": [
+     "OS"
+    ]
+   }
+  },
+  "sticker": {
+   "price": 8,
+   "colors": {
+    "emblem": [
+     "OS"
+    ]
+   }
+  },
+  "ornament": {
+   "price": 12,
+   "colors": {
+    "emblem": [
+     "OS"
+    ]
+   }
+  }
+ }
+}

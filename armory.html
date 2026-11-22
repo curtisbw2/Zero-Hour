@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYF4C2TKV4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DYF4C2TKV4');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Armory | The Zero Hour Group</title>
+    <meta name="description" content="The Armory: The Zero Hour Group merch. Embroidered quarter-zips, crewnecks, hoodies, tees, hats and gear. By retail, for retail.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* =============== THE ARMORY (page-scoped, ar-*) =============== */
+        :root { --ac: 240, 112, 32; --ar-line: rgba(255,255,255,.09); --ar-mono: 'JetBrains Mono', ui-monospace, monospace; --ar-ui: 'Chakra Petch', sans-serif; --ar-ease: cubic-bezier(.2,.7,.2,1); }
+        body[data-vision=nvg] { --ac: 120, 255, 130; }
+        body[data-vision=thermal] { --ac: 255, 200, 70; }
+        html { scrollbar-color: #3a3a3a #000; }
+        body { background: #000; }
+        .ar-wrap { max-width: 1360px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+        .ar-mono { font-family: var(--ar-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+        .ar-ac { color: rgb(var(--ac)); }
+
+        /* ---- film grain + goggle vignette + cursor reticle ---- */
+        .ar-grain { position: fixed; inset: -100px; z-index: 9990; pointer-events: none; opacity: .07; will-change: transform; animation: ar-grain .5s steps(4) infinite; }
+        body[data-vision=nvg] .ar-grain { opacity: .2; }
+        @keyframes ar-grain { 0% { transform: translate(0,0) } 25% { transform: translate(-40px,30px) } 50% { transform: translate(30px,-50px) } 75% { transform: translate(-20px,-30px) } 100% { transform: translate(40px,40px) } }
+        .ar-vig { position: fixed; inset: 0; z-index: 9989; pointer-events: none; opacity: 0; transition: opacity .6s; background: radial-gradient(ellipse at center, transparent 48%, rgba(0,0,0,.92) 96%); }
+        body[data-vision=nvg] .ar-vig { opacity: 1; }
+        body[data-vision=thermal] .ar-vig { opacity: .5; }
+        .ar-reticle { position: fixed; left: 0; top: 0; z-index: 9995; pointer-events: none; width: 38px; height: 38px; margin: -19px 0 0 -19px; opacity: 0; transition: opacity .3s, width .25s var(--ar-ease), height .25s var(--ar-ease), margin .25s var(--ar-ease); }
+        .ar-reticle::before { content: ""; position: absolute; inset: 0; border: 1px solid rgba(var(--ac), .7); border-radius: 50%; }
+        .ar-reticle::after { content: ""; position: absolute; left: 50%; top: 50%; width: 140%; height: 140%; transform: translate(-50%,-50%);
+            background: linear-gradient(rgba(var(--ac),.8),rgba(var(--ac),.8)) 50% 0/1px 22% no-repeat, linear-gradient(rgba(var(--ac),.8),rgba(var(--ac),.8)) 50% 100%/1px 22% no-repeat,
+                        linear-gradient(rgba(var(--ac),.8),rgba(var(--ac),.8)) 0 50%/22% 1px no-repeat, linear-gradient(rgba(var(--ac),.8),rgba(var(--ac),.8)) 100% 50%/22% 1px no-repeat; }
+        .ar-reticle.is-on { opacity: 1; }
+        .ar-reticle.is-lock { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+        .ar-reticle.is-lock::before { border-radius: 4px; border-style: dashed; animation: ar-spin 6s linear infinite; }
+        @keyframes ar-spin { to { transform: rotate(360deg) } }
+
+        /* ---- boot ---- */
+        .ar-boot { position: fixed; inset: 0; z-index: 10005; background: #000; display: flex; align-items: center; justify-content: center; transition: opacity .5s, visibility 0s .5s; cursor: pointer; }
+        .ar-boot.is-done { opacity: 0; visibility: hidden; }
+        .ar-boot pre { font-family: var(--ar-mono); font-size: clamp(.7rem, 1.6vw, .95rem); line-height: 1.9; color: rgb(var(--ac)); letter-spacing: .08em; margin: 0; min-width: min(90vw, 460px); min-height: 11em; text-shadow: 0 0 12px rgba(var(--ac), .6); }
+        .ar-boot pre b { color: #fff; font-weight: 400; }
+        .ar-caret { display: inline-block; width: .6em; height: 1em; background: rgb(var(--ac)); vertical-align: -2px; animation: ar-blink .7s steps(1) infinite; }
+        @keyframes ar-blink { 50% { opacity: 0 } }
+
+        /* ---- hero ---- */
+        .ar-hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; display: flex; align-items: center; border-bottom: 1px solid var(--ar-line);
+            background: radial-gradient(70% 60% at 70% 55%, rgba(var(--ac), .12), transparent 70%), #000; }
+        .ar-hero.no-gl { background-image: linear-gradient(rgba(var(--ac),.08) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--ac),.08) 1px, transparent 1px); background-size: 56px 56px; }
+        #arSky { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        .ar-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 22%, transparent 70%, #000 100%), repeating-linear-gradient(to bottom, transparent 0 3px, rgba(0,0,0,.18) 3px 4px); }
+        .ar-hero-grid { position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: end; padding-top: calc(var(--nav-height, 72px) + 2rem); padding-bottom: 5.5rem; }
+        .ar-tag { display: inline-flex; align-items: center; gap: .7rem; color: rgb(var(--ac)); }
+        .ar-tag i { width: 8px; height: 8px; background: rgb(var(--ac)); box-shadow: 0 0 12px rgb(var(--ac)); animation: ar-blink 1.2s steps(1) infinite; }
+        .ar-title { font-family: 'Saira Stencil One', var(--ar-ui); font-weight: 400; line-height: .86; font-size: clamp(4.4rem, 13.5vw, 12.5rem); letter-spacing: -.01em; margin: 1.2rem 0 1.4rem; text-transform: uppercase; color: #fff; text-shadow: 0 0 60px rgba(var(--ac), .35); }
+        .ar-title em { font-style: normal; display: block; color: transparent; -webkit-text-stroke: 1.5px rgb(var(--ac)); text-shadow: none; font-size: .42em; letter-spacing: .08em; margin-bottom: .25em; }
+        .ar-sub { font-family: var(--ar-ui); font-weight: 600; font-size: clamp(.85rem, 1.5vw, 1.1rem); letter-spacing: .5em; text-transform: uppercase; color: #d9d9d9; }
+        .ar-copy { color: #9c9c9c; max-width: 30rem; margin-top: 1.2rem; line-height: 1.7; }
+        .ar-btn { --cut: 12px; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .7rem; cursor: pointer; text-decoration: none; border: 0;
+            font-family: var(--ar-ui); font-weight: 700; font-size: .82rem; letter-spacing: .22em; text-transform: uppercase; color: rgb(var(--ac)); padding: 1rem 1.6rem; background: rgba(var(--ac), .08);
+            clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); transition: background .25s, color .25s, transform .25s var(--ar-ease); }
+        .ar-btn::before { content: ""; position: absolute; inset: 0; padding: 1px; background: rgb(var(--ac)); clip-path: inherit; -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none; }
+        .ar-btn:hover, .ar-btn:focus-visible { background: rgb(var(--ac)); color: #000; transform: translateY(-2px); outline: none; }
+        .ar-btn--solid { background: rgb(var(--ac)); color: #000; }
+        .ar-btn--solid:hover { background: #fff; }
+        .ar-btn--block { width: 100%; }
+
+        .ar-feature { position: relative; justify-self: center; width: min(100%, 440px); cursor: pointer; }
+        .ar-feature .ar-stage { aspect-ratio: 1 / 1.08; }
+        .ar-feature-cap { display: flex; justify-content: space-between; gap: 1rem; color: #8d8d8d; padding-top: .6rem; border-top: 1px solid rgba(var(--ac), .35); }
+        .ar-telemetry { position: absolute; z-index: 2; right: clamp(1rem, 4vw, 3rem); bottom: 3.1rem; text-align: right; color: #7d7d7d; white-space: nowrap; }
+        .ar-telemetry b { color: rgb(var(--ac)); font-weight: 400; }
+        .ar-scrollcue { position: absolute; z-index: 2; left: 50%; bottom: 3.2rem; transform: translateX(-50%); color: #777; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+        .ar-scrollcue::after { content: ""; width: 1px; height: 34px; background: linear-gradient(rgb(var(--ac)), transparent); animation: ar-cue 1.6s ease-in-out infinite; }
+        @keyframes ar-cue { 0% { transform: scaleY(0); transform-origin: top } 50% { transform: scaleY(1); transform-origin: top } 51% { transform-origin: bottom } 100% { transform: scaleY(0); transform-origin: bottom } }
+
+        /* ---- turntable stage (shared by hero, cards, dossier) ---- */
+        .ar-stage { position: relative; aspect-ratio: 1; }
+        .ar-stage::before { content: ""; position: absolute; inset: 6% 6% 10%; background: radial-gradient(closest-side, rgba(var(--ac), .2), rgba(var(--ac), .05) 55%, transparent 75%); transition: opacity .4s; }
+        /* a true circle laid flat, so the rings inside spin in the pad's own plane */
+        .ar-pad { position: absolute; left: 14%; right: 14%; bottom: 10.5%; aspect-ratio: 1; border-radius: 50%; border: 1.5px solid rgba(var(--ac), .5); box-shadow: 0 0 30px rgba(var(--ac), .25), inset 0 0 26px rgba(var(--ac), .25); transform: translateY(50%) rotateX(78deg); }
+        .ar-pad::before, .ar-pad::after { content: ""; position: absolute; inset: 14%; border-radius: 50%; border: 1px dashed rgba(var(--ac), .45); animation: ar-spin 14s linear infinite; }
+        .ar-pad::after { inset: 34%; animation-duration: 8s; animation-direction: reverse; border-style: dotted; }
+        .ar-stage:not(.is-live) .ar-pad::before, .ar-stage:not(.is-live) .ar-pad::after, .ar-stage:not(.is-live) .ar-tt.is-float { animation-play-state: paused; }
+        .ar-tt { position: absolute; inset: 7% 9% 11%; perspective: 900px; touch-action: pan-y; }
+        .ar-tt.is-float { will-change: transform; animation: ar-bob 2.513s ease-in-out infinite alternate; animation-delay: var(--bob, 0s); }
+        @keyframes ar-bob { from { transform: translateY(-4px) } to { transform: translateY(4px) } }
+        /* photographs: the view changes by a short dissolve; under the cursor the piece lifts off its pad and shows its other side */
+        .ar-tt.is-still span { transition: opacity .38s ease, transform .55s var(--ar-ease); }
+        .is-hot .ar-tt.is-still span { transform: translateY(-3%) scale(1.06); }
+        .ar-stage::before, .ar-pad { transition: opacity .4s, transform .55s var(--ar-ease), box-shadow .4s, border-color .4s; }
+        .ar-stage.is-hot::before, .is-hot .ar-stage::before { transform: scale(1.18); }
+        .ar-stage.is-hot .ar-pad, .is-hot .ar-stage .ar-pad { border-color: rgba(var(--ac), .9); box-shadow: 0 0 46px rgba(var(--ac), .5), inset 0 0 34px rgba(var(--ac), .45); }
+        .ar-doss .ar-tt.is-still { cursor: grab; }
+        /* the span is the moving layer; the filter sits on the img inside it so the shadow is rasterised once, not re-blurred every frame */
+        .ar-tt span { position: absolute; inset: 0; opacity: 0; will-change: transform; }
+        .ar-tt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none;
+            filter: drop-shadow(0 22px 26px rgba(0,0,0,.7)); }
+        body[data-vision=nvg] .ar-tt img { filter: url(#arNvg) drop-shadow(0 0 10px rgba(var(--ac), .35)); }
+        body[data-vision=thermal] .ar-tt img { filter: url(#arThermal) drop-shadow(0 0 10px rgba(var(--ac), .3)); }
+        /* the 3D turntable: overhangs the photo box by 8% a side so a turning piece is never clipped. No filter in the default view: it is redrawn every frame */
+        .ar-tt canvas { position: absolute; left: -8%; top: -8%; width: 116%; height: 116%; opacity: 0; pointer-events: none; will-change: transform; }
+        body[data-vision=nvg] .ar-tt canvas { filter: url(#arNvg); }
+        body[data-vision=thermal] .ar-tt canvas { filter: url(#arThermal); }
+        .ar-br { position: absolute; width: 18px; height: 18px; border: 0 solid rgba(255,255,255,.28); transition: all .35s var(--ar-ease); pointer-events: none; }
+        .ar-br.tl { left: 0; top: 0; border-left-width: 1px; border-top-width: 1px; } .ar-br.tr { right: 0; top: 0; border-right-width: 1px; border-top-width: 1px; }
+        .ar-br.bl { left: 0; bottom: 0; border-left-width: 1px; border-bottom-width: 1px; } .ar-br.br { right: 0; bottom: 0; border-right-width: 1px; border-bottom-width: 1px; }
+        .ar-view { position: absolute; left: .6rem; bottom: .5rem; color: #6f6f6f; }
+        .ar-lock { position: absolute; right: .6rem; top: .5rem; color: rgb(var(--ac)); opacity: 0; transition: opacity .2s; }
+        .ar-scan { position: absolute; left: 0; right: 0; top: 0; height: 30%; pointer-events: none; opacity: 0; background: linear-gradient(to bottom, transparent, rgba(var(--ac), .16) 85%, rgba(var(--ac), .9) 99%, transparent); }
+
+        /* ---- manifest ---- */
+        .ar-manifest { max-width: none; margin: 0; padding: clamp(3.5rem, 7vw, 6rem) 0 3rem; scroll-margin-top: 40px; }
+        .ar-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+        .ar-h2 { font-family: var(--ar-ui); font-weight: 700; text-transform: uppercase; font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: .95; letter-spacing: .01em; margin-top: .7rem; }
+        .ar-head p { color: #8c8c8c; max-width: 25rem; font-size: .92rem; }
+        .ar-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 2.2rem 0 0; padding: 1rem 0; border-top: 1px solid var(--ar-line); border-bottom: 1px solid var(--ar-line); }
+        .ar-filter { --cut: 8px; font-family: var(--ar-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: #9a9a9a; background: rgba(255,255,255,.03); border: 0; padding: .65rem 1rem; cursor: pointer;
+            clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); transition: background .25s, color .25s; }
+        .ar-filter b { font-weight: 400; opacity: .55; margin-left: .5em; }
+        .ar-filter:hover { color: #fff; background: rgba(255,255,255,.08); }
+        .ar-filter.is-active { background: rgb(var(--ac)); color: #000; }
+        .ar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.8rem); padding-top: 2.4rem; }
+        .ar-card { position: relative; padding: .9rem .9rem 1.1rem; border: 1px solid var(--ar-line); background: linear-gradient(180deg, rgba(255,255,255,.025), transparent 40%); cursor: pointer; opacity: 0; transform: translateY(26px);
+            transition: opacity .7s var(--ar-ease), transform .7s var(--ar-ease), border-color .3s, background .3s; }
+        .ar-card.is-in { opacity: 1; transform: none; }
+        .ar-card[hidden] { display: none; }
+        .ar-card:hover, .ar-card:focus-visible { border-color: rgba(var(--ac), .65); background: linear-gradient(180deg, rgba(var(--ac), .07), transparent 55%); outline: none; }
+        .ar-card-top { display: flex; justify-content: space-between; color: #707070; }
+        .ar-stat { display: inline-flex; align-items: center; gap: .45rem; }
+        .ar-stat i { width: 6px; height: 6px; border-radius: 50%; background: rgb(var(--ac)); box-shadow: 0 0 8px rgb(var(--ac)); }
+        .ar-card .ar-stage { margin: .3rem 0 .4rem; }
+        .ar-card:hover .ar-br, .ar-card:focus-visible .ar-br { width: 26px; height: 26px; border-color: rgb(var(--ac)); margin: 9%; }
+        .ar-card:hover .ar-lock, .ar-card:focus-visible .ar-lock { opacity: 1; animation: ar-blink .5s steps(1) 3; }
+        .ar-card:hover .ar-scan { opacity: 1; animation: ar-scan 1.5s linear infinite; }
+        @keyframes ar-scan { from { transform: translateY(-100%) } to { transform: translateY(340%) } }
+        .ar-name { font-family: var(--ar-ui); font-weight: 700; font-size: clamp(1.05rem, 1.7vw, 1.45rem); letter-spacing: .04em; text-transform: uppercase; line-height: 1.1; }
+        .ar-line2 { color: #7f7f7f; margin-top: .35rem; }
+        .ar-price { color: rgb(var(--ac)); margin-top: .4rem; letter-spacing: .08em; }
+        .ar-buy { display: block; text-align: center; margin-top: 1.8rem; text-decoration: none; }
+        .ar-buy[hidden], .ar-form[hidden] { display: none; }
+        .ar-buy.is-busy { opacity: .6; pointer-events: none; }
+        .ar-sizes button { font-family: var(--ar-mono); font-size: .7rem; border: 1px solid #2b2b2b; background: none; color: #cfcfcf; padding: .5rem .65rem; min-width: 44px; text-align: center; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+        .ar-sizes button:hover, .ar-sizes button:focus-visible { border-color: rgba(var(--ac), .7); color: #fff; outline: none; }
+        .ar-sizes button small { font-size: .85em; opacity: .6; margin-left: .4em; }
+        .ar-sizes button.is-active { border-color: rgb(var(--ac)); background: rgba(var(--ac), .18); color: #fff; }
+        .ar-sizes.is-ask button:not(.is-active) { border-color: rgba(var(--ac), .85); }
+        .ar-toast { position: fixed; left: 50%; top: 5.2rem; z-index: 10005; transform: translate(-50%, -20px); opacity: 0; max-width: min(92vw, 560px); padding: 1rem 1.3rem; background: #0b0b0b; border: 1px solid rgb(var(--ac)); box-shadow: 0 0 40px rgba(var(--ac), .3); color: #e8e8e8; cursor: pointer; transition: opacity .4s, transform .5s var(--ar-ease); }
+        .ar-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+        .ar-toast b { display: block; color: rgb(var(--ac)); font-weight: 400; margin-bottom: .35rem; }
+        .ar-chips { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; margin: .9rem 0 1rem; min-height: 18px; }
+        .ar-chip { width: 22px; height: 12px; border: 0; padding: 0; cursor: pointer; transform: skewX(-18deg); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); transition: transform .2s; position: relative; }
+        .ar-chip:hover { transform: skewX(-18deg) scale(1.15); }
+        .ar-chip.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; background: rgb(var(--ac)); }
+        .ar-chips span { color: #666; margin-left: .2rem; }
+        .ar-card .ar-btn { padding: .8rem 1rem; font-size: .72rem; }
+
+        /* ---- signal / radar ---- */
+        .ar-signal { position: relative; border-top: 1px solid var(--ar-line); border-bottom: 1px solid var(--ar-line); overflow: hidden; background: radial-gradient(60% 80% at 25% 50%, rgba(var(--ac), .09), transparent 70%); }
+        .ar-signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(3rem, 7vw, 6rem); }
+        .ar-radar { position: relative; width: min(100%, 520px); aspect-ratio: 1; justify-self: center; }
+        .ar-radar canvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
+        .ar-radar-read { position: absolute; left: 0; bottom: -1.6rem; color: #7d7d7d; }
+        .ar-form { display: flex; margin-top: 1.8rem; max-width: 480px; }
+        .ar-form input[type=email] { flex: 1; min-width: 0; background: rgba(255,255,255,.04); border: 1px solid rgba(var(--ac), .45); border-right: 0; color: #fff; font-family: var(--ar-mono); font-size: .82rem; letter-spacing: .06em; padding: 1rem; }
+        .ar-form input[type=email]:focus { outline: none; background: rgba(var(--ac), .08); }
+        .ar-form .ar-btn { --cut: 0px; }
+        .ar-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+        .ar-msg { min-height: 1.4em; margin-top: .8rem; color: #aaa; }
+        .ar-msg.is-err { color: #ff8a65; }
+        .ar-orders { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2rem, 5vw, 4rem); }
+        .ar-orders[hidden] { display: none; }
+        .ar-orders h2 { font-family: var(--ar-ui); font-weight: 700; text-transform: uppercase; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: .01em; color: #fff; margin: .6rem 0 2rem; }
+        .ar-orders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem 2.6rem; }
+        .ar-orders-grid h3 { font-family: var(--ar-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 400; color: #e5e5e5; margin: 0 0 .6rem; padding-top: .9rem; border-top: 1px solid #242424; }
+        .ar-orders-grid p { color: #9a9a9a; line-height: 1.7; font-size: .92rem; margin: 0; }
+        .ar-orders-grid a, .ar-note a { color: rgb(var(--ac)); }
+        @media (max-width: 900px) { .ar-orders-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .ar-orders-grid { grid-template-columns: 1fr; } }
+
+        /* ---- dossier ---- */
+        .ar-doss { position: fixed; inset: 0; z-index: 10001; display: flex; align-items: center; justify-content: center; padding: clamp(0rem, 2vw, 1.5rem); visibility: hidden; opacity: 0; transition: opacity .3s, visibility 0s .3s; }
+        .ar-doss.is-open { visibility: visible; opacity: 1; transition: opacity .3s; }
+        .ar-doss-bg { position: absolute; inset: 0; background: rgba(0,0,0,.93); }
+        .ar-doss-panel { position: relative; width: min(1200px, 100%); max-height: 100%; overflow: auto; background: #050505; border: 1px solid rgba(var(--ac), .5); display: grid; grid-template-columns: 1.1fr 1fr;
+            clip-path: polygon(26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%, 0 26px); transform: scale(.97); transition: transform .4s var(--ar-ease); box-shadow: 0 0 80px rgba(var(--ac), .18); }
+        .ar-doss.is-open .ar-doss-panel { transform: none; }
+        .ar-doss-panel, .ar-doss-right { scrollbar-width: thin; scrollbar-color: rgba(var(--ac), .5) transparent; }
+        .ar-doss-panel::-webkit-scrollbar, .ar-doss-right::-webkit-scrollbar { width: 6px; }
+        .ar-doss-panel::-webkit-scrollbar-thumb, .ar-doss-right::-webkit-scrollbar-thumb { background: rgba(var(--ac), .5); }
+        .ar-doss-panel::-webkit-scrollbar-track, .ar-doss-right::-webkit-scrollbar-track { background: transparent; }
+        @media (min-width: 861px) {      /* the panel itself never scrolls on desktop; only the details column does, and only if it must */
+            .ar-doss-panel { overflow: hidden; grid-template-rows: minmax(0, 1fr); }
+            .ar-doss-left, .ar-doss-right { min-height: 0; }
+            .ar-doss-left .ar-stage { min-height: 0; }
+            .ar-doss-right { overflow-y: auto; }
+        }
+        .ar-doss-close { position: absolute; right: 1rem; top: 1rem; z-index: 3; width: 40px; height: 40px; background: #000; border: 1px solid rgba(var(--ac), .6); color: rgb(var(--ac)); cursor: pointer; font-size: 1rem; }
+        .ar-doss-close:hover { background: rgb(var(--ac)); color: #000; }
+        .ar-doss-left { position: relative; padding: 1.2rem; border-right: 1px solid var(--ar-line); background: radial-gradient(closest-side, rgba(var(--ac), .1), transparent), repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.035) 39px 40px), repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.035) 39px 40px); display: flex; flex-direction: column; }
+        .ar-doss-left .ar-stage { flex: 1; aspect-ratio: 1; cursor: grab; }
+        .ar-doss-left .ar-stage:active { cursor: grabbing; }
+        .ar-doss-left .ar-br { width: 30px; height: 30px; border-color: rgba(var(--ac), .8); }
+        .ar-views { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; padding-top: .9rem; color: #777; }
+        .ar-views button { font-family: var(--ar-mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; background: none; border: 1px solid #2b2b2b; color: #aaa; padding: .45rem .7rem; cursor: pointer; }
+        .ar-views button.is-active, .ar-views button:hover { border-color: rgb(var(--ac)); color: rgb(var(--ac)); }
+        .ar-views span { margin-left: auto; }
+        .ar-doss-right { padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1.4rem, 3.4vw, 2.8rem); display: flex; flex-direction: column; }
+        .ar-doss-name { font-family: var(--ar-ui); font-weight: 700; text-transform: uppercase; font-size: clamp(2rem, 4vw, 3.2rem); line-height: .95; margin: .8rem 0 .5rem; }
+        .ar-doss-status { display: flex; gap: .7rem; align-items: center; margin: 1rem 0; padding: .8rem 1rem; border: 1px dashed rgba(var(--ac), .5); color: #cfcfcf; }
+        .ar-doss-desc { color: #a6a6a6; line-height: 1.7; font-size: .93rem; }
+        .ar-opt { margin-top: 1.2rem; }
+        .ar-opt-l { color: #777; margin-bottom: .7rem; } .ar-opt-l b { color: #fff; font-weight: 400; margin-left: .6em; }
+        .ar-opt .ar-chips { margin: 0; gap: .7rem; } .ar-opt .ar-chip { width: 38px; height: 20px; }
+        .ar-sizes { display: flex; flex-wrap: wrap; gap: .4rem; }
+        .ar-sizes span { font-family: var(--ar-mono); font-size: .7rem; border: 1px solid #2b2b2b; color: #cfcfcf; padding: .5rem .65rem; min-width: 44px; text-align: center; }
+        .ar-specs { margin-top: 1.2rem; }
+        .ar-specs div { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid #191919; }
+        .ar-specs dt { color: #777; } .ar-specs dd { margin: 0; color: #e5e5e5; text-align: right; }
+        .ar-specs dd span { display: block; } .ar-specs dd span + span { margin-top: .3rem; } .ar-specs div[hidden] { display: none; }
+        .ar-doss-right .ar-form { max-width: none; }
+        .ar-note { color: #666; font-size: .72rem; margin-top: .6rem; }
+
+        /* ---- cart ---- */
+        .ar-cartbtn { position: fixed; right: clamp(.8rem, 2vw, 1.6rem); top: calc(var(--nav-height, 72px) + .9rem); z-index: 9994; display: inline-flex; align-items: center; gap: .7rem; padding: .6rem .6rem .6rem 1rem; background: rgba(5,5,5,.94); border: 1px solid rgba(var(--ac), .6); color: #e8e8e8; cursor: pointer; box-shadow: 0 0 30px rgba(var(--ac), .2); transition: border-color .2s, color .2s; }
+        .ar-cartbtn[hidden], .ar-cartlink[hidden], .ar-cart-foot[hidden], .ar-cart-sum[hidden] { display: none; }
+        .ar-cartbtn:hover, .ar-cartbtn:focus-visible { border-color: rgb(var(--ac)); color: #fff; outline: none; }
+        .ar-cartbtn b { font-weight: 400; color: #000; background: rgb(var(--ac)); padding: .25rem .5rem; min-width: 2.4em; text-align: center; }
+        .ar-cartbtn.is-bump { animation: ar-bump .45s var(--ar-ease); }
+        @keyframes ar-bump { 40% { transform: scale(1.12); } }
+        .ar-cartlink { display: block; width: 100%; margin-top: .7rem; padding: .5rem; background: none; border: 0; color: #9a9a9a; cursor: pointer; text-align: center; }
+        .ar-cartlink:hover, .ar-cartlink:focus-visible { color: rgb(var(--ac)); outline: none; }
+        .ar-cart { position: fixed; inset: 0; z-index: 10003; visibility: hidden; transition: visibility 0s .4s; }
+        .ar-cart.is-open { visibility: visible; transition: none; }
+        .ar-cart-bg { position: absolute; inset: 0; background: rgba(0,0,0,.72); opacity: 0; transition: opacity .3s; }
+        .ar-cart.is-open .ar-cart-bg { opacity: 1; }
+        .ar-cart-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%); display: flex; flex-direction: column; background: #050505; border-left: 1px solid rgba(var(--ac), .5); box-shadow: -30px 0 80px rgba(0,0,0,.6); transform: translateX(102%); transition: transform .4s var(--ar-ease); }
+        .ar-cart.is-open .ar-cart-panel { transform: none; }
+        .ar-cart-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.3rem 1.4rem 1.1rem; border-bottom: 1px solid var(--ar-line); }
+        .ar-cart-head h2 { font-family: var(--ar-ui); font-weight: 700; text-transform: uppercase; font-size: 1.7rem; line-height: 1; margin: .5rem 0 0; color: #fff; }
+        .ar-cart-x { flex: none; width: 40px; height: 40px; background: #000; border: 1px solid rgba(var(--ac), .6); color: rgb(var(--ac)); cursor: pointer; font-size: 1rem; }
+        .ar-cart-x:hover, .ar-cart-x:focus-visible { background: rgb(var(--ac)); color: #000; outline: none; }
+        .ar-cart-lines { flex: 1; min-height: 0; overflow-y: auto; padding: .3rem 1.4rem; scrollbar-width: thin; scrollbar-color: rgba(var(--ac), .5) transparent; }
+        .ar-cart-empty { color: #8a8a8a; padding: 2.4rem 0; line-height: 1.7; font-size: .93rem; }
+        .ar-line { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: .2rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid #191919; align-items: start; }
+        .ar-line-img { grid-row: 1 / span 2; width: 76px; height: 76px; background: radial-gradient(closest-side, rgba(var(--ac), .14), transparent); border: 1px solid #1f1f1f; }
+        .ar-line-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .ar-line h3 { font-family: var(--ar-ui); font-weight: 700; font-size: 1rem; letter-spacing: .04em; text-transform: uppercase; line-height: 1.15; margin: 0; color: #fff; }
+        .ar-line-opt { color: #8a8a8a; margin: .35rem 0 0; }
+        .ar-line-price { color: #e8e8e8; text-align: right; white-space: nowrap; font-size: .78rem; }
+        .ar-line-ctl { grid-column: 2 / span 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
+        .ar-qty { display: inline-flex; align-items: center; border: 1px solid #2b2b2b; }
+        .ar-qty button { width: 36px; height: 36px; background: none; border: 0; color: #cfcfcf; cursor: pointer; font-family: var(--ar-mono); font-size: 1rem; }
+        .ar-qty button:hover:not(:disabled), .ar-qty button:focus-visible { background: rgba(var(--ac), .18); color: #fff; outline: none; }
+        .ar-qty button:disabled { opacity: .3; cursor: default; }
+        .ar-qty span { min-width: 2.2em; text-align: center; color: #fff; font-family: var(--ar-mono); font-size: .8rem; }
+        .ar-line-rm { background: none; border: 0; padding: .5rem 0; color: #777; cursor: pointer; }
+        .ar-line-rm:hover, .ar-line-rm:focus-visible { color: #ff8a65; outline: none; }
+        .ar-cart-foot { padding: 1.1rem 1.4rem 1.3rem; border-top: 1px solid rgba(var(--ac), .35); background: #070707; }
+        .ar-cart-sum { display: flex; justify-content: space-between; padding: .3rem 0; color: #9a9a9a; }
+        .ar-cart-sum b { font-weight: 400; color: #e8e8e8; }
+        .ar-cart-sum.is-total { margin-top: .4rem; padding-top: .8rem; border-top: 1px solid #1f1f1f; color: #fff; font-size: .8rem; }
+        .ar-cart-sum.is-total b { color: rgb(var(--ac)); }
+        .ar-cart-foot .ar-btn { margin-top: 1rem; }
+        .ar-cart-foot .ar-btn.is-busy { opacity: .6; pointer-events: none; }
+        .ar-cart-foot .ar-msg { margin-top: .6rem; min-height: 0; }
+
+        /* ---- HUD bar ---- */
+        .ar-hud { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9993; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .45rem clamp(.8rem, 2vw, 1.6rem); color: #8a8a8a;
+            background: rgba(0,0,0,.92); border-top: 1px solid rgba(var(--ac), .35); }
+        .ar-hud b { color: rgb(var(--ac)); font-weight: 400; }
+        .ar-vision { display: flex; align-items: center; gap: .3rem; }
+        .ar-vision button { font-family: var(--ar-mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; background: none; border: 1px solid #2a2a2a; color: #999; padding: .35rem .65rem; cursor: pointer; }
+        .ar-vision button.is-active { background: rgb(var(--ac)); border-color: rgb(var(--ac)); color: #000; }
+        footer.hp-footer { padding-bottom: 4rem; }
+
+        @media (max-width: 1000px) { .ar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 860px) {
+            .ar-hero-grid { grid-template-columns: 1fr; padding-bottom: 6rem; }
+            .ar-feature { width: min(78%, 340px); order: -1; margin-top: 6.5rem; }
+            .ar-telemetry { display: none; }
+            .ar-signal-grid { grid-template-columns: 1fr; }
+            .ar-doss-panel { grid-template-columns: 1fr; }
+            .ar-doss-left { border-right: 0; border-bottom: 1px solid var(--ar-line); }
+            .ar-hud-l, .ar-hud-r { display: none; } .ar-hud { justify-content: center; }
+            .ar-scrollcue { display: none; }
+        }
+        @media (max-width: 560px) {
+            .ar-card { padding: .6rem .6rem .8rem; } .ar-card-top .ar-stat { display: none; } .ar-card .ar-btn { letter-spacing: .12em; padding: .7rem .4rem; }
+            .ar-doss { padding: 0; } .ar-doss-panel { clip-path: none; border: 0; }
+            .ar-lock, .ar-view, .ar-cat, .ar-line2, .ar-chips span { display: none; }
+            .ar-card .ar-tt { inset: 2% 2% 9%; } .ar-name { font-size: .95rem; } .ar-chips { margin: .6rem 0 .8rem; gap: .35rem; } .ar-chip { width: 18px; height: 10px; }
+            .ar-grid { gap: .6rem; }
+        }
+        @media (hover: none) { .ar-reticle { display: none; } }
+        /* lite: the browser is drawing without the graphics card (armory-spin.js `soft`). The pieces still turn; the moving dressing around them holds still */
+        html.ar-lite .ar-grain, html.ar-lite .ar-pad::before, html.ar-lite .ar-pad::after, html.ar-lite .ar-tt.is-float { animation: none; }
+        @media (prefers-reduced-motion: reduce) { .ar-grain, .ar-pad::before, .ar-pad::after, .ar-tag i, .ar-tt.is-float { animation: none; } .ar-card { opacity: 1; transform: none; } }
+    </style>
+</head>
+<body data-vision="dusk" data-no-newsletter>
+
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/zhg-transparent.png" alt="The Zero Hour Group" class="nav-logo">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="articles.html" class="nav-link">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a href="interviews.html" class="nav-link">Interviews</a>
+                </li>
+                <li class="nav-item mega-dropdown">
+                    <a href="companies.html" class="nav-link">Companies Covered</a>
+                    <div class="mega-menu">
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <p class="mega-desc">Small-cap and micro-cap defense and technology companies we actively track - from C-UAS and autonomous systems to ISR and adjacent emerging sectors.</p>
+                        </div>
+                        <div class="mega-col">
+                            <span class="mega-label">Companies Covered</span>
+                            <ul class="mega-list">
+                                <li><a href="ondas.html">Ondas Inc. · $ONDS</a></li>
+                                <li><a href="volatus.html">Volatus Aerospace · $TAKOF</a></li>
+                                <li><a href="kopin.html">Kopin Corporation · $KOPN</a></li>
+                                <li><a href="amprius.html">Amprius Technologies · $AMPX</a></li>
+                                <li><a href="umac.html">Unusual Machines · $UMAC</a></li>
+                                <li><a href="lightpath.html">LightPath Technologies · $LPTH</a></li>
+                                <li><a href="lantronix.html">Lantronix · $LTRX</a></li>
+                                <li><a href="safepro.html">Safe Pro Group · $SPAI</a></li>
+                                <li><a href="palantir.html">Palantir Technologies · $PLTR</a></li>
+                                <li><a href="anduril.html">Anduril Industries · Private</a></li>
+                                <li><a href="pdw.html">Performance Drone Works · Private</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="earnings.html" class="nav-link">Earnings Calls</a>
+                </li>
+                <li class="nav-item">
+                    <a href="livestreams.html" class="nav-link">Livestreams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="shorts.html" class="nav-link">Shorts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="sunday-night-live.html" class="nav-link">Podcast</a>
+                </li>
+                <li class="nav-item">
+                    <a href="armory.html" class="nav-link">Merch</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- vision filters: luminance -> palette -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="arNvg" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
+            <feComponentTransfer><feFuncR type="table" tableValues="0.02 0.08 0.45"/><feFuncG type="table" tableValues="0.10 0.62 1"/><feFuncB type="table" tableValues="0.02 0.12 0.45"/></feComponentTransfer>
+        </filter>
+        <filter id="arThermal" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
+            <feComponentTransfer><feFuncR type="table" tableValues="0.10 0.42 0.92 1 1"/><feFuncG type="table" tableValues="0.00 0.02 0.28 0.85 1"/><feFuncB type="table" tableValues="0.28 0.55 0.10 0.15 0.88"/></feComponentTransfer>
+        </filter>
+    </svg>
+    <div class="ar-grain" aria-hidden="true"></div>
+    <div class="ar-vig" aria-hidden="true"></div>
+    <div class="ar-reticle" aria-hidden="true"></div>
+
+    <div class="ar-boot" id="arBoot" aria-hidden="true"><pre></pre></div>
+
+    <!-- ===== Hero ===== -->
+    <header class="ar-hero" id="arHero">
+        <canvas id="arSky" aria-hidden="true"></canvas>
+        <div class="ar-telemetry ar-mono" aria-hidden="true">
+            UAS-01 // HOLO SIM &nbsp; ALT <b data-tm="alt">0120</b> M &nbsp; HDG <b data-tm="hdg">274</b>&deg; &nbsp; LINK <b data-tm="link">98</b>%
+        </div>
+        <div class="ar-wrap ar-hero-grid">
+            <div>
+                <span class="ar-tag ar-mono"><i></i>ZHG // Supply depot // <span data-when-open="Open">Launching soon</span></span>
+                <h1 class="ar-title" aria-label="The Armory"><em data-scramble>The</em><span data-scramble>Armory</span></h1>
+                <p class="ar-sub">By retail, for retail</p>
+                <p class="ar-copy">Seventeen pieces of ZHG kit. Embroidered quarter-zips, back-print tees, hats and gear, all built around the emblem and made to order.</p>
+            </div>
+            <div class="ar-feature" id="arFeature" data-open="hoodie" data-lock tabindex="0" role="button" aria-label="Featured: Hoodie. View details">
+                <div class="ar-stage">
+                    <div class="ar-pad"></div>
+                    <div class="ar-tt"></div>
+                    <i class="ar-br tl"></i><i class="ar-br tr"></i><i class="ar-br bl"></i><i class="ar-br br"></i>
+                </div>
+                <div class="ar-feature-cap ar-mono"><span>Featured asset</span><span class="ar-ac">Hoodie // back emblem</span></div>
+            </div>
+        </div>
+        <div class="ar-scrollcue ar-mono" aria-hidden="true">Scroll</div>
+    </header>
+
+    <!-- ===== Manifest ===== -->
+    <main id="manifest" class="ar-manifest">
+        <div class="ar-wrap">
+            <div class="ar-head">
+                <div>
+                    <span class="ar-mono ar-ac">// Asset manifest</span>
+                    <h2 class="ar-h2" data-scramble data-scramble-view>Issue gear</h2>
+                </div>
+            </div>
+            <div class="ar-filters" role="tablist" aria-label="Filter by category">
+                <button class="ar-filter is-active" data-cat="all" data-lock>All<b></b></button>
+                <button class="ar-filter" data-cat="apparel" data-lock>Apparel<b></b></button>
+                <button class="ar-filter" data-cat="headwear" data-lock>Headwear<b></b></button>
+                <button class="ar-filter" data-cat="drinkware" data-lock>Drinkware<b></b></button>
+                <button class="ar-filter" data-cat="accessories" data-lock>Accessories<b></b></button>
+            </div>
+            <div class="ar-grid" id="arGrid"></div>
+        </div>
+    </main>
+
+    <!-- ===== Signal ===== -->
+    <section id="signal" class="ar-signal">
+        <div class="ar-wrap ar-signal-grid">
+            <div class="ar-radar">
+                <canvas id="arRadar" width="1040" height="1040" aria-label="Radar display. Each contact is a piece in the collection; click one to open it."></canvas>
+                <span class="ar-radar-read ar-mono">Contacts <b class="ar-ac" id="arContacts">00</b> // <span id="arContactName">Sweeping</span></span>
+            </div>
+            <div>
+                <span class="ar-mono ar-ac" data-when-open="// Store open">// Launching soon</span>
+                <h2 class="ar-h2" data-scramble data-scramble-view>Get the signal</h2>
+                <p style="color:#9a9a9a;max-width:30rem;margin-top:1rem;line-height:1.7" data-when-open="New pieces and restocks reach the newsletter first. Leave your email and you'll hear about the next drop.">The store opens to newsletter subscribers first. Leave your email and you'll hear the moment checkout goes live.</p>
+                <form class="ar-form" data-source="armory_page" novalidate>
+                    <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
+                    <div class="ar-hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+                    <button type="submit" class="ar-btn ar-btn--solid" data-lock>Transmit</button>
+                </form>
+                <p class="ar-msg ar-mono" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Orders: shipping, returns, help (shown while the store is open) ===== -->
+    <section id="orders" class="ar-orders" hidden>
+        <div class="ar-wrap">
+            <span class="ar-mono ar-ac">// Orders</span>
+            <h2>Shipping, returns and help</h2>
+            <div class="ar-orders-grid">
+                <div><h3>Made to order</h3><p>Nothing sits in a warehouse. Each piece is printed or embroidered after you order it, so allow 6 to 14 business days for delivery.</p></div>
+                <div><h3>Shipping</h3><p>United States only for now. Shipping is shown in your cart and again at checkout before you pay. We email you a tracking link when your order ships. Some pieces are made in different places, so a mixed order can arrive in more than one parcel, each with its own email.</p></div>
+                <div><h3>Returns</h3><p>Every piece is made for the person who ordered it, so we can't take returns or exchanges for a wrong size or a change of mind. Check the sizes before you order.</p></div>
+                <div><h3>Something wrong?</h3><p>If your order arrives damaged, misprinted, or doesn't arrive, email us within 30 days of delivery with a photo. We'll replace it or refund you.</p></div>
+                <div><h3>Changes and cancellations</h3><p>Production starts quickly. Email us right away if you need to change or cancel an order. Once it is being made we can't.</p></div>
+                <div><h3>Contact</h3><p><a href="mailto:info@thezerohourgroup.com">info@thezerohourgroup.com</a>. Payment is handled by Stripe, and we never see your card number.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Dossier ===== -->
+    <div class="ar-doss" id="arDoss" role="dialog" aria-modal="true" aria-labelledby="arDossName" aria-hidden="true">
+        <div class="ar-doss-bg" data-close></div>
+        <div class="ar-doss-panel">
+            <button class="ar-doss-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="ar-doss-left">
+                <span class="ar-mono ar-ac" id="arDossHint">// Drag to rotate</span>
+                <div class="ar-stage">
+                    <div class="ar-pad"></div>
+                    <div class="ar-tt"></div>
+                    <i class="ar-br tl"></i><i class="ar-br tr"></i><i class="ar-br bl"></i><i class="ar-br br"></i>
+                </div>
+                <div class="ar-views ar-mono"></div>
+            </div>
+            <div class="ar-doss-right">
+                <span class="ar-mono ar-ac" id="arDossDes"></span>
+                <h2 class="ar-doss-name" id="arDossName"></h2>
+                <p class="ar-mono" id="arDossLine" style="color:#8a8a8a"></p>
+                <div class="ar-doss-status ar-mono"><span class="ar-stat"><i></i></span><span id="arDossStatus">Awaiting deployment. Pricing and checkout open with the store.</span></div>
+                <p class="ar-doss-desc" id="arDossDesc"></p>
+                <div class="ar-opt"><div class="ar-opt-l ar-mono">Colorway<b id="arDossColor"></b></div><div class="ar-chips" id="arDossChips"></div></div>
+                <div class="ar-opt"><div class="ar-opt-l ar-mono">Sizes</div><div class="ar-sizes" id="arDossSizes"></div></div>
+                <dl class="ar-specs ar-mono">
+                    <div><dt>Blank</dt><dd id="arDossBlank"></dd></div>
+                    <div id="arDossMatRow"><dt>Material</dt><dd id="arDossMat"></dd></div>
+                    <div id="arDossDetRow"><dt>Details</dt><dd id="arDossDet"></dd></div>
+                    <div><dt>Decoration</dt><dd id="arDossMethod"></dd></div>
+                    <div><dt>Made</dt><dd>To order</dd></div>
+                </dl>
+                <a class="ar-btn ar-btn--solid ar-buy" id="arDossBuy" target="_blank" rel="noopener" hidden>Buy now</a>
+                <form class="ar-form" id="arDossForm" data-source="armory_dossier" novalidate>
+                    <input type="email" name="email" placeholder="Email me when it's live" autocomplete="email" required aria-label="Email address">
+                    <div class="ar-hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+                    <button type="submit" class="ar-btn ar-btn--solid">Notify me</button>
+                </form>
+                <p class="ar-msg ar-mono" role="status" aria-live="polite"></p>
+                <button type="button" class="ar-cartlink ar-mono" id="arDossCart" hidden></button>
+                <p class="ar-note" id="arDossNote">Subscribes you to The Zero Hour Group newsletter. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Cart (only while the store is open) ===== -->
+    <button type="button" class="ar-cartbtn ar-mono" id="arCartBtn" aria-haspopup="dialog" aria-controls="arCart" hidden>Cart <b id="arCartCount">00</b></button>
+    <div class="ar-cart" id="arCart" role="dialog" aria-modal="true" aria-labelledby="arCartTitle" aria-hidden="true">
+        <div class="ar-cart-bg" data-cart-close></div>
+        <aside class="ar-cart-panel">
+            <header class="ar-cart-head">
+                <div><span class="ar-mono ar-ac">// Loadout</span><h2 id="arCartTitle">Your cart</h2></div>
+                <button type="button" class="ar-cart-x" data-cart-close aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <div class="ar-cart-lines" id="arCartLines"></div>
+            <footer class="ar-cart-foot" id="arCartFoot" hidden>
+                <div class="ar-cart-sum ar-mono"><span>Subtotal</span><b id="arCartSub"></b></div>
+                <div class="ar-cart-sum ar-mono" id="arCartShipRow"><span>Shipping, US</span><b id="arCartShip"></b></div>
+                <div class="ar-cart-sum ar-mono is-total" id="arCartTotalRow"><span>Total</span><b id="arCartTotal"></b></div>
+                <a class="ar-btn ar-btn--solid ar-btn--block" id="arCartGo" href="#" role="button">Checkout</a>
+                <p class="ar-msg ar-mono" id="arCartMsg" role="status" aria-live="polite"></p>
+                <p class="ar-note" id="arCartNote"></p>
+                <button type="button" class="ar-cartlink ar-mono" data-cart-close>Keep shopping</button>
+            </footer>
+        </aside>
+    </div>
+
+    <!-- ===== HUD ===== -->
+    <div class="ar-hud ar-mono">
+        <span class="ar-hud-l">ZHG//Armory &nbsp; X <b id="arX">0000</b> Y <b id="arY">0000</b></span>
+        <span class="ar-vision" role="group" aria-label="Vision mode">
+            <span style="margin-right:.4rem">Vision</span>
+            <button data-vision="dusk" class="is-active">Dusk</button><button data-vision="nvg">NVG</button><button data-vision="thermal">Thermal</button>
+        </span>
+        <span class="ar-hud-r">Depth <b id="arDepth">000</b>% &nbsp; <b id="arZulu">00:00:00</b>Z</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="hp-footer">
+        <div class="footer-inner">
+            <div class="footer-social-row">
+                <a href="https://www.instagram.com/thezerohourgroup/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/Zero_Hour_Group" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/@TheZeroHourGroup" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@thezerohourgroup" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="footer-emblem">
+                <img src="assets/zhg_emblem_orange.png" alt="The Zero Hour Group">
+            </div>
+            <div class="footer-legal">
+                <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+    function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+
+    (function () {
+        'use strict';
+        const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+        const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const cutSrc = s => s.replace('assets/merch/', 'assets/merch-cut/');
+        const pad = (n, w) => String(Math.max(0, Math.round(n))).padStart(w, '0');
+        const money = n => '$' + (n % 1 ? (+n).toFixed(2) : n);
+        // STORE: assets/merch/store.json (written by zhg-store-worker/build_map.py): where checkout lives, each product's price and the sizes each colour
+        // comes in. It only switches on when the file says enabled, or with ?store=test in the address for a dry run. Without it the page offers Notify me.
+        let STORE = null;
+        const STORE_TEST = /[?&]store=test\b/.test(location.search);
+        const ckey = c => { const im = c.images[0], stem = im.src.split('/').pop().replace(/\.\w+$/, ''), v = im.view.replace(/ /g, '-'); return stem.endsWith('-' + v) ? stem.slice(0, -v.length - 1) : stem; };
+        const priceOf = p => STORE && STORE.products[p.slug] ? STORE.products[p.slug].price : p.price;
+        const extraOf = (p, size) => STORE && STORE.products[p.slug] && STORE.products[p.slug].extra && STORE.products[p.slug].extra[size] || 0;   // some sizes cost more (store.json `extra`)
+        const hasExtra = p => !!(STORE && STORE.products[p.slug] && STORE.products[p.slug].extra);
+        const mouse = { x: innerWidth / 2, y: innerHeight / 2, nx: 0, ny: 0 };
+        const accent = () => getComputedStyle(document.body).getPropertyValue('--ac').split(',').map(n => +n / 255);
+        let BOOTED = false;           // the boot screen has cleared: pieces may start turning
+
+        /* ---------------- film grain ---------------- */
+        (function () {
+            const c = document.createElement('canvas'); c.width = c.height = 160;
+            const x = c.getContext('2d'), d = x.createImageData(160, 160);
+            for (let i = 0; i < d.data.length; i += 4) { d.data[i] = d.data[i + 1] = d.data[i + 2] = 255; d.data[i + 3] = Math.random() * 255; }
+            x.putImageData(d, 0, 0);
+            $('.ar-grain').style.backgroundImage = `url(${c.toDataURL()})`;
+        })();
+
+        /* ---------------- text scramble ---------------- */
+        const GLYPHS = '#/<>_=+01XZ';
+        function scramble(el, dur = 900) {
+            if (REDUCED) return;
+            const text = el.dataset.text || (el.dataset.text = el.textContent);
+            const t0 = performance.now();
+            (function f(now) {
+                const p = Math.min(1, (now - t0) / dur), shown = Math.floor(p * text.length);
+                el.textContent = text.slice(0, shown) + [...text.slice(shown)].map(ch => ch === ' ' ? ' ' : GLYPHS[Math.random() * GLYPHS.length | 0]).join('');
+                if (p < 1) requestAnimationFrame(f); else el.textContent = text;
+            })(t0);
+        }
+        const scrIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { scramble(e.target, 800); scrIO.unobserve(e.target); } }), { threshold: .6 });
+        $$('[data-scramble-view]').forEach(el => scrIO.observe(el));
+
+        /* ---------------- boot sequence ---------------- */
+        (function () {
+            const boot = $('#arBoot'), pre = $('pre', boot);
+            let seen = false; try { seen = sessionStorage.getItem('zhg_armory_boot') === '1'; } catch (_) {}
+            const finish = () => { BOOTED = true; boot.classList.add('is-done'); $$('.ar-title [data-scramble]').forEach((el, i) => setTimeout(() => scramble(el, 1000), i * 180)); try { sessionStorage.setItem('zhg_armory_boot', '1'); } catch (_) {} };
+            if (seen || REDUCED) { BOOTED = true; boot.classList.add('is-done'); boot.style.transition = 'none'; return; }
+            const lines = ['ZHG//ARMORY  <b>v1.0</b>', 'ESTABLISHING LINK ........ <b>OK</b>', 'LOADING ASSET MANIFEST ... <b>17 ASSETS</b>', 'CALIBRATING OPTICS ....... <b>OK</b>', 'ACCESS <b>GRANTED</b>'];
+            let i = 0, html = '';
+            const step = () => {
+                if (i >= lines.length) return setTimeout(finish, 380);
+                html += '&gt; ' + lines[i++] + '\n'; pre.innerHTML = html + '<span class="ar-caret"></span>';
+                setTimeout(step, 230);
+            };
+            boot.addEventListener('click', finish, { once: true });
+            step();
+        })();
+
+        /* ---------------- turntables ---------------- */
+        // STILL: the store opens on photographs. Each piece rests on its front; under the cursor it lifts and shows its other side.
+        // The pre-rendered 3D spins (armory-spin.js, armory-3d.js, assets/merch-spin) are parked on the armory-3d-spins branch:
+        // to bring them back, load those two scripts again and set this to false.
+        const STILL = true;
+        const FLAT = new Set(['patch', 'sticker', 'ornament']);
+        const A3D = !STILL && window.Armory3D && window.Armory3D.ok ? window.Armory3D : null, VIEWS4 = ['front', 'right', 'back', 'left'].map(view => ({ view }));
+        const FILM = !STILL && window.ArmorySpin || null;       // pre-rendered spins (armory-spin.js): the best a piece can look; used wherever one exists
+        if (FILM && FILM.soft) document.documentElement.classList.add('ar-lite');
+        const live = new Set();           // turntables on screen: only these are advanced and drawn
+        const held = new Set();           // turntables holding a film player (on screen, or close enough to be next)
+        let solo = null, LAY = 1;         // solo: the dossier is open, so the pieces under it rest. LAY: bumped when the window changes size
+        addEventListener('resize', () => { LAY++; }, { passive: true });
+        // work that would cause a hitch if several landed in one frame (opening a film, handing one back) is done one at a time, between frames
+        const jobs = []; let jobT = 0;
+        const runJob = () => { jobT = 0; const fn = jobs.shift(); if (fn) fn(); if (jobs.length) jobT = setTimeout(runJob, 50); };
+        const later = (fn, first) => { first ? jobs.unshift(fn) : jobs.push(fn); if (!jobT) jobT = setTimeout(runJob, 50); };
+        const SPIN = 360 / 7.5;                         // degrees a second: one steady revolution every 7.5s, like a rendered turntable
+        const DEPTH = { tumbler: 1, 'can-cooler': 1 }, FADE = 9;        // depth of a piece next to its width (apparel measures ~.45 off its side views); degrees a view takes to dissolve in
+        const SWAY = .5, TILT = 8, AMP = { coin: 14, hover: 6, rock: 32 };
+        // hover: nothing happens to a cursor just passing through; after that the piece follows the cursor from where it entered,
+        // about one view per card width, never faster than vmax views a second, and comes to rest squarely on a real view
+        const HOVER = { delay: 160, dead: .06, gain: 1.1, rest: 420, ease: 4, vmax: 1.1 };
+        function plan(images, slug) {
+            const by = {}; images.forEach(i => by[i.view] = i);
+            if (by.front && by.back && by.left && by.right) return { mode: 'spin', seq: [by.front, by.right, by.back, by.left] };
+            if (by['left front'] || by['right front']) return { mode: 'swing', seq: [by['left front'], by.front, by['right front']].filter(Boolean) };
+            if (by['handle on left']) return { mode: 'swing', seq: [by['handle on left'], by.front, by['handle on right']].filter(Boolean) };
+            if (by.front && by.back) return { mode: 'flip', seq: [by.front, by.back] };
+            if (images.length > 1) return { mode: 'swing', seq: images };
+            return { mode: FLAT.has(slug) ? 'coin' : 'hover', seq: images };
+        }
+        class Turntable {
+            constructor(root, labelEl) { this.root = root; this.labelEl = labelEl; this.t = 0; this.ph = Math.random() * 6; this._lt = 0; root.style.setProperty('--bob', (-Math.random() * 5).toFixed(2) + 's'); this.cur = 0; this.target = 0; this.scrub = null; this.manual = 0; this.idx = 0; this.seen = false; }
+            set(images, slug, eager) {
+                if (STILL) {
+                    const p = plan(images, slug), fi = Math.max(0, p.seq.findIndex(im => im.view === 'front')), back = p.seq.findIndex(im => im.view === 'back');
+                    this.sp = this.k3 = null; this.mode = 'still'; this.seq = p.seq; this.n = p.seq.length; this.home = fi;
+                    this.alt = back >= 0 ? back : (fi + 1) % this.n;           // the other side: the back where there is one, else the next angle
+                    this.root.classList.add('is-still', 'is-float');
+                    this.root.innerHTML = p.seq.map((im, i) => `<span><img ${i !== fi && !eager ? 'data-src' : 'src'}="${cutSrc(im.src)}" alt="" draggable="false" decoding="async"></span>`).join('');
+                    this.imgs = $$('span', this.root); this.idx = -1; this.view = -1; this.ready = true; this.show(fi);
+                    return;
+                }
+                // k3: the piece has the photos for a real 3D model (armory-3d.js). Until that model is built, and if it cannot be, the photos stand in.
+                // sp: a pre-rendered spin exists for this piece and colour (armory-spin.js); it wins over everything else.
+                const p = plan(images, slug), sp = FILM && this._failed !== images ? FILM.plan(slug, images) : null, k3 = !sp && A3D ? A3D.plan(slug, images) : null;
+                if (this.player) { FILM.give(this.player); this.player = null; held.delete(this); }
+                this._args = [images, slug, eager]; this.sp = sp; this.root.classList.toggle('is-float', !!sp);
+                this.photos = p; this.k3 = k3; this.model = null; this._on = null; this.armed = false;
+                this.r = DEPTH[slug] || .45; this.t = 0;
+                this.shape(sp ? { mode: 'spin', seq: VIEWS4 } : k3 ? (k3.kind.rock ? { mode: 'rock', seq: VIEWS4.slice(0, 1) } : { mode: 'spin', seq: VIEWS4 }) : p);
+                const fi = this.photo = Math.max(0, p.seq.findIndex(im => im.view === (sp ? sp.front : k3 ? k3.frontView : 'front')));
+                this.root.innerHTML = p.seq.map((im, i) => `<span><img ${i !== fi && !eager ? 'data-src' : 'src'}="${cutSrc(im.src)}" alt="" draggable="false" decoding="async"></span>`).join('') + (k3 ? '<canvas></canvas>' : '');
+                this.imgs = $$('span', this.root); this.canvas = $('canvas', this.root); this.cur = this.target = this.home; this.idx = -1; this.ready = false; this.frame(0);
+                if (eager || (!k3 && !sp && p.seq.length === 1)) this.arm();
+            }
+            shape(p) {            // how the piece moves, from the views it has
+                this.mode = p.mode; this.seq = p.seq; this.n = p.seq.length; this.A = this.n === 2 ? 20 : 36;
+                // every piece opens on its front: `home` is where that sits, `ph0` starts the swing there
+                const fi = Math.max(0, p.seq.findIndex(im => im.view === 'front'));
+                this.home = this.mode === 'swing' && this.n > 1 ? -this.A + fi * (2 * this.A / (this.n - 1)) : 0; this.ph0 = this.mode === 'swing' ? Math.asin(this.home / this.A) : 0;
+                // photo fallback for a full turn: front and back hold the stage until the piece is nearly side-on, where the narrow side photo matches their width with almost no stretching
+                const S = Math.max(45, Math.acos(Math.min(1, this.r * Math.sqrt(.3225 / Math.max(1e-6, 1 - this.r * this.r)))) * 180 / Math.PI);
+                this.cuts = this.mode === 'spin' ? [[S, 0, 1], [180 - S, 1, 2], [180 + S, 2, 3], [360 - S, 3, 0]] : [[90, 0, 1], [270, 1, 0]];
+            }
+            arm() {               // only start turning once every view is decoded, so a turn never lands on a blank frame
+                this.armed = true;
+                const kids = $$('img', this.root), k3 = this.k3;
+                if (this.sp && !this.player) {
+                    const need = Math.max(this.root.clientWidth, this.root.clientHeight) * this.sp.over * Math.min(2, devicePixelRatio || 1);
+                    const src = FILM.soft || need <= 500 ? this.sp.small : this.sp.src;           // a card needs far fewer pixels than the dossier
+                    let pl = FILM.take(src, this.sp.over);
+                    if (!pl) {                           // every player is in use: borrow the one whose piece is furthest off screen
+                        let far = null, fd = -1; const mid = innerHeight / 2;
+                        held.forEach(tt => { if (live.has(tt) || tt === this) return; const r = tt.root.getBoundingClientRect(), d = Math.abs((r.top + r.bottom) / 2 - mid); if (d > fd) { fd = d; far = tt; } });
+                        if (far) { far.sleep(); pl = FILM.take(src, this.sp.over); }
+                    }
+                    if (!pl) { this.armed = false; return; }            // none to spare: the photo stands in, and the next pass tries again
+                    this.player = pl; this.canvas = pl.cv; this.root.appendChild(pl.cv); held.add(this);
+                }
+                Promise.all(kids.map(im => im.decode ? im.decode().catch(() => {}) : null)).then(() => { if (kids[0] && kids[0].isConnected) this.ready = true; });
+                if (k3) A3D.build(k3).then(m => { if (this.k3 === k3) this.model = m; }, () => {
+                    if (this.k3 !== k3) return;            // no WebGL, or a photo is missing: fall back to turning the photos
+                    this.k3 = null; this.shape(this.photos); this.cur = this.target = this.home; this.idx = -1; if (this.canvas) this.canvas.remove(); this.loadAll();
+                });
+            }
+            show(i) {             // photographs: dissolve to view i, once its picture is ready
+                i = Math.max(0, Math.min(this.n - 1, i)); this.want = i;
+                const im = this.imgs[i].firstChild; if (im.dataset.src) { im.src = im.dataset.src; delete im.dataset.src; }
+                const go = () => { if (this.want !== i || !im.isConnected) return; this.view = i; this.imgs.forEach((el, k) => { el.style.opacity = k === i ? 1 : 0; }); this.report(i); };
+                // the first view is shown at once; a later one waits for its picture (load events, not decode(): that can stall in a background tab)
+                if (this.view < 0 || (im.complete && im.naturalWidth)) go(); else { im.addEventListener('load', go, { once: true }); im.addEventListener('error', go, { once: true }); }
+            }
+            loadAll() {
+                if (STILL) { $$('img', this.root).forEach(im => { if (im.dataset.src) { im.src = im.dataset.src; delete im.dataset.src; } }); return; }
+                if (this.k3 || this.sp) { if (!this.armed) this.arm(); return; }           // these load what they need themselves
+                let any = false; $$('img', this.root).forEach(im => { if (im.dataset.src) { im.src = im.dataset.src; delete im.dataset.src; any = true; } }); if (any) this.arm();
+            }
+            sleep() {             // far off screen: hand the film player back for another piece to use
+                if (!this.player) return;
+                FILM.give(this.player); this.player = null; this.canvas = null; held.delete(this); this.armed = false; this._on = null;
+                this.imgs.forEach((el, i) => { el.style.opacity = i === this.photo ? 1 : 0; });
+            }
+            rest() { if (this.player) this.player.pause(); }         // on hold (scrolled off, or under the dossier): keeps its place
+            faceTo(i) {            // snap to a view (dossier buttons)
+                if (STILL) return this.show(i);
+                const m = this.mode;
+                if (m === 'spin' || m === 'flip') { const step = 360 / this.n, k = Math.round(this.cur / 360); this.target = k * 360 + i * step; }
+                else if (m === 'swing') this.target = -this.A + i * (2 * this.A / (this.n - 1));
+                this.manual = 4;
+            }
+            frame(dt) {
+                if (STILL) return;
+                // the turn only starts once the piece is actually on screen (and the boot screen is gone), so it is always first seen from the front
+                const m = this.mode, n = this.n, scrub = this.scrub != null, auto = this.ready && !scrub && this.manual <= 0 && this.seen && BOOTED && (!this.k3 || !!this.model) && (!this.sp || !!(this.player && this.player.ready)), k9 = Math.min(1, dt * 9 + (dt === 0));
+                const glide = unit => {            // ease toward the target; under the cursor it is slower and speed-limited
+                    if (!scrub) return (this.target - this.cur) * k9;
+                    const cap = HOVER.vmax * unit * dt; return Math.max(-cap, Math.min(cap, (this.target - this.cur) * Math.min(1, dt * HOVER.ease)));
+                };
+                if (!this.ready) { this.target = this.cur = this.home; this.manual = 0; }
+                if (this.manual > 0) { this.manual -= dt; if (this.manual <= 0) this.resync(); }
+                if (auto) this.t += dt;
+                if (this.sp) {                           // a pre-rendered spin: the film plays itself; under the cursor or a drag it is paused and scrubbed
+                    const pl = this.player, on = !!pl && pl.ready;
+                    if (!pl && !this.armed && !this._ask && dt) { this._ask = 1; later(() => { this._ask = 0; if (live.has(this) || this === solo) this.loadAll(); }); }
+                    if (pl && pl.failed) { this._failed = this._args[0]; return this.set(...this._args); }          // no WebGL or the file is missing: use the next best
+                    if (on) {
+                        if (pl.fit !== LAY) { const im = this.imgs[this.photo].firstChild; if (pl.layout(im.naturalWidth, im.naturalHeight)) pl.fit = LAY; }
+                        if (auto) { pl.play(); this.cur += ((pl.angle - this.cur) % 360 + 540) % 360 - 180; this.target = this.cur; }
+                        else { pl.pause(); this.cur += glide(90); pl.seek(this.cur); }
+                        pl.draw();
+                    }
+                    if (this._on !== on) { this._on = on; if (this.canvas) this.canvas.style.opacity = on ? 1 : 0; this.imgs.forEach((el, i) => { el.style.opacity = !on && i === this.photo ? 1 : 0; el.style.transform = ''; }); }
+                    return this.report(((Math.round(this.cur / 90) % 4) + 4) % 4);
+                }
+                if (this.k3) {                           // a real model: the angle is simply how far it has turned
+                    const rock = m === 'rock';             // no back to show: swing part of the way round and return
+                    if (auto) this.target = rock ? AMP.rock * Math.sin(this.t * SWAY) : this.t * SPIN;
+                    if (rock) this.target = Math.max(-AMP.rock * 1.4, Math.min(AMP.rock * 1.4, this.target));
+                    this.cur += glide(rock ? AMP.rock : 90);
+                    const on = !!this.model && A3D.draw(this.model, this.cur, this.canvas);
+                    if (this.model && !on) { this.model = null; this.arm(); }           // its model was let go to save memory: build it again
+                    if (this._on !== on) { this._on = on; this.canvas.style.opacity = on ? 1 : 0; this.imgs.forEach((el, i) => { el.style.opacity = !on && i === this.photo ? 1 : 0; }); }
+                    (on ? this.canvas : this.imgs[this.photo]).style.transform = `translateY(${(REDUCED ? 0 : Math.sin(this.t * 1.25 + this.ph) * 4).toFixed(1)}px)`;
+                    return this.report(rock ? 0 : ((Math.round(this.cur / 90) % 4) + 4) % 4);
+                }
+                let idx = 0, f = 0, rot = 0, nb = -1, blend = 0, sx = 0;            // f: how far toward the neighbouring view, -.5 .. .5
+                if (m === 'spin' || m === 'flip') {
+                    // a steady turn. No 3D tilt (that reads as a paper cut-out): each photo narrows the way the piece's outline would
+                    // as it turns, an ellipse `r` deep, and hands over to the next real photo where the two outlines are the same width
+                    if (auto) this.target = this.t * SPIN;
+                    this.cur += glide(360 / n);
+                    const th = ((this.cur % 360) + 360) % 360, rad = th * Math.PI / 180;
+                    sx = Math.hypot(Math.cos(rad), this.r * Math.sin(rad));
+                    let near = 1e9, other = -1; idx = this.cuts[this.cuts.length - 1][2];
+                    for (const [a, lo, hi] of this.cuts) {
+                        if (th >= a) idx = hi;
+                        const d = Math.abs(((th - a + 540) % 360) - 180);
+                        if (d < near) { near = d; nb = lo; other = hi; }
+                    }
+                    if (nb === idx) nb = other;
+                    blend = Math.max(0, 1 - near / FADE) * .5; if (!blend) nb = -1;
+                } else if (m === 'swing') {
+                    const A = this.A;
+                    if (auto) this.target = A * Math.sin(this.t * SWAY + this.ph0);
+                    this.target = Math.max(-A, Math.min(A, this.target));
+                    const stepA = 2 * A / (n - 1); this.cur += glide(stepA);
+                    idx = Math.max(0, Math.min(n - 1, Math.round((this.cur + A) / stepA))); f = (this.cur - (-A + idx * stepA)) / stepA;
+                } else {                                // one image: a slow sway, never a full spin
+                    const amp = AMP[m];
+                    if (auto) this.target = amp * Math.sin(this.t * SWAY);
+                    this.target = Math.max(-amp * 1.5, Math.min(amp * 1.5, this.target));
+                    this.cur += glide(amp); rot = this.cur;
+                }
+                // pieces without a full set of views (hats, the mug) barely tilt: they lean a few degrees, settle flat, and dissolve into the next real photo
+                if (m === 'swing') {
+                    rot = TILT * Math.sin(f * 2 * Math.PI);
+                    blend = Math.max(0, (Math.abs(f) - .3) / .2) * .5;
+                    if (blend > 0 && n > 1) { nb = idx + (f > 0 ? 1 : -1); if (nb < 0 || nb >= n) nb = -1; }
+                }
+                const y = REDUCED ? 0 : Math.sin(this.t * 1.25 + this.ph) * 4, ty = `translateY(${y.toFixed(1)}px) `, side = sx / this.r;
+                this.imgs.forEach((el, i) => {
+                    const o = i === idx ? 1 : i === nb ? +blend.toFixed(2) : 0;
+                    if (el._o !== o) { el._o = o; el.style.opacity = o; el.style.zIndex = i === idx ? 1 : 2; }
+                    if (o) el.style.transform = ty + (sx ? `scaleX(${(m === 'spin' && i % 2 ? Math.min(1.3, side) : sx).toFixed(3)})` : `rotateY(${rot.toFixed(1)}deg)`);
+                });
+                this.report(idx);
+            }
+            report(idx) {
+                const m = this.mode;
+                const now = performance.now(), turned = idx !== this.idx;
+                if (turned) { this.idx = idx; if (this.onview) this.onview(idx); }
+                if (STILL) { if (this.labelEl) this.labelEl.textContent = this.seq[idx] ? this.seq[idx].view : 'front'; return; }
+                if (this.labelEl && (turned || now - this._lt > 80)) { this._lt = now; const deg = (m === 'spin' || m === 'flip') ? ((this.cur % 360) + 360) % 360 : this.cur; this.labelEl.textContent = `${this.seq[idx] ? this.seq[idx].view : 'front'} ${deg < 0 ? '-' : ''}${pad(Math.abs(deg), 3)}°`; }
+            }
+            viewAngle() {         // the angle at which the photo now showing faces the viewer squarely
+                const m = this.mode;
+                if (m === 'spin' || m === 'flip') { const a = this.idx * 360 / this.n; return a + 360 * Math.round((this.cur - a) / 360); }
+                return m === 'swing' && this.n > 1 ? -this.A + this.idx * (2 * this.A / (this.n - 1)) : this.cur;
+            }
+            resync() {            // make auto motion continue from where the user left it
+                const m = this.mode;
+                if (m === 'spin' || m === 'flip') this.t = this.cur / SPIN;
+                else { const amp = m === 'swing' ? this.A : AMP[m]; this.t = (Math.asin(Math.max(-1, Math.min(1, this.cur / amp))) - this.ph0) / SWAY; }
+            }
+        }
+        const seenIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && e.target._tt) { e.target._tt.seen = true; seenIO.unobserve(e.target); } }), { threshold: .4 });
+        // near: within about half a screen. Its film is opened ahead of time, so it is already there when the piece scrolls in.
+        const nearIO = new IntersectionObserver(es => es.forEach(e => {
+            const tt = e.target._tt; if (!tt) return; tt.near = e.isIntersecting;
+            later(() => { if (tt.near) tt.loadAll(); else if (!live.has(tt)) tt.sleep(); });
+        }), { rootMargin: '500px 0px' });
+        // on screen: a fifth of the piece showing. Only these play; one that scrolls off pauses where it is.
+        const ttIO = new IntersectionObserver(es => es.forEach(e => {
+            const tt = e.target._tt; if (!tt) return; const on = e.isIntersecting && e.intersectionRatio >= .2;
+            e.target.classList.toggle('is-live', on);
+            if (on) { live.add(tt); if (!tt.armed) later(() => { if (live.has(tt)) tt.loadAll(); }, true); } else { live.delete(tt); tt.rest(); }
+        }), { threshold: [0, .2] });
+        function mountTT(stage, labelEl) { const tt = new Turntable($('.ar-tt', stage), labelEl); stage._tt = tt; nearIO.observe(stage); ttIO.observe(stage); seenIO.observe(stage); return tt; }
+        function hoverScrub(el, tt) {
+            if (!FINE) return;
+            if (STILL) {          // a cursor only passing through does nothing; one that stays lifts the piece and turns it over
+                let t = 0;
+                el.addEventListener('pointerenter', () => { clearTimeout(t); t = setTimeout(() => { el.classList.add('is-hot'); tt.show(tt.alt); }, 130); });
+                el.addEventListener('pointerleave', () => { clearTimeout(t); el.classList.remove('is-hot'); tt.show(tt.home); });
+                return;
+            }
+            let t0 = 0, x0 = null, base = 0, rest = 0;
+            const unit = () => tt.mode === 'spin' || tt.mode === 'flip' ? 360 / tt.n : tt.mode === 'swing' ? 2 * tt.A / (tt.n - 1) : AMP[tt.mode];
+            const snap = v => tt.mode === 'spin' || tt.mode === 'flip' ? Math.round(v / unit()) * unit() : tt.mode === 'swing' ? -tt.A + Math.round((v + tt.A) / unit()) * unit() : v;
+            el.addEventListener('pointerenter', e => { t0 = e.timeStamp; x0 = null; });
+            el.addEventListener('pointermove', e => {
+                if (!tt.ready || e.timeStamp - t0 < HOVER.delay) return;
+                if (x0 == null) { x0 = e.clientX; base = tt.k3 || tt.sp ? (tt.scrub == null ? tt.cur : tt.target) : tt.scrub == null ? tt.viewAngle() : snap(tt.target); tt.scrub = 1; }      // a 3D piece holds wherever it is; photos go to the view showing       // anchor where the cursor is, on the view already showing
+                let d = (e.clientX - x0) / el.getBoundingClientRect().width;
+                d = Math.sign(d) * Math.max(0, Math.abs(d) - HOVER.dead);
+                tt.target = base + d * HOVER.gain * unit();
+                clearTimeout(rest); rest = setTimeout(() => { if (tt.scrub != null) { if (!tt.k3 && !tt.sp) tt.target = snap(tt.target); x0 = null; } }, HOVER.rest);
+            });
+            el.addEventListener('pointerleave', () => { clearTimeout(rest); x0 = null; if (tt.scrub != null) { tt.scrub = null; tt.resync(); } });
+        }
+        let last = performance.now();
+        (function loop(now) {
+            const dt = Math.min(.05, (now - last) / 1000); last = now;
+            if (!REDUCED) { if (solo) solo.frame(dt); else live.forEach(tt => tt.frame(dt)); }
+            requestAnimationFrame(loop);
+        })(last);
+
+        /* ---------------- catalog + grid ---------------- */
+        const CAT = { apparel: ['Apparel', 'A'], headwear: ['Headwear', 'H'], drinkware: ['Drinkware', 'D'], accessories: ['Accessories', 'X'] };
+        const LEAD = { 'hoodie': 0, 'crewneck': 3, 'quarter-zip': 1, 'half-zip': 1, 'dad-hat': 2, 'beanie': 2, 'fisherman-beanie': 1, 'bucket-hat': 1, 'tee': 0 };
+        const grid = $('#arGrid');
+        let catalog = [];
+        // store.json switches buying on, but only once the store Worker itself says it is open for real orders (/health `ready`: live Stripe key,
+        // webhook, Printful, and the STORE_OPEN switch). A page published before that keeps saying "Launching soon" rather than sending people
+        // to a sandbox checkout. ?store=test skips the check, for trying the store before it opens.
+        const storeReady = st => !st || !st.api || !st.enabled || STORE_TEST ? st
+            : fetch(st.api.replace(/\/$/, '') + '/health', AbortSignal.timeout ? { signal: AbortSignal.timeout(4000) } : {}).then(r => r.ok ? r.json() : null).then(h => h && h.ready ? st : null).catch(() => null);
+        Promise.all([fetch('assets/merch/catalog.json').then(r => r.json()), fetch('assets/merch/store.json').then(r => r.ok ? r.json() : null).then(storeReady).catch(() => null)]).then(([data, st]) => {
+            STORE = st && st.api && st.products && (st.enabled || STORE_TEST) ? st : null;
+            if (STORE) {          // open: the "launching soon" wording steps aside and the order information shows
+                $$('[data-when-open]').forEach(el => { el.textContent = el.dataset.whenOpen; });
+                $('#orders').hidden = false; $('#arDossForm input[name=email]').placeholder = 'Email me when it is available';
+            }
+            const seen = {};
+            data.forEach(p => { const L = CAT[p.cat][1]; seen[L] = (seen[L] || 0) + 1; p.des = `ZHG-${L}${pad(seen[L], 2)}`; p.lead = LEAD[p.slug] || 0; });
+            catalog = data;
+            if (STORE) cartInit();
+            $$('.ar-filter').forEach(b => $('b', b).textContent = pad(b.dataset.cat === 'all' ? data.length : data.filter(p => p.cat === b.dataset.cat).length, 2));
+            renderGrid(); initFeature(); initRadar();
+            const deep = location.hash.replace('#asset-', '');
+            if (deep && data.some(p => p.slug === deep)) openDossier(deep);
+        });
+
+        function chipsHTML(p, active) {
+            return p.colors.length > 1
+                ? p.colors.map((c, i) => `<button class="ar-chip${i === active ? ' is-active' : ''}" style="background:${c.hex}" data-ci="${i}" aria-label="${esc(c.name)}" title="${esc(c.name)}"></button>`).join('') + `<span class="ar-mono">${p.colors.length} colorways</span>`
+                : `<span class="ar-mono" style="margin-left:0">${esc(p.colors[0].name)}</span>`;
+        }
+        function renderGrid() {
+            grid.innerHTML = catalog.map(p => `
+                <article class="ar-card" tabindex="0" data-slug="${p.slug}" data-cat="${p.cat}" data-ci="${p.lead}" data-lock aria-label="${esc(p.name)}. View details">
+                    <div class="ar-card-top ar-mono"><span>${p.des}<span class="ar-cat"> // ${CAT[p.cat][0]}</span></span><span class="ar-stat"><i></i>Stby</span></div>
+                    <div class="ar-stage">
+                        <div class="ar-pad"></div><div class="ar-tt"></div>
+                        <i class="ar-br tl"></i><i class="ar-br tr"></i><i class="ar-br bl"></i><i class="ar-br br"></i>
+                        <div class="ar-scan"></div>
+                        <span class="ar-view ar-mono"></span><span class="ar-lock ar-mono">Target locked</span>
+                    </div>
+                    <h3 class="ar-name">${esc(p.name)}</h3>
+                    <p class="ar-line2 ar-mono">${esc(p.line)}</p>
+                    ${priceOf(p) ? `<p class="ar-price ar-mono">${hasExtra(p) ? 'From ' : ''}${money(priceOf(p))}</p>` : ''}
+                    <div class="ar-chips">${chipsHTML(p, p.lead)}</div>
+                    <span class="ar-btn ar-btn--block">Inspect asset</span>
+                </article>`).join('');
+            const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: .08 });
+            $$('.ar-card', grid).forEach((card, i) => {
+                const p = catalog.find(x => x.slug === card.dataset.slug), stage = $('.ar-stage', card);
+                const tt = mountTT(stage, $('.ar-view', card)); tt.set(p.colors[p.lead].images, p.slug, false);
+                hoverScrub(stage, tt);
+                card.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(card);
+                card.addEventListener('click', e => {
+                    const chip = e.target.closest('.ar-chip');
+                    if (chip) { const ci = +chip.dataset.ci; card.dataset.ci = ci; tt.set(p.colors[ci].images, p.slug, true); $$('.ar-chip', card).forEach((c, k) => c.classList.toggle('is-active', k === ci)); return; }
+                    openDossier(p.slug, +card.dataset.ci);
+                });
+                card.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.target.closest('.ar-chip')) openDossier(p.slug, +card.dataset.ci); });
+            });
+        }
+        $$('.ar-filter').forEach(btn => btn.addEventListener('click', () => {
+            const cat = btn.dataset.cat;
+            $$('.ar-filter').forEach(b => b.classList.toggle('is-active', b === btn));
+            $$('.ar-card', grid).forEach(c => { c.hidden = !(cat === 'all' || c.dataset.cat === cat); if (!c.hidden) { c.classList.remove('is-in'); requestAnimationFrame(() => requestAnimationFrame(() => c.classList.add('is-in'))); } });
+        }));
+
+        function initFeature() {
+            const el = $('#arFeature'), p = catalog.find(x => x.slug === 'hoodie'); if (!p) return;
+            const tt = mountTT($('.ar-stage', el)); tt.set(p.colors[0].images.filter(i => i.view === 'front' || i.view === 'back'), p.slug, true);
+            hoverScrub(el, tt);
+            const open = () => openDossier('hoodie', 0);
+            el.addEventListener('click', open); el.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+        }
+
+        /* ---------------- dossier ---------------- */
+        const doss = $('#arDoss'), dStage = $('.ar-stage', doss), dViews = $('.ar-views', doss);
+        const dTT = new Turntable($('.ar-tt', dStage), null); dTT.seen = true;
+        let cur = null, ci = 0, lastFocus = null, pick = null, sizesNow = null;          // pick: the size chosen; sizesNow: what this colour can be bought in
+        function paintDossier() {
+            const c = cur.colors[ci];
+            dTT.set(c.images, cur.slug, true);
+            $('#arDossColor').textContent = c.name;
+            // what it is made of (catalog.json, taken from the blank's own spec); a colour whose blend differs says so
+            const mat = cur.material_by && cur.material_by[c.name] || cur.material || '';
+            $('#arDossMatRow').hidden = !mat; $('#arDossMat').textContent = mat;
+            $('#arDossDetRow').hidden = !(cur.details && cur.details.length); $('#arDossDet').innerHTML = (cur.details || []).map(t => `<span>${esc(t)}</span>`).join('');
+            // three states: sold here (store.json has this colour), sold elsewhere (catalog.json gives a `buy` link), or not yet for sale
+            const sp = STORE && STORE.products[cur.slug]; sizesNow = sp && sp.colors[ckey(c)] || null;
+            if (sizesNow) { if (!sizesNow.includes(pick)) pick = sizesNow.length === 1 ? sizesNow[0] : null; } else pick = null;
+            // sold here: the price is the chosen size's price, or "From $X" until a size that costs more could still be picked
+            const buy = sizesNow ? '#' : c.buy || cur.buy || '', bb = $('#arDossBuy');
+            const price = !priceOf(cur) ? '' : sizesNow && hasExtra(cur) ? (pick ? money(priceOf(cur) + extraOf(cur, pick)) : 'From ' + money(priceOf(cur))) : money(priceOf(cur));
+            $('#arDossSizes').innerHTML = sizesNow ? sizesNow.map(s => `<button type="button" data-size="${s}"${s === pick ? ' class="is-active"' : ''}>${s === 'OS' ? esc(cur.sizes) : s}${extraOf(cur, s) ? `<small>+${money(extraOf(cur, s))}</small>` : ''}</button>`).join('') : sizeChips(cur.sizes);
+            $('#arDossSizes').classList.remove('is-ask');
+            bb.hidden = !buy; $('#arDossForm').hidden = !!buy; bb.classList.remove('is-busy');
+            if (buy) { bb.href = buy; if (sizesNow) { bb.removeAttribute('target'); bb.setAttribute('role', 'button'); } else { bb.target = '_blank'; bb.removeAttribute('role'); } }
+            const verb = sizesNow ? 'Add to cart' : 'Buy now'; bb.textContent = price ? `${verb} // ${price}` : verb;
+            $('#arDossStatus').textContent = sizesNow ? `${price}. Made to order. Ships within the US.` : buy ? `${price ? price + '. ' : ''}Made to order. Pick your size at checkout.` : price ? `${price}. Checkout opens with the store.` : STORE ? 'Not available yet. Leave your email to hear when it is.' : 'Awaiting deployment. Pricing and checkout open with the store.';
+            if (sizesNow) $('#arDossNote').innerHTML = 'Secure checkout by Stripe. Shipping and any sales tax are shown before you pay. <a href="#orders" data-close>Shipping and returns</a>';
+            else $('#arDossNote').textContent = buy ? 'Checkout opens on our store page in a new tab.' : 'Subscribes you to The Zero Hour Group newsletter. Unsubscribe anytime.';
+            $$('#arDossChips .ar-chip').forEach((ch, i) => ch.classList.toggle('is-active', i === ci));
+            dViews.innerHTML = (dTT.n > 1 ? dTT.seq.map((im, i) => `<button data-vi="${i}">${esc(im.view)}</button>`).join('') : '') + '<span id="arDossDeg"></span>';
+            dTT.labelEl = STILL ? null : $('#arDossDeg'); dTT.onview = i => $$('button', dViews).forEach((b, k) => b.classList.toggle('is-active', k === i)); dTT.idx = -1;
+            if (STILL) { dTT.report(dTT.view); $('#arDossHint').textContent = dTT.n > 1 ? `// ${dTT.n} views` : '// Asset view'; }
+        }
+        function sizeChips(s) {
+            const order = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'], m = s.match(/^(XS|S|M)–(\dXL|XL)$/);
+            return m ? order.slice(order.indexOf(m[1]), order.indexOf(m[2]) + 1).map(z => `<span>${z}</span>`).join('') : `<span>${esc(s)}</span>`;
+        }
+        function openDossier(slug, colorIdx) {
+            cur = catalog.find(p => p.slug === slug); if (!cur) return;
+            ci = colorIdx == null ? cur.lead : colorIdx; lastFocus = document.activeElement; pick = null;
+            $('#arDossDes').textContent = `// ${cur.des} // ${CAT[cur.cat][0]}`;
+            $('#arDossName').textContent = cur.name; $('#arDossLine').textContent = cur.line; $('#arDossDesc').textContent = cur.desc;
+            $('#arDossBlank').textContent = cur.blank; $('#arDossMethod').textContent = cur.method; $('#arDossSizes').innerHTML = sizeChips(cur.sizes);
+            $('#arDossChips').innerHTML = cur.colors.map((c, i) => `<button class="ar-chip" style="background:${c.hex}" data-ci="${i}" aria-label="${esc(c.name)}" title="${esc(c.name)}"></button>`).join('');
+            $$('.ar-msg', doss).forEach(m => { m.textContent = ''; m.classList.remove('is-err'); });
+            paintDossier(); solo = dTT; live.forEach(tt => tt.rest()); dStage.classList.add('is-live');
+            doss.classList.add('is-open'); doss.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+            history.replaceState(null, '', '#asset-' + slug);
+            $('#arDossName').dataset.text = cur.name;        // scramble() remembers an element's text: without this every piece opens under the first one's name
+            scramble($('#arDossName'), 500);
+            setTimeout(() => $('.ar-doss-close', doss).focus(), 60);
+            if (window.gtag) gtag('event', 'armory_dossier', { item: slug });
+        }
+        function closeDossier() {
+            doss.classList.remove('is-open'); doss.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; solo = null; dStage.classList.remove('is-live'); dTT.sleep();
+            history.replaceState(null, '', location.pathname + location.search);
+            if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+        }
+        doss.addEventListener('click', e => {
+            if (e.target.closest('[data-close]')) return closeDossier();
+            const chip = e.target.closest('#arDossChips .ar-chip'); if (chip) { ci = +chip.dataset.ci; return paintDossier(); }
+            const v = e.target.closest('.ar-views button'); if (v) return dTT.faceTo(+v.dataset.vi);
+            const sz = e.target.closest('#arDossSizes button');
+            if (sz) { pick = sz.dataset.size; $$('#arDossSizes button').forEach(b => b.classList.toggle('is-active', b === sz)); $('#arDossSizes').classList.remove('is-ask'); const m = $('.ar-doss-right .ar-msg'); m.textContent = ''; m.classList.remove('is-err');
+                if (hasExtra(cur)) { const pr = money(priceOf(cur) + extraOf(cur, pick)); $('#arDossBuy').textContent = `Add to cart // ${pr}`; $('#arDossStatus').textContent = `${pr}. Made to order. Ships within the US.`; }
+                return; }
+            const bb = e.target.closest('#arDossBuy'); if (bb && sizesNow) { e.preventDefault(); addFromDossier(); }
+        });
+        function addFromDossier() {
+            const msg = $('.ar-doss-right .ar-msg'), say = (t, err) => { msg.textContent = t; msg.classList.toggle('is-err', !!err); };
+            if (!pick) { $('#arDossSizes').classList.add('is-ask'); return say('Select a size first.', true); }
+            const why = cartAdd(`${cur.slug}:${ckey(cur.colors[ci])}:${pick}`);
+            if (why) return say(why, true);
+            say('Added to your cart.'); if (window.gtag) gtag('event', 'add_to_cart', { item: cur.slug });
+            openCart();
+        }
+
+        /* ---------------- cart ---------------- */
+        // All it keeps is [{ sku, qty }], in this browser. Names, prices and photos are looked up from the catalogue and store.json each time it is
+        // drawn, and the store Worker prices the order again itself at checkout, so nothing saved here is trusted for money.
+        const CART_KEY = 'zhg_armory_cart', CART_LINES = 10, CART_QTY = 10;          // the same limits the Worker enforces
+        const cartEl = $('#arCart'), cartBtn = $('#arCartBtn');
+        let cart = [], cartFocus = null;
+        const cartRead = () => { try { const a = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (_) { return []; } };
+        const cartSave = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (_) {} };
+        const cartUnits = () => cart.reduce((n, l) => n + l.qty, 0);
+        const cartSay = (t, err) => { const m = $('#arCartMsg'); m.textContent = t || ''; m.classList.toggle('is-err', !!err); };
+        function lineOf(sku) {          // what a saved sku is today; null when it is no longer sold
+            const [slug, key, size] = String(sku).split(':'), p = catalog.find(x => x.slug === slug), sp = STORE && STORE.products[slug];
+            const c = p && p.colors.find(x => ckey(x) === key);
+            if (!p || !c || !sp || !sp.colors[key] || !sp.colors[key].includes(size)) return null;
+            return { p, c, size, price: priceOf(p) + extraOf(p, size), img: cutSrc(c.images[0].src) };
+        }
+        // The same sum the Worker charges (its shippingFor). Things made in different places leave as separate parcels (store.json ship.groups);
+        // each parcel costs its dearest "first item" rate plus every other item in it at its "additional" rate, and the surcharge is once per order.
+        function shipFor(lines) {
+            const sh = STORE && STORE.ship, parcels = new Map(); if (!sh) return null;
+            for (const l of lines) {
+                const u = sh.classes[l.p.slug], g = (sh.groups || {})[l.p.slug] || '', units = parcels.get(g) || []; if (!u) return null;
+                for (let i = 0; i < l.qty; i++) units.push(u);
+                parcels.set(g, units);
+            }
+            let total = 0;
+            for (const units of parcels.values()) { let lead = 0; units.forEach((u, i) => { if (u[0] > units[lead][0]) lead = i; }); total += units.reduce((sum, u, i) => sum + (i === lead ? u[0] : u[1]), 0); }
+            return total ? total + (sh.surcharge || 0) : 0;          // cents
+        }
+        function cartInit() {          // the store is open: keep what can still be bought
+            cart = []; const seen = new Set();
+            for (const l of cartRead()) {
+                const sku = l && typeof l.sku === 'string' ? l.sku : '', qty = Math.min(CART_QTY, Math.floor(Number(l && l.qty)));
+                if (qty >= 1 && !seen.has(sku) && cart.length < CART_LINES && lineOf(sku)) { seen.add(sku); cart.push({ sku, qty }); }
+            }
+            paintCart();
+        }
+        function paintCart() {
+            const lines = cart.map(l => ({ ...l, ...lineOf(l.sku) })), n = cartUnits();
+            cartBtn.hidden = !STORE || !n; $('#arCartCount').textContent = pad(n, 2); cartBtn.setAttribute('aria-label', `Cart, ${n} item${n === 1 ? '' : 's'}`);
+            const dl = $('#arDossCart'); dl.hidden = !STORE || !n; dl.textContent = `View cart // ${pad(n, 2)}`;
+            $('#arCartLines').innerHTML = lines.length ? lines.map(l => `
+                <div class="ar-line" data-sku="${esc(l.sku)}">
+                    <div class="ar-line-img"><img src="${esc(l.img)}" alt=""></div>
+                    <div><h3>${esc(l.p.name)}</h3><p class="ar-line-opt ar-mono">${esc(l.c.name)}${l.size === 'OS' ? '' : ' // ' + esc(l.size)}${l.qty > 1 ? ' // ' + money(l.price) + ' each' : ''}</p></div>
+                    <div class="ar-line-price ar-mono">${money(l.price * l.qty)}</div>
+                    <div class="ar-line-ctl">
+                        <div class="ar-qty" role="group" aria-label="Quantity"><button type="button" data-q="-1" aria-label="One fewer"${l.qty <= 1 ? ' disabled' : ''}>&minus;</button><span>${l.qty}</span><button type="button" data-q="1" aria-label="One more"${l.qty >= CART_QTY ? ' disabled' : ''}>+</button></div>
+                        <button type="button" class="ar-line-rm ar-mono" data-rm>Remove</button>
+                    </div>
+                </div>`).join('') : '<p class="ar-cart-empty">Nothing here yet. Open a piece, choose a size and add it.</p>';
+            const sub = lines.reduce((sum, l) => sum + l.price * l.qty, 0) * 100, ship = shipFor(lines);
+            $('#arCartFoot').hidden = !lines.length; $('#arCartSub').textContent = money(sub / 100);
+            $('#arCartShipRow').hidden = $('#arCartTotalRow').hidden = ship == null;
+            if (ship != null) { $('#arCartShip').textContent = money(ship / 100); $('#arCartTotal').textContent = money((sub + ship) / 100); }
+            $('#arCartNote').textContent = (ship == null ? 'Shipping and any sales tax are shown at checkout before you pay.' : 'Any sales tax is shown at checkout before you pay.') + ' Secure checkout by Stripe. Made to order, ships within the US.';
+            cartSay('');
+        }
+        function cartSet(sku, qty) {
+            const i = cart.findIndex(l => l.sku === sku); if (i < 0) return;
+            if (qty < 1) cart.splice(i, 1); else cart[i].qty = Math.min(CART_QTY, qty);
+            cartSave(); paintCart();
+        }
+        function cartAdd(sku) {          // returns why not, or '' when it went in
+            if (!lineOf(sku)) return 'That one is not available right now.';
+            const have = cart.find(l => l.sku === sku);
+            if (have) { if (have.qty >= CART_QTY) return `The limit is ${CART_QTY} of one item per order.`; have.qty++; }
+            else { if (cart.length >= CART_LINES) return `The cart holds ${CART_LINES} different items. Check out, then order the rest.`; cart.push({ sku, qty: 1 }); }
+            cartSave(); paintCart(); cartBtn.classList.remove('is-bump'); void cartBtn.offsetWidth; cartBtn.classList.add('is-bump');
+            return '';
+        }
+        function openCart() {
+            if (!STORE || cartEl.classList.contains('is-open')) return;
+            cartFocus = document.activeElement; cartEl.classList.add('is-open'); cartEl.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+            setTimeout(() => $('.ar-cart-x', cartEl).focus(), 60);
+        }
+        function closeCart() {
+            cartEl.classList.remove('is-open'); cartEl.setAttribute('aria-hidden', 'true');
+            if (!doss.classList.contains('is-open')) document.body.style.overflow = '';
+            if (cartFocus && cartFocus.focus) cartFocus.focus({ preventScroll: true });
+        }
+        cartBtn.addEventListener('click', openCart); $('#arDossCart').addEventListener('click', openCart);
+        cartEl.addEventListener('click', e => {
+            if (e.target.closest('[data-cart-close]')) return closeCart();
+            if (e.target.closest('#arCartGo')) { e.preventDefault(); return checkout(); }
+            const row = e.target.closest('.ar-line'), sku = row && row.dataset.sku, line = sku && cart.find(l => l.sku === sku); if (!line) return;
+            const q = e.target.closest('[data-q]'), rm = e.target.closest('[data-rm]'); if (!q && !rm) return;
+            cartSet(sku, rm ? 0 : line.qty + +q.dataset.q);
+            // the list was redrawn: put the keyboard back where it was, or on the close button if that line is gone
+            const again = q && $$('.ar-line', cartEl).find(r => r.dataset.sku === sku);
+            const btn = again && ($(`[data-q="${q.dataset.q}"]:not(:disabled)`, again) || $('[data-q]:not(:disabled)', again));
+            (btn || $('.ar-cart-x', cartEl)).focus();
+        });
+        cartEl.addEventListener('keydown', e => {          // Tab stays inside the cart while it is open
+            if (e.key !== 'Tab') return;
+            const f = $$('button:not(:disabled), a[href]', cartEl).filter(x => x.offsetParent !== null); if (!f.length) return;
+            if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+            else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+        });
+        addEventListener('storage', e => { if (e.key === CART_KEY && STORE) cartInit(); });          // changed in another tab
+        addEventListener('pageshow', e => { if (e.persisted) { const bb = $('#arCartGo'); bb.classList.remove('is-busy'); bb.textContent = 'Checkout'; if (STORE) cartInit(); } });          // came back from Stripe with the Back button
+        async function checkout() {          // hand the cart to the store Worker; it prices it and sends back Stripe's checkout page
+            const bb = $('#arCartGo'); if (!cart.length || bb.classList.contains('is-busy')) return;
+            bb.classList.add('is-busy'); bb.textContent = 'Opening checkout...'; cartSay('');
+            try {
+                const r = await fetch(STORE.api.replace(/\/$/, '') + '/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: cart.map(l => ({ sku: l.sku, qty: l.qty })), back: location.pathname }) });
+                const out = await r.json().catch(() => ({}));
+                if (!r.ok || !out.url) throw new Error(out.error || r.status);
+                if (window.gtag) gtag('event', 'begin_checkout', { items: cartUnits() });
+                location.href = out.url;
+            } catch (e) {
+                bb.classList.remove('is-busy'); bb.textContent = 'Checkout';
+                cartSay(e && e.message === 'bad_cart' ? 'Something in your cart is no longer available. Reload the page and try again.' : 'Checkout is not available right now. Please try again in a minute.', true);
+            }
+        }
+        (function () {       // back from Stripe: say so once, then tidy the address
+            const q = new URLSearchParams(location.search), o = q.get('order'); if (!o) return;
+            q.delete('order'); history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash);
+            if (o !== 'success') return;
+            try { localStorage.removeItem(CART_KEY); } catch (_) {}          // paid: the cart is spent
+            const el = document.createElement('div'); el.className = 'ar-toast ar-mono'; el.setAttribute('role', 'status');
+            el.innerHTML = '<b>// Order received</b>Thank you. Your receipt is on its way by email, and we will email a tracking link when your order ships. Every piece is made to order, so allow about two weeks for delivery.';
+            document.body.appendChild(el); requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-on')));
+            const off = () => { el.classList.remove('is-on'); setTimeout(() => el.remove(), 600); }; el.addEventListener('click', off); setTimeout(off, 14000);
+        })();
+        document.addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (cartEl.classList.contains('is-open')) closeCart(); else if (doss.classList.contains('is-open')) closeDossier(); });
+        (function () {       // drag to rotate; on photographs a swipe steps to the next view
+            if (STILL) {
+                let x0 = null;
+                dStage.addEventListener('pointerdown', e => { x0 = e.clientX; });
+                dStage.addEventListener('pointerup', e => { if (x0 == null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 36 && dTT.n > 1) dTT.show((dTT.view + (dx < 0 ? 1 : -1) + dTT.n) % dTT.n); });
+                dStage.addEventListener('pointercancel', () => { x0 = null; });
+                return;
+            }
+            let down = false, lx = 0;
+            dStage.addEventListener('pointerdown', e => { down = true; lx = e.clientX; dStage.setPointerCapture(e.pointerId); dTT.manual = 99; dTT.target = dTT.cur; });
+            dStage.addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - lx; lx = e.clientX; dTT.target += dx * (dTT.mode === 'spin' || dTT.mode === 'flip' ? .7 : .25); });
+            const up = () => { if (down) { down = false; dTT.manual = 2.5; } };
+            dStage.addEventListener('pointerup', up); dStage.addEventListener('pointercancel', up);
+        })();
+        document.addEventListener('click', e => { const o = e.target.closest('[data-open]'); if (o && o.id !== 'arFeature') openDossier(o.dataset.open); });
+
+        /* ---------------- newsletter forms (same Worker as site.js) ---------------- */
+        const API = 'https://zhg-newsletter.zerohourgroup.workers.dev/subscribe';
+        $$('.ar-form').forEach(form => {
+            const msg = form.nextElementSibling, btn = $('button', form);
+            const say = (t, err) => { msg.textContent = t; msg.classList.toggle('is-err', !!err); };
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const email = form.email.value.trim();
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say('Enter a valid email address.', true); form.email.focus(); return; }
+                btn.disabled = true; say('Transmitting...');
+                fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, website: form.website.value }) })
+                    .then(r => r.json().catch(() => ({})).then(d => ({ ok: r.ok && d.ok, status: r.status })))
+                    .then(res => {
+                        if (res.ok) { try { localStorage.setItem('zhg_nl_popup_until', String(Date.now() + 365 * 864e5)); } catch (_) {} if (window.gtag) gtag('event', 'newsletter_signup_' + form.dataset.source); form.style.display = 'none'; say("Signal received. We'll email you when the store opens."); }
+                        else { btn.disabled = false; say(res.status === 429 ? 'Too many tries. Give it a minute and try again.' : 'Something went wrong. Please try again.', true); }
+                    }).catch(() => { btn.disabled = false; say('Network error. Please try again.', true); });
+            });
+        });
+
+        /* ---------------- HUD, reticle, vision ---------------- */
+        const ret = $('.ar-reticle'); let rx = mouse.x, ry = mouse.y;
+        addEventListener('pointermove', e => {
+            mouse.x = e.clientX; mouse.y = e.clientY; mouse.nx = e.clientX / innerWidth * 2 - 1; mouse.ny = e.clientY / innerHeight * 2 - 1;
+            if (FINE) { ret.classList.add('is-on'); ret.classList.toggle('is-lock', !!e.target.closest('[data-lock], .ar-chip, .ar-doss-close, .ar-views button, .ar-vision button')); }
+            kick();
+        }, { passive: true });
+        document.addEventListener('pointerleave', () => ret.classList.remove('is-on'));
+        const hx = $('#arX'), hy = $('#arY'), hd = $('#arDepth'), hz = $('#arZulu');
+        let hudOn = false, docH = 0;
+        const measure = () => { docH = document.documentElement.scrollHeight - innerHeight; kick(); };
+        function kick() { if (!hudOn) { hudOn = true; requestAnimationFrame(hud); } }
+        function hud() {
+            hudOn = false;
+            rx += (mouse.x - rx) * .22; ry += (mouse.y - ry) * .22; ret.style.transform = `translate(${rx.toFixed(1)}px, ${ry.toFixed(1)}px)`;
+            hx.textContent = pad(mouse.x, 4); hy.textContent = pad(mouse.y, 4);
+            hd.textContent = pad(docH > 0 ? scrollY / docH * 100 : 0, 3);
+            if (Math.abs(mouse.x - rx) > .2 || Math.abs(mouse.y - ry) > .2) kick();         // the reticle is still catching up
+        }
+        addEventListener('scroll', kick, { passive: true }); addEventListener('resize', measure, { passive: true });
+        if (window.ResizeObserver) new ResizeObserver(measure).observe(document.body);
+        measure();
+        const zulu = () => hz.textContent = new Date().toISOString().slice(11, 19); zulu(); setInterval(zulu, 1000);
+        const visionSubs = [a => { if (A3D) A3D.accent(a); }];
+        function setVision(v) {
+            document.body.dataset.vision = v; $$('.ar-vision button').forEach(b => b.classList.toggle('is-active', b.dataset.vision === v));
+            try { localStorage.setItem('zhg_armory_vision', v); } catch (_) {}
+            const ac = accent(); visionSubs.forEach(f => f(ac, v));
+        }
+        $$('.ar-vision button').forEach(b => b.addEventListener('click', () => setVision(b.dataset.vision)));
+        try { const v = localStorage.getItem('zhg_armory_vision'); if (v && v !== 'dusk') setVision(v); } catch (_) {}
+
+        /* ---------------- hero: holographic drone over wire terrain (three.js) ---------------- */
+        (function () {
+            const hero = $('#arHero'), canvas = $('#arSky');
+            if (!window.THREE) { hero.classList.add('no-gl'); return; }
+            let renderer;
+            try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (_) { hero.classList.add('no-gl'); return; }
+            const small = innerWidth < 860;
+            renderer.setPixelRatio(Math.min(devicePixelRatio || 1, small ? 1.5 : 2));
+            const scene = new THREE.Scene(); scene.fog = new THREE.Fog(0x000000, 24, 96);
+            const cam = new THREE.PerspectiveCamera(55, 1, .1, 220); cam.position.set(0, 6, 22); cam.lookAt(0, 3, -10);
+            const ac = accent(), col = new THREE.Color(ac[0], ac[1], ac[2]);
+            const mats = [];
+            const lineMat = (o) => { const m = new THREE.LineBasicMaterial({ color: col.clone(), transparent: true, opacity: o }); mats.push(m); return m; };
+
+            // terrain: grid of line segments, heights flow toward the camera
+            const NX = small ? 44 : 72, NZ = small ? 40 : 54, DX = 2, DZ = 2.2, X0 = -(NX - 1) * DX / 2, Z0 = 22 - (NZ - 1) * DZ;
+            const pos = new Float32Array(NX * NZ * 3), idx = [];
+            for (let j = 0; j < NZ; j++) for (let i = 0; i < NX; i++) {
+                const k = j * NX + i; pos[k * 3] = X0 + i * DX; pos[k * 3 + 2] = Z0 + j * DZ;
+                if (i < NX - 1) idx.push(k, k + 1); if (j < NZ - 1) idx.push(k, k + NX);
+            }
+            const tg = new THREE.BufferGeometry(); tg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); tg.setIndex(idx);
+            const terrain = new THREE.LineSegments(tg, lineMat(.34)); scene.add(terrain);
+            const sm = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+            const height = (x, z) => { const v = sm(5, 30, Math.abs(x)); return v * (4 + 3.2 * Math.sin(x * .13 + z * .11) + 2.4 * Math.sin(x * .31 - z * .23 + 1.7) + 1.6 * Math.sin(z * .4 + x * .07)) + .22 * Math.sin(x * .9 + z * .8); };
+            function flow(t) {
+                const off = t * 3.2, shift = off % DZ, row = Math.floor(off / DZ);
+                for (let j = 0; j < NZ; j++) { const zw = (j - row) * DZ; for (let i = 0; i < NX; i++) pos[(j * NX + i) * 3 + 1] = height(pos[(j * NX + i) * 3], zw); }
+                tg.attributes.position.needsUpdate = true; terrain.position.z = shift;
+            }
+
+            // drone hologram
+            const drone = new THREE.Group(), dMat = lineMat(.95), dMat2 = lineMat(.55);
+            const edges = (g, m) => new THREE.LineSegments(new THREE.EdgesGeometry(g), m || dMat);
+            const add = (o, x = 0, y = 0, z = 0) => { o.position.set(x, y, z); drone.add(o); return o; };
+            add(edges(new THREE.BoxGeometry(1.5, .32, 2.1)));
+            add(edges(new THREE.BoxGeometry(.9, .26, 1.15)), 0, .29, -.1);
+            const rotors = [];
+            [[1, 1], [1, -1], [-1, 1], [-1, -1]].forEach(([sx, sz]) => {
+                const arm = edges(new THREE.BoxGeometry(.13, .1, 2.5), dMat2); arm.rotation.y = Math.atan2(sx, sz); add(arm, sx * .95, 0, sz * .95);
+                add(edges(new THREE.CylinderGeometry(.17, .17, .32, 8), dMat2), sx * 1.8, .08, sz * 1.8);
+                const ring = []; for (let a = 0; a <= 28; a++) ring.push(new THREE.Vector3(Math.cos(a / 28 * Math.PI * 2) * 1.0, 0, Math.sin(a / 28 * Math.PI * 2) * 1.0));
+                add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(ring), dMat2), sx * 1.8, .28, sz * 1.8);
+                const blade = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.95, 0, 0), new THREE.Vector3(.95, 0, 0), new THREE.Vector3(0, 0, -.95), new THREE.Vector3(0, 0, .95)]), dMat);
+                add(blade, sx * 1.8, .28, sz * 1.8); rotors.push([blade, sx * sz]);
+            });
+            const skid = pts => add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts.map(p => new THREE.Vector3(...p))), dMat2));
+            [-.6, .6].forEach(x => skid([[x, -.6, -.9], [x, -.6, .9], [x, -.16, -.5], [x, -.6, -.6], [x, -.16, .5], [x, -.6, .6]]));
+            const gim = new THREE.Group(); add(gim, 0, -.34, .85);
+            gim.add(new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.SphereGeometry(.24, 7, 5)), dMat));
+            const beamMat = new THREE.MeshBasicMaterial({ color: col.clone(), transparent: true, opacity: .09, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending }); mats.push(beamMat);
+            const BH = 11, beam = new THREE.Mesh(new THREE.ConeGeometry(3.4, BH, 28, 1, true), beamMat); beam.position.y = -BH / 2; gim.add(beam);
+            const beamEdge = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.ConeGeometry(3.4, BH, 6, 1, true)), lineMat(.18)); beamEdge.position.y = -BH / 2; gim.add(beamEdge);
+            drone.scale.setScalar(small ? .9 : 1.15); scene.add(drone);
+
+            // distant swarm
+            const SW = 46, sp = new Float32Array(SW * 3), sv = [];
+            for (let i = 0; i < SW; i++) { sp[i * 3] = (Math.random() - .5) * 150; sp[i * 3 + 1] = 12 + Math.random() * 16; sp[i * 3 + 2] = -25 - Math.random() * 55; sv.push(1.5 + Math.random() * 3); }
+            const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+            const sMat = new THREE.PointsMaterial({ color: col.clone(), size: 2.2, sizeAttenuation: false, transparent: true, opacity: .8 }); mats.push(sMat);
+            scene.add(new THREE.Points(sg, sMat));
+
+            visionSubs.push(a => mats.forEach(m => m.color.setRGB(a[0], a[1], a[2])));
+
+            const feat = $('#arFeature .ar-stage'), ray = new THREE.Vector3(), home = new THREE.Vector3(8, 9, 4);
+            function size() { const w = hero.clientWidth, h = hero.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+            function placeDrone() {       // hover the drone above the featured product so its beam lands on it
+                const hr = hero.getBoundingClientRect(), r = feat.getBoundingClientRect(); if (!r.width) return;
+                const nx = ((r.left + r.width / 2 - hr.left) / hr.width) * 2 - 1, ny = -(((r.top - hr.top) - r.height * .02) / hr.height) * 2 + 1;
+                ray.set(nx, ny, .5).unproject(cam).sub(cam.position).normalize(); home.copy(cam.position).addScaledVector(ray, 17);
+            }
+            size(); placeDrone(); addEventListener('resize', () => { size(); placeDrone(); });
+            const tm = { alt: $('[data-tm=alt]'), hdg: $('[data-tm=hdg]'), link: $('[data-tm=link]') };
+            let on = true, t = 0, lastT = performance.now(), tmT = 0;
+            new IntersectionObserver(es => { on = es[0].isIntersecting; if (on) { lastT = performance.now(); requestAnimationFrame(tick); } }).observe(hero);
+            function tick(now) {
+                if (!on) return;
+                const dt = Math.min(.05, (now - lastT) / 1000); lastT = now; t += REDUCED ? 0 : dt;
+                flow(t);
+                const s = Math.min(1, scrollY / innerHeight);
+                drone.position.set(home.x + Math.sin(t * .6) * .35, home.y + Math.sin(t * 1.1) * .28 + s * 7, home.z);
+                drone.rotation.y += ((mouse.nx * .9 + Math.sin(t * .3) * .25) - drone.rotation.y) * .05;
+                drone.rotation.z += ((-mouse.nx * .22) - drone.rotation.z) * .05;
+                drone.rotation.x += ((mouse.ny * .16 + .1) - drone.rotation.x) * .05;
+                rotors.forEach(([b, d]) => b.rotation.y += d * dt * 28);
+                gim.rotation.z = Math.sin(t * .7) * .1 - drone.rotation.z; gim.rotation.x = Math.sin(t * .5) * .08 - drone.rotation.x;
+                beamMat.opacity = .075 + Math.sin(t * 5) * .012;
+                for (let i = 0; i < SW; i++) { sp[i * 3] += sv[i] * dt; if (sp[i * 3] > 78) sp[i * 3] = -78; } sg.attributes.position.needsUpdate = true;
+                cam.position.x += (mouse.nx * 1.2 - cam.position.x) * .03; cam.position.y = 6 + s * 2.5; cam.lookAt(0, 3, -10);
+                if ((tmT += dt) > .35) { tmT = 0; tm.alt.textContent = pad(120 + Math.sin(t * 1.1) * 4, 4); tm.hdg.textContent = pad((((274 + drone.rotation.y * 57.3) % 360) + 360) % 360, 3); tm.link.textContent = pad(97 + Math.random() * 2, 2); }
+                renderer.render(scene, cam);
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            if (REDUCED) { flow(0); renderer.render(scene, cam); }
+        })();
+
+        /* ---------------- radar ---------------- */
+        function initRadar() {
+            const c = $('#arRadar'), x = c.getContext('2d'), S = c.width, R = S / 2 - 30, nameEl = $('#arContactName');
+            $('#arContacts').textContent = pad(catalog.length, 2);
+            let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+            const blips = catalog.map((p, i) => { const a = (i / catalog.length) * Math.PI * 2 + rnd() * .25, r = R * (.26 + rnd() * .66); return { p, a, x: S / 2 + Math.cos(a) * r, y: S / 2 + Math.sin(a) * r, hit: -9 }; });
+            let on = false, t = 0, lastT = 0, hover = null, col = accent().map(n => Math.round(n * 255));
+            visionSubs.push(() => col = accent().map(n => Math.round(n * 255)));
+            const rgba = o => `rgba(${col[0]},${col[1]},${col[2]},${o})`;
+            new IntersectionObserver(es => { on = es[0].isIntersecting; if (on) { lastT = performance.now(); requestAnimationFrame(draw); } }).observe(c);
+            const at = e => { const r = c.getBoundingClientRect(), mx = (e.clientX - r.left) / r.width * S, my = (e.clientY - r.top) / r.height * S; return blips.find(b => Math.hypot(b.x - mx, b.y - my) < 34) || null; };
+            c.addEventListener('pointermove', e => { hover = at(e); c.style.cursor = hover ? 'pointer' : 'crosshair'; });
+            c.addEventListener('pointerleave', () => hover = null);
+            c.addEventListener('click', e => { const b = at(e); if (b) openDossier(b.p.slug); });
+            function draw(now) {
+                if (!on) return;
+                const dt = Math.min(.05, (now - lastT) / 1000); lastT = now; t += dt;
+                const sweep = (t * .9) % (Math.PI * 2);
+                x.clearRect(0, 0, S, S); x.lineWidth = 2;
+                for (let i = 1; i <= 4; i++) { x.strokeStyle = rgba(i === 4 ? .55 : .2); x.beginPath(); x.arc(S / 2, S / 2, R * i / 4, 0, Math.PI * 2); x.stroke(); }
+                x.strokeStyle = rgba(.16); x.beginPath(); x.moveTo(S / 2 - R, S / 2); x.lineTo(S / 2 + R, S / 2); x.moveTo(S / 2, S / 2 - R); x.lineTo(S / 2, S / 2 + R); x.stroke();
+                for (let d = 0; d < 360; d += 10) { const a = d * Math.PI / 180, r1 = R + (d % 30 ? 6 : 14); x.strokeStyle = rgba(.5); x.beginPath(); x.moveTo(S / 2 + Math.cos(a) * R, S / 2 + Math.sin(a) * R); x.lineTo(S / 2 + Math.cos(a) * r1, S / 2 + Math.sin(a) * r1); x.stroke(); }
+                if (x.createConicGradient) { const g = x.createConicGradient(sweep, S / 2, S / 2); g.addColorStop(0, rgba(0)); g.addColorStop(.78, rgba(0)); g.addColorStop(1, rgba(.42)); x.fillStyle = g; x.beginPath(); x.moveTo(S / 2, S / 2); x.arc(S / 2, S / 2, R, 0, Math.PI * 2); x.fill(); }
+                x.strokeStyle = rgba(.95); x.beginPath(); x.moveTo(S / 2, S / 2); x.lineTo(S / 2 + Math.cos(sweep) * R, S / 2 + Math.sin(sweep) * R); x.stroke();
+                let newest = null;
+                blips.forEach(b => {
+                    const da = ((sweep - b.a) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+                    if (da < .08) b.hit = t;
+                    const age = t - b.hit, glow = Math.max(0, 1 - age / 5), isH = b === hover;
+                    if (age < 1.2 && (!newest || b.hit > newest.hit)) newest = b;
+                    x.fillStyle = rgba(isH ? 1 : .32 + glow * .68); x.beginPath(); x.arc(b.x, b.y, isH ? 11 : 6 + glow * 3, 0, Math.PI * 2); x.fill();
+                    if (age < 1) { x.strokeStyle = rgba(1 - age); x.beginPath(); x.arc(b.x, b.y, 10 + age * 34, 0, Math.PI * 2); x.stroke(); }
+                    if (isH || age < 1.6) { x.font = '22px "JetBrains Mono", monospace'; x.fillStyle = rgba(isH ? 1 : Math.max(0, 1 - age / 1.6)); const right = b.x > S * .72; x.textAlign = right ? 'right' : 'left'; x.fillText(b.p.des, b.x + (right ? -16 : 16), b.y - 12); x.textAlign = 'left'; }
+                });
+                const show = hover || newest; if (show) nameEl.textContent = `${show.p.des} ${show.p.name}`;
+                x.fillStyle = rgba(1); x.beginPath(); x.arc(S / 2, S / 2, 5, 0, Math.PI * 2); x.fill();
+                if (!REDUCED) requestAnimationFrame(draw);
+            }
+        }
+    })();
+    </script>
+    <script src="site.js"></script>
+</body>
+</html>
