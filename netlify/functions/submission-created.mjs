@@ -46,6 +46,7 @@ export default async (req) => {
     off_camera_info: data.off_camera_info || "",
     bio: data.bio || "",
     additional_info: data.additional_info || "",
+    links: [data.link_1, data.link_2].filter((l) => typeof l === "string" && l.trim()).map((l) => l.trim()),
     logo_url: logoUrl,
   };
 
@@ -71,6 +72,7 @@ export default async (req) => {
             ${row("Camera", escapeHtml(guest.appearance_format))}
             ${guest.off_camera_info ? row("Camera notes", escapeHtml(guest.off_camera_info)) : ""}
             ${row("Bio", escapeHtml(guest.bio))}
+            ${guest.links.length ? row("Links", guest.links.map((l) => `<a href="${escapeHtml(l)}">${escapeHtml(l)}</a>`).join("<br>")) : ""}
             ${guest.additional_info ? row("Additional info", escapeHtml(guest.additional_info)) : ""}
             ${guest.logo_url ? row("Logo", `<a href="${escapeHtml(guest.logo_url)}">${escapeHtml(guest.logo_url)}</a>`) : ""}
           </table>
